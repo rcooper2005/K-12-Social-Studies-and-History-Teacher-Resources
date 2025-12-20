@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kindergarten Social Studies Teacher Resource Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-warm: #FF6B35;
+            --primary-cool: #4ECDC4;
+            --accent-yellow: #FFE66D;
+            --accent-pink: #FF8B94;
+            --accent-purple: #9B5DE5;
+            --deep-navy: #2C3E50;
+            --soft-cream: #FFF8F0;
+            --text-dark: #2D3436;
+            --text-light: #636E72;
+            --card-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            --hover-lift: translateY(-3px);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #f472b6 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.7;
+            color: var(--text-dark);
+        }
+        .container { max-width: 1400px; margin: 0 auto; }
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,248,240,0.95) 100%);
+            border-radius: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(168,85,247,0.1) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-20px, 20px) rotate(5deg); }
+        }
+        header h1 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-purple), #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        header .grade-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            color: white;
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        header p {
+            color: var(--text-light);
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .decorative-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            font-size: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        .decorative-icons span { animation: bounce 2s ease-in-out infinite; }
+        .decorative-icons span:nth-child(2) { animation-delay: 0.2s; }
+        .decorative-icons span:nth-child(3) { animation-delay: 0.4s; }
+        .decorative-icons span:nth-child(4) { animation-delay: 0.6s; }
+        .decorative-icons span:nth-child(5) { animation-delay: 0.8s; }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .tab-navigation {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            padding: 25px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 25px;
+            margin-bottom: 30px;
+            box-shadow: var(--card-shadow);
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+        .tab-btn {
+            padding: 12px 18px;
+            border: none;
+            background: linear-gradient(135deg, #f5f6fa, #dfe6e9);
+            border-radius: 15px;
+            cursor: pointer;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .tab-btn:hover {
+            transform: var(--hover-lift);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        .tab-btn.active {
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            color: white;
+            box-shadow: 0 5px 25px rgba(168,85,247,0.4);
+        }
+        .tab-btn .icon { font-size: 1.1rem; }
+        .tab-content {
+            display: none;
+            background: rgba(255,255,255,0.97);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: var(--card-shadow);
+            animation: fadeIn 0.4s ease;
+        }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .tab-content h2 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: var(--deep-navy);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .tab-content h2 .section-icon { font-size: 2.5rem; }
+        .tab-content h3 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #a855f7;
+            margin: 30px 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--accent-yellow);
+        }
+        .tab-content h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--accent-purple);
+            margin: 20px 0 10px 0;
+        }
+        .tab-content p { margin-bottom: 15px; color: var(--text-dark); }
+        .content-card {
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary-cool);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .content-card:hover {
+            transform: var(--hover-lift);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+        .content-card.warm { border-left-color: #ec4899; }
+        .content-card.purple { border-left-color: var(--accent-purple); }
+        .content-card.yellow { border-left-color: var(--accent-yellow); }
+        .content-card.pink { border-left-color: var(--accent-pink); }
+        .standards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .standard-item {
+            background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+            border-radius: 15px;
+            padding: 20px;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+        .standard-item::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: -1;
+            margin: -2px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+        }
+        .standard-code {
+            display: inline-block;
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .resource-list { list-style: none; padding: 0; }
+        .resource-list li {
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+        .resource-list li:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .resource-list .resource-icon {
+            font-size: 1.5rem;
+            width: 40px;
+            text-align: center;
+        }
+        .resource-list a {
+            color: var(--accent-purple);
+            text-decoration: none;
+            font-weight: 600;
+            flex: 1;
+        }
+        .resource-list a:hover { color: #ec4899; }
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .vocab-card {
+            background: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 100%);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .vocab-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(168,85,247,0.2);
+        }
+        .vocab-card .word {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #a855f7;
+            margin-bottom: 5px;
+        }
+        .vocab-card .definition {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        .ai-warning {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #f59e0b;
+        }
+        .ai-warning h4 { color: #b45309; margin-bottom: 10px; }
+        .ai-tool-card {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 5px solid #0ea5e9;
+            position: relative;
+        }
+        .ai-tool-card::before {
+            content: '🤖';
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 2rem;
+            opacity: 0.3;
+        }
+        .ai-tool-card h4 { color: #0369a1; margin-bottom: 10px; font-size: 1.2rem; }
+        .ai-tool-card .tool-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #0ea5e9, #6366f1);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            box-shadow: 0 5px 25px rgba(168,85,247,0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .print-btn:hover { transform: scale(1.05); }
+        @media print {
+            body { background: white; padding: 0; }
+            .tab-navigation, .print-btn { display: none; }
+            .tab-content { display: block !important; break-inside: avoid; box-shadow: none; margin-bottom: 30px; }
+        }
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            .tab-btn { padding: 10px 12px; font-size: 0.8rem; }
+            .tab-content { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="grade-badge">👶 Kindergarten</div>
+            <h1>Social Studies Teacher Resource Hub</h1>
+            <p>Everything you need to teach Georgia Standards of Excellence for Kindergarten Social Studies - symbols, citizenship, geography, and economics!</p>
+            <div class="decorative-icons">
+                <span>🏫</span>
+                <span>🇺🇸</span>
+                <span>🗺️</span>
+                <span>💰</span>
+                <span>🎨</span>
+            </div>
+        </header>
+
+        <nav class="tab-navigation">
+            <button class="tab-btn active" onclick="showTab('standards')"><span class="icon">📋</span> Standards</button>
+            <button class="tab-btn" onclick="showTab('background')"><span class="icon">📖</span> Background</button>
+            <button class="tab-btn" onclick="showTab('websites')"><span class="icon">🌐</span> Websites</button>
+            <button class="tab-btn" onclick="showTab('inquiry')"><span class="icon">🔍</span> Inquiry</button>
+            <button class="tab-btn" onclick="showTab('investigations')"><span class="icon">🔬</span> Investigations</button>
+            <button class="tab-btn" onclick="showTab('videos')"><span class="icon">🎬</span> Videos</button>
+            <button class="tab-btn" onclick="showTab('articles')"><span class="icon">📰</span> Articles</button>
+            <button class="tab-btn" onclick="showTab('assessments')"><span class="icon">✅</span> Assessments</button>
+            <button class="tab-btn" onclick="showTab('printables')"><span class="icon">📄</span> Printables</button>
+            <button class="tab-btn" onclick="showTab('vocabulary')"><span class="icon">📝</span> Vocabulary</button>
+            <button class="tab-btn" onclick="showTab('games')"><span class="icon">🎮</span> Games</button>
+            <button class="tab-btn" onclick="showTab('differentiation')"><span class="icon">🎯</span> Differentiation</button>
+            <button class="tab-btn" onclick="showTab('misconceptions')"><span class="icon">💡</span> Misconceptions</button>
+            <button class="tab-btn" onclick="showTab('cultural')"><span class="icon">🌎</span> Cultural</button>
+            <button class="tab-btn" onclick="showTab('historical-sites')"><span class="icon">🏛️</span> Historical Sites</button>
+            <button class="tab-btn" onclick="showTab('ai-teachers')"><span class="icon">🤖</span> AI for Teachers</button>
+            <button class="tab-btn" onclick="showTab('ai-students')"><span class="icon">🧒</span> AI for Students</button>
+        </nav>
+
+        <!-- Standards Tab -->
+        <div id="standards" class="tab-content active">
+            <h2><span class="section-icon">📋</span> Standards Alignment</h2>
+            
+            <div class="content-card">
+                <h3>📚 Standards Frameworks</h3>
+                <p>This hub aligns to multiple standards frameworks to support comprehensive social studies instruction:</p>
+                <ul style="margin-left: 20px;">
+                    <li><strong>GSE:</strong> Georgia Standards of Excellence (state standards)</li>
+                    <li><strong>AKS:</strong> Academic Knowledge and Skills (Gwinnett County)</li>
+                    <li><strong>NCSS:</strong> National Council for the Social Studies C3 Framework</li>
+                </ul>
+            </div>
+
+            <h3>Georgia Standards of Excellence (GSE) - Kindergarten</h3>
+            
+            <h4>Historical Understandings (SSKH)</h4>
+            <div class="standards-grid">
+                <div class="standard-item">
+                    <span class="standard-code">SSKH1</span>
+                    <p>Identify the purpose of national holidays and describe the people or events celebrated.</p>
+                    <p><strong>Examples:</strong> Labor Day, Veterans Day, Thanksgiving, MLK Jr. Day, Presidents Day, Memorial Day, Flag Day, Independence Day</p>
+                </div>
+                <div class="standard-item">
+                    <span class="standard-code">SSKH2</span>
+                    <p>Identify important American symbols and explain their meaning.</p>
+                    <p><strong>Examples:</strong> American flag, bald eagle, Statue of Liberty, Pledge of Allegiance, Star Spangled Banner</p>
+                </div>
+            </div>
+
+            <h4>Geographic Understandings (SSKG)</h4>
+            <div class="standards-grid">
+                <div class="standard-item">
+                    <span class="standard-code">SSKG1</span>
+                    <p>Describe the geography of the classroom, school, and neighborhood, locating key features on a map (rug, desk, home, school, playground).</p>
+                </div>
+                <div class="standard-item">
+                    <span class="standard-code">SSKG2</span>
+                    <p>Explain that a map is a drawing of a place and a globe is a model of Earth.</p>
+                </div>
+            </div>
+
+            <h4>Civics/Government Understandings (SSKCG)</h4>
+            <div class="standards-grid">
+                <div class="standard-item">
+                    <span class="standard-code">SSKCG1</span>
+                    <p>Demonstrate an understanding of good citizenship.</p>
+                    <p><strong>Examples:</strong> Fairness, honesty, respect for authority, voting, taking turns</p>
+                </div>
+                <div class="standard-item">
+                    <span class="standard-code">SSKCG2</span>
+                    <p>Explain what a leader does and identify leaders in the home, school, and community.</p>
+                </div>
+            </div>
+
+            <h4>Economic Understandings (SSKE)</h4>
+            <div class="standards-grid">
+                <div class="standard-item">
+                    <span class="standard-code">SSKE1</span>
+                    <p>Explain how work provides income to purchase goods and services.</p>
+                </div>
+                <div class="standard-item">
+                    <span class="standard-code">SSKE2</span>
+                    <p>Explain that people must make choices because they cannot have everything they want (scarcity).</p>
+                </div>
+            </div>
+
+            <h3>Gwinnett County Academic Knowledge and Skills (AKS) - Kindergarten</h3>
+            <div class="standards-grid">
+                <div class="standard-item">
+                    <span class="standard-code">AKS 1</span>
+                    <p>Identify American symbols (flag, bald eagle, Statue of Liberty) and explain their meaning</p>
+                </div>
+                <div class="standard-item">
+                    <span class="standard-code">AKS 2</span>
+                    <p>Identify national holidays and describe the people/events celebrated</p>
+                </div>
+                <div class="standard-item">
+                    <span class="standard-code">AKS 3</span>
+                    <p>Describe geography of classroom and school; explain maps and globes</p>
+                </div>
+                <div class="standard-item">
+                    <span class="standard-code">AKS 4</span>
+                    <p>Demonstrate good citizenship; identify leaders in home, school, community</p>
+                </div>
+                <div class="standard-item">
+                    <span class="standard-code">AKS 5</span>
+                    <p>Explain how work provides income; understand scarcity and choices</p>
+                </div>
+            </div>
+
+            <h3>NCSS C3 Framework Connections - Kindergarten</h3>
+            <div class="standards-grid">
+                <div class="standard-item">
+                    <span class="standard-code">D2.Civ.1.K-2</span>
+                    <p>Describe roles and responsibilities of people in authority (connects to SSKCG2)</p>
+                </div>
+                <div class="standard-item">
+                    <span class="standard-code">D2.Civ.2.K-2</span>
+                    <p>Explain how rules function in public settings (connects to SSKCG1)</p>
+                </div>
+                <div class="standard-item">
+                    <span class="standard-code">D2.Geo.1.K-2</span>
+                    <p>Construct maps of familiar areas (connects to SSKG1)</p>
+                </div>
+                <div class="standard-item">
+                    <span class="standard-code">D2.Geo.2.K-2</span>
+                    <p>Identify natural and human-made features of places (connects to SSKG1-2)</p>
+                </div>
+                <div class="standard-item">
+                    <span class="standard-code">D2.Eco.1.K-2</span>
+                    <p>Explain how scarcity requires people to make choices (connects to SSKE2)</p>
+                </div>
+                <div class="standard-item">
+                    <span class="standard-code">D2.His.1.K-2</span>
+                    <p>Create a timeline of events in their lives (connects to SSKH1)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Background Tab -->
+        <div id="background" class="tab-content">
+            <h2><span class="section-icon">📖</span> Teacher Background Knowledge</h2>
+            
+            <div class="content-card">
+                <h3>National Holidays Overview</h3>
+                <p>Kindergarteners learn about holidays that celebrate our nation's values and important people. Focus on making connections between the holiday and why we celebrate:</p>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Labor Day:</strong> Celebrates workers and their contributions</li>
+                    <li><strong>Veterans Day:</strong> Honors all who served in the military</li>
+                    <li><strong>Thanksgiving:</strong> Celebrates gratitude and the harvest</li>
+                    <li><strong>MLK Jr. Day:</strong> Honors Dr. King's work for fairness and equality</li>
+                    <li><strong>Presidents Day:</strong> Celebrates our country's leaders</li>
+                    <li><strong>Memorial Day:</strong> Remembers those who died serving our country</li>
+                    <li><strong>Flag Day:</strong> Celebrates the American flag</li>
+                    <li><strong>Independence Day:</strong> Celebrates America's birthday</li>
+                </ul>
+            </div>
+
+            <div class="content-card warm">
+                <h3>American Symbols</h3>
+                <p>Symbols help young learners understand abstract concepts about our country:</p>
+                <ul style="margin-left: 20px;">
+                    <li><strong>American Flag:</strong> 50 stars = 50 states; 13 stripes = original 13 colonies</li>
+                    <li><strong>Bald Eagle:</strong> Represents strength and freedom; national bird since 1782</li>
+                    <li><strong>Statue of Liberty:</strong> Gift from France; welcomes people to America; represents freedom</li>
+                    <li><strong>Pledge of Allegiance:</strong> Promise to be loyal to our country</li>
+                    <li><strong>Star Spangled Banner:</strong> Our national anthem; written about the flag still flying after a battle</li>
+                </ul>
+            </div>
+
+            <div class="content-card purple">
+                <h3>Basic Geography Concepts</h3>
+                <p>Start with the familiar and move to the abstract:</p>
+                <ul style="margin-left: 20px;">
+                    <li>Begin with classroom maps showing desks, rug, door, windows</li>
+                    <li>Expand to school maps showing classroom, cafeteria, playground, office</li>
+                    <li>Introduce neighborhood concepts: home, school, stores, parks</li>
+                    <li>Maps are flat drawings; globes are round models of Earth</li>
+                    <li>Use bird's-eye view to help students understand map perspective</li>
+                </ul>
+            </div>
+
+            <div class="content-card yellow">
+                <h3>Citizenship Foundations</h3>
+                <p>Good citizenship skills are practiced daily in kindergarten:</p>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Fairness:</strong> Sharing, taking turns, following rules</li>
+                    <li><strong>Honesty:</strong> Telling the truth, admitting mistakes</li>
+                    <li><strong>Respect:</strong> Listening to others, following directions</li>
+                    <li><strong>Voting:</strong> Making group decisions together</li>
+                    <li><strong>Leaders:</strong> Parents at home, teachers at school, mayor/police in community</li>
+                </ul>
+            </div>
+
+            <div class="content-card">
+                <h3>Basic Economics</h3>
+                <p>Kindergarteners can understand simple economic concepts:</p>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Work = Money:</strong> People work at jobs to earn money</li>
+                    <li><strong>Goods:</strong> Things you can buy (toys, food, clothes)</li>
+                    <li><strong>Services:</strong> Jobs people do for you (doctor, teacher, firefighter)</li>
+                    <li><strong>Scarcity:</strong> We can't have everything we want; we must choose</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Websites Tab -->
+        <div id="websites" class="tab-content">
+            <h2><span class="section-icon">🌐</span> Educational Websites</h2>
+            
+            <h3>National Holidays & Symbols</h3>
+            <ul class="resource-list">
+                <li>
+                    <span class="resource-icon">🎨</span>
+                    <a href="https://www.education.com/worksheets/national-symbols/" target="_blank">Education.com - National Symbols Activities</a>
+                </li>
+                <li>
+                    <span class="resource-icon">🏛️</span>
+                    <a href="https://bensguide.gpo.gov/" target="_blank">Ben's Guide to the U.S. Government</a>
+                </li>
+                <li>
+                    <span class="resource-icon">🇺🇸</span>
+                    <a href="https://www.usa.gov/flag" target="_blank">USA.gov - The American Flag</a>
+                </li>
+            </ul>
+
+            <h3>Geography Resources</h3>
+            <ul class="resource-list">
+                <li>
+                    <span class="resource-icon">🗺️</span>
+                    <a href="https://www.nationalgeographic.org/education/" target="_blank">National Geographic Education</a>
+                </li>
+                <li>
+                    <span class="resource-icon">🌍</span>
+                    <a href="https://www.sheppardsoftware.com/Geography.htm" target="_blank">Sheppard Software Geography Games</a>
+                </li>
+            </ul>
+
+            <h3>Citizenship & Economics</h3>
+            <ul class="resource-list">
+                <li>
+                    <span class="resource-icon">💰</span>
+                    <a href="https://www.econedlink.org/" target="_blank">EconEdLink - Economics for Kids</a>
+                </li>
+                <li>
+                    <span class="resource-icon">👥</span>
+                    <a href="https://www.icivics.org/" target="_blank">iCivics - Citizenship Games</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Inquiry Tab -->
+        <div id="inquiry" class="tab-content">
+            <h2><span class="section-icon">🔍</span> Inquiry-Based Learning</h2>
+            
+            <div class="content-card">
+                <h3>Essential Questions</h3>
+                <ul style="margin-left: 20px;">
+                    <li>Why do we celebrate holidays?</li>
+                    <li>What do symbols tell us about America?</li>
+                    <li>How do maps help us find places?</li>
+                    <li>What makes a good citizen?</li>
+                    <li>Why do we have rules?</li>
+                    <li>Why can't we have everything we want?</li>
+                </ul>
+            </div>
+
+            <div class="content-card warm">
+                <h3>Compelling Questions for Units</h3>
+                <h4>Holidays Unit:</h4>
+                <p>"Why do we have special days to remember people and events?"</p>
+                
+                <h4>Symbols Unit:</h4>
+                <p>"What can pictures and objects tell us about our country?"</p>
+                
+                <h4>Maps Unit:</h4>
+                <p>"How can we show someone where to find something?"</p>
+                
+                <h4>Citizenship Unit:</h4>
+                <p>"How can we be good helpers in our classroom and community?"</p>
+                
+                <h4>Economics Unit:</h4>
+                <p>"Why do people go to work?"</p>
+            </div>
+
+            <div class="content-card purple">
+                <h3>Supporting Questions by Standard</h3>
+                <h4>SSKH1 - Holidays:</h4>
+                <ul style="margin-left: 20px;">
+                    <li>What do we do on this special day?</li>
+                    <li>Who are we remembering or celebrating?</li>
+                    <li>Why is this person or event important?</li>
+                </ul>
+                
+                <h4>SSKG1 - Maps:</h4>
+                <ul style="margin-left: 20px;">
+                    <li>How do I get from here to there?</li>
+                    <li>What is near my desk? My school?</li>
+                    <li>What would I see if I looked down from above?</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Investigations Tab -->
+        <div id="investigations" class="tab-content">
+            <h2><span class="section-icon">🔬</span> Hands-On Investigations</h2>
+            
+            <div class="content-card">
+                <h3>🗺️ Classroom Map Project</h3>
+                <p><strong>Standards:</strong> SSKG1, SSKG2</p>
+                <p><strong>Materials:</strong> Large paper, crayons, toy furniture</p>
+                <p><strong>Activity:</strong> Students create a map of the classroom from a bird's-eye view. Walk around the room, identify major features, then draw them on paper. Compare to a globe to discuss how maps are flat drawings.</p>
+            </div>
+
+            <div class="content-card warm">
+                <h3>🇺🇸 Flag Investigation</h3>
+                <p><strong>Standards:</strong> SSKH2</p>
+                <p><strong>Materials:</strong> American flag, magnifying glasses, paper flags to color</p>
+                <p><strong>Activity:</strong> Students count stars and stripes, learn what they represent, and create their own flag. Discuss why we put our hand on our heart during the Pledge.</p>
+            </div>
+
+            <div class="content-card purple">
+                <h3>💼 Community Workers Fair</h3>
+                <p><strong>Standards:</strong> SSKE1, SSKCG2</p>
+                <p><strong>Materials:</strong> Dress-up clothes, pretend tools, play money</p>
+                <p><strong>Activity:</strong> Set up stations for different community workers (doctor, firefighter, teacher, store owner). Students rotate through, learning what each worker does and how they help the community.</p>
+            </div>
+
+            <div class="content-card yellow">
+                <h3>🧸 Wants vs. Needs Sorting</h3>
+                <p><strong>Standards:</strong> SSKE2</p>
+                <p><strong>Materials:</strong> Picture cards of items, two sorting mats</p>
+                <p><strong>Activity:</strong> Students sort pictures into "Needs" (food, water, home, clothes) and "Wants" (toys, candy, games). Discuss why we can't buy everything and must make choices.</p>
+            </div>
+
+            <div class="content-card">
+                <h3>🗳️ Classroom Voting</h3>
+                <p><strong>Standards:</strong> SSKCG1</p>
+                <p><strong>Materials:</strong> Paper ballots, ballot box, choices to vote on</p>
+                <p><strong>Activity:</strong> Practice voting on classroom decisions (book to read, game to play). Discuss fairness, counting votes, and accepting the group's decision.</p>
+            </div>
+        </div>
+
+        <!-- Videos Tab -->
+        <div id="videos" class="tab-content">
+            <h2><span class="section-icon">🎬</span> Educational Videos</h2>
+            
+            <h3>National Holidays</h3>
+            <ul class="resource-list">
+                <li>
+                    <span class="resource-icon">🎥</span>
+                    <a href="https://www.youtube.com/watch?v=sGSXzDyS8nE" target="_blank">BrainPOP Jr. - Martin Luther King Jr.</a>
+                </li>
+                <li>
+                    <span class="resource-icon">🎥</span>
+                    <a href="https://www.youtube.com/watch?v=D6RmrVzVDRY" target="_blank">National Geographic Kids - Presidents</a>
+                </li>
+            </ul>
+
+            <h3>American Symbols</h3>
+            <ul class="resource-list">
+                <li>
+                    <span class="resource-icon">🎥</span>
+                    <a href="https://www.youtube.com/watch?v=TJ0NX3EMV9o" target="_blank">Liberty's Kids - American Symbols</a>
+                </li>
+                <li>
+                    <span class="resource-icon">🎥</span>
+                    <a href="https://www.youtube.com/watch?v=MGGdcstO4Yw" target="_blank">Pledge of Allegiance for Kids</a>
+                </li>
+            </ul>
+
+            <h3>Geography & Maps</h3>
+            <ul class="resource-list">
+                <li>
+                    <span class="resource-icon">🎥</span>
+                    <a href="https://www.youtube.com/watch?v=g4Z0wdmFQSM" target="_blank">What is a Map? For Kids</a>
+                </li>
+                <li>
+                    <span class="resource-icon">🎥</span>
+                    <a href="https://www.youtube.com/watch?v=qb_-taYLRfY" target="_blank">Maps and Globes for Kids</a>
+                </li>
+            </ul>
+
+            <h3>Citizenship & Economics</h3>
+            <ul class="resource-list">
+                <li>
+                    <span class="resource-icon">🎥</span>
+                    <a href="https://www.youtube.com/watch?v=V5o2mRTxvLk" target="_blank">Being a Good Citizen</a>
+                </li>
+                <li>
+                    <span class="resource-icon">🎥</span>
+                    <a href="https://www.youtube.com/watch?v=f5TvxnGX2QM" target="_blank">Needs vs. Wants for Kids</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Articles Tab -->
+        <div id="articles" class="tab-content">
+            <h2><span class="section-icon">📰</span> Reading Resources</h2>
+            
+            <div class="content-card">
+                <h3>Read-Aloud Books for Holidays</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Martin's Big Words</strong> by Doreen Rappaport - MLK Jr. Day</li>
+                    <li><strong>America's Birthday</strong> by Tom Shachtman - Independence Day</li>
+                    <li><strong>The Wall</strong> by Eve Bunting - Veterans Day/Memorial Day</li>
+                    <li><strong>Thanksgiving is Here!</strong> by Diane Goode</li>
+                </ul>
+            </div>
+
+            <div class="content-card warm">
+                <h3>Books About Symbols</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>The Pledge of Allegiance</strong> by Scholastic</li>
+                    <li><strong>Red, White, and Blue: The Story of the American Flag</strong> by John Herman</li>
+                    <li><strong>The Bald Eagle</strong> by Lloyd G. Douglas</li>
+                    <li><strong>The Statue of Liberty</strong> by Lucille Recht Penner</li>
+                </ul>
+            </div>
+
+            <div class="content-card purple">
+                <h3>Books About Maps & Community</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Me on the Map</strong> by Joan Sweeney</li>
+                    <li><strong>Mapping Penny's World</strong> by Loreen Leedy</li>
+                    <li><strong>Whose Hat Is This?</strong> by Sharon Katz Cooper - Community Workers</li>
+                    <li><strong>Clothesline Clues to Jobs People Do</strong> by Kathryn Heling</li>
+                </ul>
+            </div>
+
+            <div class="content-card yellow">
+                <h3>Books About Economics</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>A Chair for My Mother</strong> by Vera B. Williams - Saving money</li>
+                    <li><strong>Alexander, Who Used to Be Rich Last Sunday</strong> by Judith Viorst</li>
+                    <li><strong>The Berenstain Bears' Trouble with Money</strong></li>
+                    <li><strong>Those Shoes</strong> by Maribeth Boelts - Wants vs. Needs</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Assessments Tab -->
+        <div id="assessments" class="tab-content">
+            <h2><span class="section-icon">✅</span> Assessment Ideas</h2>
+            
+            <div class="content-card">
+                <h3>Observation Checklists</h3>
+                <p>For kindergarten, observation is the primary assessment method:</p>
+                <ul style="margin-left: 20px;">
+                    <li>Can student identify the American flag?</li>
+                    <li>Does student demonstrate taking turns?</li>
+                    <li>Can student locate the classroom on a simple map?</li>
+                    <li>Can student sort needs vs. wants?</li>
+                    <li>Does student participate appropriately in voting activities?</li>
+                </ul>
+            </div>
+
+            <div class="content-card warm">
+                <h3>Picture-Based Assessments</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Symbol Matching:</strong> Match pictures of symbols to their names</li>
+                    <li><strong>Holiday Sorting:</strong> Sort pictures by which holiday they belong to</li>
+                    <li><strong>Community Workers:</strong> Match workers to their tools or workplaces</li>
+                    <li><strong>Needs/Wants:</strong> Circle needs in one color, wants in another</li>
+                </ul>
+            </div>
+
+            <div class="content-card purple">
+                <h3>Performance Tasks</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Draw a Map:</strong> Student draws a simple map of classroom or bedroom</li>
+                    <li><strong>Symbol Poster:</strong> Create an American symbol with explanation</li>
+                    <li><strong>Good Citizen Award:</strong> Draw and tell about a time being a good citizen</li>
+                    <li><strong>Community Worker Interview:</strong> Tell what a chosen worker does</li>
+                </ul>
+            </div>
+
+            <div class="content-card yellow">
+                <h3>Oral Assessment Questions</h3>
+                <ul style="margin-left: 20px;">
+                    <li>"What does this symbol mean?" (Point to flag, eagle, etc.)</li>
+                    <li>"Why do we celebrate [holiday]?"</li>
+                    <li>"Who is a leader in our school?"</li>
+                    <li>"What is something you need? Something you want?"</li>
+                    <li>"What is on your classroom map?"</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Printables Tab -->
+        <div id="printables" class="tab-content">
+            <h2><span class="section-icon">📄</span> Printable Resources</h2>
+            
+            <div class="content-card">
+                <h3>Symbols & Holidays Printables</h3>
+                <ul style="margin-left: 20px;">
+                    <li>American Flag coloring page with star/stripe counting</li>
+                    <li>Holiday matching cards</li>
+                    <li>Statue of Liberty label-the-parts activity</li>
+                    <li>Pledge of Allegiance illustrated mini-book</li>
+                    <li>Bald eagle fact sheet for coloring</li>
+                </ul>
+            </div>
+
+            <div class="content-card warm">
+                <h3>Geography Printables</h3>
+                <ul style="margin-left: 20px;">
+                    <li>Classroom map template</li>
+                    <li>Map vs. Globe sorting activity</li>
+                    <li>My Neighborhood drawing page</li>
+                    <li>Bird's-eye view practice sheets</li>
+                    <li>Simple compass rose for learning directions</li>
+                </ul>
+            </div>
+
+            <div class="content-card purple">
+                <h3>Citizenship Printables</h3>
+                <ul style="margin-left: 20px;">
+                    <li>Good Citizen pledge certificate</li>
+                    <li>Leaders in my life graphic organizer</li>
+                    <li>Classroom rules poster to color</li>
+                    <li>Voting ballot templates</li>
+                    <li>Taking turns/sharing social story</li>
+                </ul>
+            </div>
+
+            <div class="content-card yellow">
+                <h3>Economics Printables</h3>
+                <ul style="margin-left: 20px;">
+                    <li>Needs vs. Wants sorting mat</li>
+                    <li>Community workers matching game</li>
+                    <li>Play money for classroom store</li>
+                    <li>Goods and Services picture cards</li>
+                    <li>My Job chart for classroom helpers</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Vocabulary Tab -->
+        <div id="vocabulary" class="tab-content">
+            <h2><span class="section-icon">📝</span> Key Vocabulary</h2>
+            
+            <h3>Holidays & History Words</h3>
+            <div class="vocab-grid">
+                <div class="vocab-card">
+                    <div class="word">holiday</div>
+                    <div class="definition">A special day to celebrate</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="word">celebrate</div>
+                    <div class="definition">To do something special for an event</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="word">symbol</div>
+                    <div class="definition">A picture or object that stands for something</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="word">patriot</div>
+                    <div class="definition">Someone who loves their country</div>
+                </div>
+            </div>
+
+            <h3>Geography Words</h3>
+            <div class="vocab-grid">
+                <div class="vocab-card">
+                    <div class="word">map</div>
+                    <div class="definition">A drawing of a place</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="word">globe</div>
+                    <div class="definition">A round model of Earth</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="word">neighborhood</div>
+                    <div class="definition">The area around your home</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="word">location</div>
+                    <div class="definition">Where something is</div>
+                </div>
+            </div>
+
+            <h3>Citizenship Words</h3>
+            <div class="vocab-grid">
+                <div class="vocab-card">
+                    <div class="word">citizen</div>
+                    <div class="definition">A person who belongs to a community</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="word">rules</div>
+                    <div class="definition">Things we follow to stay safe and fair</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="word">leader</div>
+                    <div class="definition">Someone who helps a group</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="word">vote</div>
+                    <div class="definition">To make a choice in a group</div>
+                </div>
+            </div>
+
+            <h3>Economics Words</h3>
+            <div class="vocab-grid">
+                <div class="vocab-card">
+                    <div class="word">need</div>
+                    <div class="definition">Something we must have to live</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="word">want</div>
+                    <div class="definition">Something we would like but don't need</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="word">job</div>
+                    <div class="definition">Work that people do</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="word">money</div>
+                    <div class="definition">What we use to buy things</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Games Tab -->
+        <div id="games" class="tab-content">
+            <h2><span class="section-icon">🎮</span> Games & Interactive Activities</h2>
+            
+            <div class="content-card">
+                <h3>🃏 Symbol Memory Match</h3>
+                <p><strong>Standards:</strong> SSKH2</p>
+                <p>Create matching cards with American symbols. Students flip cards to find matching pairs while naming each symbol and what it represents.</p>
+            </div>
+
+            <div class="content-card warm">
+                <h3>🗺️ Treasure Hunt Maps</h3>
+                <p><strong>Standards:</strong> SSKG1</p>
+                <p>Hide items around the classroom. Give students simple picture maps to follow to find the "treasure." Practice using maps to locate things.</p>
+            </div>
+
+            <div class="content-card purple">
+                <h3>👷 Community Workers Dress-Up</h3>
+                <p><strong>Standards:</strong> SSKE1, SSKCG2</p>
+                <p>Set up a dress-up center with hats and props for different community workers. Students act out the jobs and explain how each helper serves the community.</p>
+            </div>
+
+            <div class="content-card yellow">
+                <h3>🛒 Classroom Store</h3>
+                <p><strong>Standards:</strong> SSKE1, SSKE2</p>
+                <p>Set up a pretend store with play money. Students earn "money" through classroom jobs, then make choices about what to "buy" - teaching scarcity and decision-making.</p>
+            </div>
+
+            <div class="content-card">
+                <h3>🎂 Holiday Parade</h3>
+                <p><strong>Standards:</strong> SSKH1</p>
+                <p>Students create simple props for different holidays and have a class "parade" where they march and tell about their holiday.</p>
+            </div>
+
+            <div class="content-card warm">
+                <h3>🗳️ Vote of the Day</h3>
+                <p><strong>Standards:</strong> SSKCG1</p>
+                <p>Daily voting routine - students vote on simple choices (story, snack, game). Practice raising hands, counting votes, and accepting group decisions.</p>
+            </div>
+        </div>
+
+        <!-- Differentiation Tab -->
+        <div id="differentiation" class="tab-content">
+            <h2><span class="section-icon">🎯</span> Differentiation Strategies</h2>
+            
+            <div class="content-card">
+                <h3>For English Language Learners</h3>
+                <ul style="margin-left: 20px;">
+                    <li>Use picture cards for all vocabulary</li>
+                    <li>Pair with bilingual buddy when possible</li>
+                    <li>Use realia (real objects) for symbols and geography</li>
+                    <li>Provide sentence frames: "This is a ___. It means ___."</li>
+                    <li>Label classroom items in multiple languages</li>
+                    <li>Use gestures and total physical response</li>
+                </ul>
+            </div>
+
+            <div class="content-card warm">
+                <h3>For Struggling Learners</h3>
+                <ul style="margin-left: 20px;">
+                    <li>Focus on fewer symbols/holidays at a time</li>
+                    <li>Use hands-on sorting activities instead of worksheets</li>
+                    <li>Provide extra repetition and review</li>
+                    <li>Create personal symbol books to reference</li>
+                    <li>Use songs and rhymes to reinforce concepts</li>
+                    <li>Allow verbal responses instead of written</li>
+                </ul>
+            </div>
+
+            <div class="content-card purple">
+                <h3>For Advanced Learners</h3>
+                <ul style="margin-left: 20px;">
+                    <li>Research additional American symbols not in standards</li>
+                    <li>Create more detailed classroom or neighborhood maps</li>
+                    <li>Write simple sentences about holidays</li>
+                    <li>Lead classroom voting and tally results</li>
+                    <li>Create a "needs vs. wants" survey of classmates</li>
+                    <li>Design their own symbol for the classroom</li>
+                </ul>
+            </div>
+
+            <div class="content-card yellow">
+                <h3>For Students with Special Needs</h3>
+                <ul style="margin-left: 20px;">
+                    <li>Provide fidgets during circle time discussions</li>
+                    <li>Use visual schedules for multi-step activities</li>
+                    <li>Offer choice boards for demonstrating learning</li>
+                    <li>Allow movement breaks during longer lessons</li>
+                    <li>Use larger manipulatives for map activities</li>
+                    <li>Provide noise-reducing headphones for video viewing</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Misconceptions Tab -->
+        <div id="misconceptions" class="tab-content">
+            <h2><span class="section-icon">💡</span> Common Misconceptions</h2>
+            
+            <div class="content-card">
+                <h3>❌ Misconception: "The flag only has one meaning"</h3>
+                <p><strong>✅ Correction:</strong> The flag has multiple meaningful parts - 50 stars for 50 states, 13 stripes for the original colonies, and colors that represent values. Take time to explore each part separately.</p>
+            </div>
+
+            <div class="content-card warm">
+                <h3>❌ Misconception: "Maps show exactly what places look like"</h3>
+                <p><strong>✅ Correction:</strong> Maps are drawings from above (bird's-eye view) and use symbols to represent real things. Compare photos of the classroom to a map to show the difference.</p>
+            </div>
+
+            <div class="content-card purple">
+                <h3>❌ Misconception: "All holidays are about presents/parties"</h3>
+                <p><strong>✅ Correction:</strong> Many holidays are about remembering people or events, being thankful, or honoring those who help us. Focus on the meaning behind each celebration.</p>
+            </div>
+
+            <div class="content-card yellow">
+                <h3>❌ Misconception: "Wants and needs are the same thing"</h3>
+                <p><strong>✅ Correction:</strong> Needs are things we must have to survive (food, water, shelter, clothing). Wants are things we'd like to have but can live without. Use the "could I survive without this?" test.</p>
+            </div>
+
+            <div class="content-card">
+                <h3>❌ Misconception: "The President makes all the rules"</h3>
+                <p><strong>✅ Correction:</strong> Many people help make rules and decisions. At school, teachers and principals are leaders. At home, parents are leaders. In our community, many people work together.</p>
+            </div>
+
+            <div class="content-card warm">
+                <h3>❌ Misconception: "Voting means I always get my choice"</h3>
+                <p><strong>✅ Correction:</strong> In voting, everyone's choice counts equally, and the group decides together. Sometimes our choice wins, sometimes it doesn't - and that's okay! Being a good citizen means accepting group decisions.</p>
+            </div>
+        </div>
+
+        <!-- Cultural Connections Tab -->
+        <div id="cultural" class="tab-content">
+            <h2><span class="section-icon">🌎</span> Cultural Connections</h2>
+            
+            <div class="content-card">
+                <h3>Celebrating Diverse Families</h3>
+                <p>When discussing leaders at home and community workers, acknowledge diverse family structures:</p>
+                <ul style="margin-left: 20px;">
+                    <li>Different types of families (single parent, grandparent-led, two-parent, blended)</li>
+                    <li>Various cultural traditions for holidays</li>
+                    <li>Community workers from diverse backgrounds</li>
+                    <li>Different languages spoken at home</li>
+                </ul>
+            </div>
+
+            <div class="content-card warm">
+                <h3>Holiday Sensitivity</h3>
+                <p>Be mindful that not all families celebrate the same holidays:</p>
+                <ul style="margin-left: 20px;">
+                    <li>Focus on the civic purpose of holidays (remembering, thanking, celebrating)</li>
+                    <li>Invite families to share their own celebrations</li>
+                    <li>Emphasize that different families have different traditions</li>
+                    <li>Avoid assumptions about home celebrations</li>
+                </ul>
+            </div>
+
+            <div class="content-card purple">
+                <h3>Symbols in Context</h3>
+                <p>Help students understand symbols represent shared values:</p>
+                <ul style="margin-left: 20px;">
+                    <li>Discuss how symbols bring people together</li>
+                    <li>Acknowledge that America is made of many different people</li>
+                    <li>Explore how symbols of freedom and equality apply to everyone</li>
+                    <li>Create classroom symbols that represent your class community</li>
+                </ul>
+            </div>
+
+            <div class="content-card yellow">
+                <h3>Global Connections</h3>
+                <p>Expand student thinking about the world:</p>
+                <ul style="margin-left: 20px;">
+                    <li>Other countries have their own flags and symbols</li>
+                    <li>Maps and globes show the whole world, not just America</li>
+                    <li>People everywhere have needs and wants</li>
+                    <li>Communities around the world have leaders and helpers</li>
+                </ul>
+            </div>
+
+            <div class="content-card">
+                <h3>Family Engagement Ideas</h3>
+                <ul style="margin-left: 20px;">
+                    <li>Invite family members to talk about their jobs (economics)</li>
+                    <li>Send home "family interview" sheets about traditions</li>
+                    <li>Create a class book of "Leaders in Our Families"</li>
+                    <li>Have families help create neighborhood maps at home</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Historical Sites Tab -->
+        <div id="historical-sites" class="tab-content">
+            <h2><span class="section-icon">🏛️</span> Historical Sites & Virtual Field Trips</h2>
+            
+            <div class="content-card">
+                <h3>🍑 Georgia Historical Sites</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Georgia State Capitol (Atlanta)</strong> - See where Georgia's laws are made; golden dome visible for miles</li>
+                    <li><strong>Martin Luther King Jr. National Historical Park (Atlanta)</strong> - Birth home and church of Dr. King</li>
+                    <li><strong>Georgia Museum of Agriculture (Tifton)</strong> - Living history village showing how Georgians lived long ago</li>
+                    <li><strong>Centennial Olympic Park (Atlanta)</strong> - Gather and learn about community spaces</li>
+                </ul>
+            </div>
+
+            <div class="content-card warm">
+                <h3>🇺🇸 National Sites for Kindergarten Topics</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Statue of Liberty (New York)</strong> - Symbol of America and freedom</li>
+                    <li><strong>Washington Monument (Washington D.C.)</strong> - Honors our first president</li>
+                    <li><strong>Lincoln Memorial (Washington D.C.)</strong> - President who helped free enslaved people</li>
+                    <li><strong>Mount Rushmore (South Dakota)</strong> - Giant carvings of four presidents</li>
+                </ul>
+            </div>
+
+            <div class="content-card purple">
+                <h3>💻 Virtual Field Trips</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Google Arts & Culture</strong> - Virtual museum tours with kid-friendly content</li>
+                    <li><strong>Smithsonian National Museum of American History</strong> - Virtual exhibits on American symbols</li>
+                    <li><strong>White House Virtual Tour</strong> - See where the President lives and works</li>
+                    <li><strong>National Geographic Kids</strong> - Videos about American landmarks</li>
+                </ul>
+            </div>
+
+            <div class="content-card">
+                <h3>🚌 Local Field Trip Ideas</h3>
+                <ul style="margin-left: 20px;">
+                    <li>Local post office - Community helpers at work</li>
+                    <li>Fire station visit - Learn about firefighters</li>
+                    <li>City hall or courthouse - Local government buildings</li>
+                    <li>Local park or monument - Community gathering places</li>
+                    <li>Neighborhood walk - Mapping practice and community features</li>
+                </ul>
+            </div>
+
+            <div class="content-card warm">
+                <h3>📚 Connecting Sites to Standards</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>SSKCG1-2:</strong> Capitol, city hall visits connect to good citizenship</li>
+                    <li><strong>SSKH1-2:</strong> Monuments teach about holidays and national symbols</li>
+                    <li><strong>SSKG1-2:</strong> Any site visit supports map and location skills</li>
+                    <li><strong>SSKE1-4:</strong> Post office, stores show community workers and trade</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- AI Tools for Teachers Tab -->
+        <div id="ai-teachers" class="tab-content">
+            <h2><span class="section-icon">🤖</span> AI Tools for Teachers</h2>
+            
+            <div class="ai-warning">
+                <h4>⚠️ Important Considerations for AI Use</h4>
+                <p>Always review AI-generated content for accuracy and age-appropriateness. Verify facts about holidays and symbols before sharing with students. Protect student privacy and follow district AI policies. Keep content very simple for kindergarten level.</p>
+            </div>
+
+            <div class="ai-tool-card">
+                <span class="tool-badge">Lesson Planning</span>
+                <h4>ChatGPT / Claude for Kindergarten Content</h4>
+                <p>Use AI to create age-appropriate content aligned with SSK standards:</p>
+                <ul>
+                    <li><strong>Generate simple explanations</strong> of holidays at kindergarten level</li>
+                    <li><strong>Create story starters</strong> about American symbols</li>
+                    <li><strong>Write simple songs or rhymes</strong> about citizenship concepts</li>
+                    <li><strong>Develop sorting activities</strong> for needs vs. wants</li>
+                </ul>
+                <p><strong>Sample Prompt:</strong> "Write a 3-sentence explanation of the American flag for kindergarteners. Use simple words and short sentences."</p>
+            </div>
+
+            <div class="ai-tool-card">
+                <span class="tool-badge">Visual Content</span>
+                <h4>Canva AI / Image Generation</h4>
+                <p>Create visuals to support kindergarten social studies:</p>
+                <ul>
+                    <li><strong>Picture cards</strong> for vocabulary words</li>
+                    <li><strong>Holiday scene illustrations</strong> for discussions</li>
+                    <li><strong>Community worker images</strong> for matching activities</li>
+                    <li><strong>Simple map symbols</strong> for geography lessons</li>
+                </ul>
+            </div>
+
+            <div class="ai-tool-card">
+                <span class="tool-badge">Audio Support</span>
+                <h4>Natural Reader / Text-to-Speech</h4>
+                <p>Support non-readers with audio:</p>
+                <ul>
+                    <li><strong>Read-aloud text</strong> for centers and stations</li>
+                    <li><strong>Audio directions</strong> for independent activities</li>
+                    <li><strong>Vocabulary pronunciation</strong> for ELL support</li>
+                    <li><strong>Song recordings</strong> for holiday and patriotic songs</li>
+                </ul>
+            </div>
+
+            <div class="ai-tool-card">
+                <span class="tool-badge">Differentiation</span>
+                <h4>AI for Creating Leveled Materials</h4>
+                <ul>
+                    <li><strong>Simplify concepts</strong> for struggling learners</li>
+                    <li><strong>Create visual supports</strong> for special needs students</li>
+                    <li><strong>Generate extension activities</strong> for advanced learners</li>
+                    <li><strong>Translate key vocabulary</strong> for ELL families</li>
+                </ul>
+            </div>
+
+            <div class="ai-tool-card">
+                <span class="tool-badge">Assessment</span>
+                <h4>AI-Assisted Assessment Creation</h4>
+                <ul>
+                    <li><strong>Create picture-based assessments</strong> for non-readers</li>
+                    <li><strong>Generate observation checklist items</strong></li>
+                    <li><strong>Develop oral assessment questions</strong></li>
+                    <li><strong>Design performance task rubrics</strong></li>
+                </ul>
+            </div>
+
+            <div class="ai-tool-card">
+                <span class="tool-badge">Organization</span>
+                <h4>NotebookLM for Standards</h4>
+                <ul>
+                    <li><strong>Summarize standards</strong> in teacher-friendly language</li>
+                    <li><strong>Generate pacing guides</strong> for the year</li>
+                    <li><strong>Create parent communication</strong> about learning goals</li>
+                    <li><strong>Organize resources</strong> by standard</li>
+                </ul>
+            </div>
+
+            <div class="content-card">
+                <h3>Best Practices for Teacher AI Use</h3>
+                <ul style="margin-left: 20px;">
+                    <li>✅ Keep all content very simple for 5-6 year olds</li>
+                    <li>✅ Verify accuracy of all historical and symbol information</li>
+                    <li>✅ Review for developmental appropriateness</li>
+                    <li>✅ Check for cultural sensitivity</li>
+                    <li>✅ Never input student names or identifying information</li>
+                    <li>✅ Use AI as a starting point, then customize for your class</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- AI Tools for Students Tab -->
+        <div id="ai-students" class="tab-content">
+            <h2><span class="section-icon">🧒</span> AI Tools for Students</h2>
+            
+            <div class="ai-warning">
+                <h4>⚠️ Kindergarten AI Safety Guidelines</h4>
+                <p>Kindergarten students should <strong>ONLY</strong> use AI tools with <strong>direct teacher supervision</strong> as whole-class experiences. All activities below are designed for teacher-led instruction. Students should never independently access AI tools at this age. The teacher controls all technology while students participate verbally.</p>
+            </div>
+
+            <div class="ai-tool-card">
+                <span class="tool-badge">Teacher-Led Only</span>
+                <h4>🖼️ AI Image Exploration</h4>
+                <p><strong>How it works:</strong> Teacher shows AI-generated images and leads class discussion.</p>
+                <ul>
+                    <li><strong>Symbol Pictures:</strong> "Look at this picture of the Statue of Liberty. What do you notice?"</li>
+                    <li><strong>Community Workers:</strong> "This is a picture the computer made of a firefighter. What are they wearing?"</li>
+                    <li><strong>Map Exploration:</strong> "The computer drew this map. Can you find the school?"</li>
+                </ul>
+                <p><strong>Learning Focus:</strong> Students observe and discuss without touching technology.</p>
+                <p><strong>Standards:</strong> SSKH2, SSKG1, SSKE1</p>
+            </div>
+
+            <div class="ai-tool-card">
+                <span class="tool-badge">Teacher-Led Only</span>
+                <h4>❓ Ask the Computer</h4>
+                <p><strong>How it works:</strong> Students suggest questions, teacher types them, and reads the answer aloud.</p>
+                <ul>
+                    <li>"Let's ask the computer: Why is the bald eagle special?"</li>
+                    <li>"What should we ask about Martin Luther King Jr.?"</li>
+                    <li>"The computer says... Is that right? Let's check our book!"</li>
+                </ul>
+                <p><strong>Learning Focus:</strong> Students see that we can ask computers questions but must verify answers.</p>
+                <p><strong>Standards:</strong> SSKH1, SSKH2</p>
+            </div>
+
+            <div class="ai-tool-card">
+                <span class="tool-badge">Teacher-Led Only</span>
+                <h4>📖 Story Creation Together</h4>
+                <p><strong>How it works:</strong> Class collaboratively creates a simple story with AI assistance.</p>
+                <ul>
+                    <li>"Let's make a story about a good citizen. What should happen first?"</li>
+                    <li>"The computer wrote: [reads aloud]. What should happen next?"</li>
+                    <li>Students contribute ideas; teacher types and reads AI responses.</li>
+                </ul>
+                <p><strong>Learning Focus:</strong> AI can help us create, but our ideas are what matter most.</p>
+                <p><strong>Standards:</strong> SSKCG1</p>
+            </div>
+
+            <div class="ai-tool-card">
+                <span class="tool-badge">Teacher-Led Only</span>
+                <h4>🎵 Songs and Rhymes</h4>
+                <p><strong>How it works:</strong> Teacher uses AI to generate simple songs about social studies topics.</p>
+                <ul>
+                    <li>"The computer helped make a song about the American flag!"</li>
+                    <li>Class learns and sings together</li>
+                    <li>"Let's make a rhyme about being a good friend in our community."</li>
+                </ul>
+                <p><strong>Learning Focus:</strong> Technology can help us learn in fun ways.</p>
+                <p><strong>Standards:</strong> SSKH2, SSKCG1</p>
+            </div>
+
+            <div class="content-card">
+                <h3>Simple AI Concepts for Kindergarten</h3>
+                <ul style="margin-left: 20px;">
+                    <li>🤖 "The computer is a helper, like a tool."</li>
+                    <li>📚 "The computer learned by reading lots of books."</li>
+                    <li>❓ "Sometimes the computer makes mistakes, so we check."</li>
+                    <li>👩‍🏫 "We always use the computer WITH a teacher."</li>
+                </ul>
+            </div>
+
+            <div class="content-card warm">
+                <h3>Building Digital Citizenship (Age 5-6)</h3>
+                <ul style="margin-left: 20px;">
+                    <li>👨‍👩‍👧 Always use computers with a grown-up</li>
+                    <li>🔒 Never tell the computer your name or where you live</li>
+                    <li>🤔 Check if the computer's answer makes sense</li>
+                    <li>❓ Ask a teacher if something doesn't seem right</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">
+        <span>🖨️</span> Print Hub
+    </button>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

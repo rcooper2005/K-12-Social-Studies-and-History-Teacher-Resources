@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AP World History: Modern Teacher Resource Hub</title>
+    <style>
+        :root {
+            --primary-teal: #0d9488;
+            --primary-amber: #d97706;
+            --accent-purple: #7c3aed;
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --border-light: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary-teal) 0%, #134e4a 50%, var(--primary-teal) 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-amber) 100%);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .ap-badge {
+            display: inline-block;
+            background: var(--accent-purple);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        nav {
+            background: var(--light-bg);
+            padding: 1rem;
+            border-bottom: 2px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .nav-buttons button {
+            padding: 0.5rem 0.85rem;
+            font-size: 0.85rem;
+            border: none;
+            background: var(--white);
+            color: var(--text-dark);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: var(--shadow);
+            white-space: nowrap;
+        }
+
+        .nav-buttons button:hover {
+            background: var(--primary-teal);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .nav-buttons button.active {
+            background: var(--primary-amber);
+            color: var(--white);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 2rem;
+            min-height: 500px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-content h2 {
+            color: var(--primary-teal);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--primary-amber);
+        }
+
+        .tab-content h3 {
+            color: var(--primary-amber);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .tab-content h4 {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .tab-content p, .tab-content li {
+            color: var(--text-medium);
+            line-height: 1.7;
+            margin-bottom: 0.75rem;
+        }
+
+        .tab-content ul, .tab-content ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .resource-card {
+            background: var(--light-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-amber);
+        }
+
+        .resource-card h4 {
+            color: var(--primary-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 1px solid #f59e0b;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .warning-box h4 {
+            color: #92400e;
+            margin-bottom: 0.5rem;
+        }
+
+        .warning-box p, .warning-box li {
+            color: #78350f;
+        }
+
+        .prompt-box {
+            background: #f0fdfa;
+            border: 1px solid var(--primary-teal);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #134e4a;
+        }
+
+        .unit-section {
+            background: var(--light-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--primary-teal);
+        }
+
+        .unit-section h4 {
+            color: var(--primary-teal);
+            font-size: 1.15rem;
+        }
+
+        .theme-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background: var(--primary-teal);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin: 0.25rem;
+        }
+
+        .region-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background: var(--primary-amber);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin: 0.25rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        th {
+            background: var(--primary-teal);
+            color: white;
+        }
+
+        tr:hover {
+            background: var(--light-bg);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+            border-radius: 10px;
+            padding: 1.25rem;
+            border-left: 4px solid var(--primary-teal);
+        }
+
+        footer {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            text-align: center;
+            color: var(--text-medium);
+            border-top: 2px solid var(--border-light);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            header h1 {
+                font-size: 1.6rem;
+            }
+
+            .nav-buttons button {
+                padding: 0.4rem 0.6rem;
+                font-size: 0.75rem;
+            }
+
+            .tab-content {
+                padding: 1rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .tab-content {
+                display: block !important;
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <span class="ap-badge">COLLEGE BOARD AP®</span>
+            <h1>🌍 AP World History: Modern Teacher Resource Hub</h1>
+            <p>Comprehensive Resources for Global Historical Thinking | c. 1200 CE - Present</p>
+        </header>
+
+        <nav>
+            <div class="nav-buttons">
+                <button class="active" onclick="showTab('standards')">Standards</button>
+                <button onclick="showTab('background')">Background</button>
+                <button onclick="showTab('websites')">Websites</button>
+                <button onclick="showTab('inquiry')">Inquiry</button>
+                <button onclick="showTab('investigations')">Investigations</button>
+                <button onclick="showTab('videos')">Videos</button>
+                <button onclick="showTab('articles')">Articles</button>
+                <button onclick="showTab('assessments')">Assessments</button>
+                <button onclick="showTab('printables')">Printables</button>
+                <button onclick="showTab('vocabulary')">Vocabulary</button>
+                <button onclick="showTab('games')">Games</button>
+                <button onclick="showTab('differentiation')">Differentiation</button>
+                <button onclick="showTab('misconceptions')">Misconceptions</button>
+                <button onclick="showTab('cultural')">Cultural</button>
+                <button onclick="showTab('historical-sites')">Historical Sites</button>
+                <button onclick="showTab('ai-teachers')">AI for Teachers</button>
+                <button onclick="showTab('ai-students')">AI for Students</button>
+            </div>
+        </nav>
+
+        <!-- Standards Tab -->
+        <div id="standards" class="tab-content active">
+            <h2>📋 AP World History: Modern Course Framework</h2>
+
+            <div class="content-card">
+                <h3>📚 Standards Frameworks</h3>
+                <p>This AP course aligns to multiple standards frameworks:</p>
+                <ul style="margin-left: 20px;">
+                    <li><strong>College Board:</strong> AP Course and Exam Description (primary framework)</li>
+                    <li><strong>NCSS:</strong> National Council for the Social Studies C3 Framework</li>
+                    <li><strong>GSE:</strong> Georgia Standards of Excellence (state alignment)</li>
+                </ul>
+            </div>
+
+            <h3>Course Themes</h3>
+            <p>The AP World History: Modern course is organized around six thematic learning objectives:</p>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h4>Humans and the Environment (ENV)</h4>
+                    <p>The interaction between humans and the environment, including technology, disease, and migration patterns that shape human societies.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Cultural Developments and Interactions (CDI)</h4>
+                    <p>The development of religions, belief systems, philosophies, ideologies, science, and arts, and how they spread and interacted.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Governance (GOV)</h4>
+                    <p>The evolution of governance structures, including states, empires, nations, and international organizations.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Economic Systems (ECON)</h4>
+                    <p>The development of economic systems, trade networks, labor systems, and industrialization.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Social Interactions and Organization (SIO)</h4>
+                    <p>The development of social classes, gender roles, family structures, and racial and ethnic identities.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Technology and Innovation (TECH)</h4>
+                    <p>How technology has shaped human development, economic systems, and cultural interactions.</p>
+                </div>
+            </div>
+
+            <h3>Course Units</h3>
+            <div class="unit-section">
+                <h4>Unit 1: The Global Tapestry (c. 1200-1450) | 8-10% of Exam</h4>
+                <p>Developments in governance, belief systems, and economic systems in the period before European maritime exploration.</p>
+                <span class="region-badge">Song China</span><span class="region-badge">Dar al-Islam</span><span class="region-badge">South & SE Asia</span><span class="region-badge">Africa</span><span class="region-badge">Europe</span><span class="region-badge">Americas</span>
+            </div>
+            <div class="unit-section">
+                <h4>Unit 2: Networks of Exchange (c. 1200-1450) | 8-10% of Exam</h4>
+                <p>The Silk Roads, Monsoon trade, Trans-Saharan trade, and their effects on societies, cultures, and environments.</p>
+                <span class="theme-badge">ECON</span><span class="theme-badge">CDI</span><span class="theme-badge">ENV</span>
+            </div>
+            <div class="unit-section">
+                <h4>Unit 3: Land-Based Empires (c. 1450-1750) | 12-15% of Exam</h4>
+                <p>The formation and expansion of land-based empires including Ottoman, Safavid, Mughal, Qing, and Russian empires.</p>
+                <span class="theme-badge">GOV</span><span class="theme-badge">SIO</span><span class="theme-badge">CDI</span>
+            </div>
+            <div class="unit-section">
+                <h4>Unit 4: Transoceanic Interconnections (c. 1450-1750) | 12-15% of Exam</h4>
+                <p>European maritime exploration, the Columbian Exchange, Atlantic slave trade, and global trade networks.</p>
+                <span class="theme-badge">ENV</span><span class="theme-badge">ECON</span><span class="theme-badge">SIO</span>
+            </div>
+            <div class="unit-section">
+                <h4>Unit 5: Revolutions (c. 1750-1900) | 12-15% of Exam</h4>
+                <p>Enlightenment ideas, political revolutions, Industrial Revolution, and their global effects.</p>
+                <span class="theme-badge">GOV</span><span class="theme-badge">TECH</span><span class="theme-badge">CDI</span>
+            </div>
+            <div class="unit-section">
+                <h4>Unit 6: Consequences of Industrialization (c. 1750-1900) | 12-15% of Exam</h4>
+                <p>New imperialism, labor migration, reform movements, and global economic transformations.</p>
+                <span class="theme-badge">ECON</span><span class="theme-badge">SIO</span><span class="theme-badge">GOV</span>
+            </div>
+            <div class="unit-section">
+                <h4>Unit 7: Global Conflict (c. 1900-Present) | 8-10% of Exam</h4>
+                <p>World Wars, ideological conflicts, decolonization, and the Cold War.</p>
+                <span class="theme-badge">GOV</span><span class="theme-badge">CDI</span><span class="theme-badge">TECH</span>
+            </div>
+            <div class="unit-section">
+                <h4>Unit 8: Cold War and Decolonization (c. 1900-Present) | 8-10% of Exam</h4>
+                <p>Superpower rivalry, proxy wars, nationalist movements, and new nation formation.</p>
+                <span class="theme-badge">GOV</span><span class="theme-badge">CDI</span><span class="theme-badge">SIO</span>
+            </div>
+            <div class="unit-section">
+                <h4>Unit 9: Globalization (c. 1900-Present) | 8-10% of Exam</h4>
+                <p>Economic integration, cultural exchange, environmental challenges, and global institutions.</p>
+                <span class="theme-badge">ECON</span><span class="theme-badge">ENV</span><span class="theme-badge">TECH</span>
+            </div>
+
+            <h3>Historical Thinking Skills</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Developments and Processes</h4>
+                    <p>Identify and explain historical developments and processes.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Sourcing and Situation</h4>
+                    <p>Analyze sourcing and situation of primary and secondary sources.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Claims and Evidence</h4>
+                    <p>Analyze arguments in primary and secondary sources.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Contextualization</h4>
+                    <p>Analyze contexts of historical events, developments, or processes.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Making Connections</h4>
+                    <p>Using comparison, causation, and continuity and change over time.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Argumentation</h4>
+                    <p>Develop an argument using evidence and historical reasoning.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Background Tab -->
+        <div id="background" class="tab-content">
+            <h2>📚 Teacher Background Knowledge</h2>
+            
+            <h3>Essential Content by Unit</h3>
+            
+            <h4>Units 1-2: The Pre-1450 World</h4>
+            <p>Teachers should understand the major developments in world regions before sustained European maritime contact. Song China represented the most advanced economy with innovations in agriculture, commerce, and technology. The Islamic world connected Afro-Eurasia through trade, scholarship, and shared faith. The Mongol Empire created unprecedented connections across Eurasia. In Africa, states like Great Zimbabwe and Mali demonstrated complex political and economic systems. The Americas saw the rise of sophisticated civilizations including the Aztec and Inca empires.</p>
+
+            <h4>Units 3-4: Early Modern Era (1450-1750)</h4>
+            <p>This period saw the emergence of "gunpowder empires"—Ottoman, Safavid, Mughal—that used new military technology to expand. European maritime exploration connected all world regions for the first time. The Columbian Exchange transformed global ecosystems, economies, and demographics. The Atlantic slave trade forcibly transported millions of Africans, creating diaspora communities that shaped American cultures. Global trade networks centered on silver created new economic relationships.</p>
+
+            <h4>Units 5-6: Age of Revolution and Industry (1750-1900)</h4>
+            <p>Enlightenment ideas sparked political revolutions that challenged monarchical and colonial authority. The Industrial Revolution, beginning in Britain, transformed production, labor, and society. New imperialism saw European powers carve up Africa and dominate Asia. These developments created new forms of resistance and reform movements worldwide.</p>
+
+            <h4>Units 7-9: The Modern Era (1900-Present)</h4>
+            <p>World Wars reshaped the global order, ending European empires and elevating the US and USSR as superpowers. The Cold War divided the world ideologically while decolonization created dozens of new nations. Late 20th century globalization intensified economic, cultural, and environmental connections while creating new challenges and inequalities.</p>
+
+            <h3>Geographic Literacy</h3>
+            <p>World History requires strong geographic knowledge. Teachers should be comfortable with major geographic features affecting historical developments: the Silk Roads' geography, monsoon patterns in the Indian Ocean, trans-Saharan routes, Atlantic systems, and the geographic factors enabling industrialization.</p>
+        </div>
+
+        <!-- Websites Tab -->
+        <div id="websites" class="tab-content">
+            <h2>🌐 Educational Websites</h2>
+            
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>AP Central - College Board</h4>
+                    <p>Official AP World History resources including course framework, exam information, sample questions, and scoring guidelines.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>World History for Us All</h4>
+                    <p>UCLA-developed curriculum with teaching units, primary sources, and lesson plans organized by era.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Asian Topics in World History</h4>
+                    <p>Asia for Educators (Columbia) resources on Asian history with primary sources and teaching materials.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>African Studies Center (Boston University)</h4>
+                    <p>Teaching resources on African history, including primary sources and lesson plans.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Internet History Sourcebooks</h4>
+                    <p>Fordham University's collection of primary sources organized by civilization and era.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Khan Academy - AP World History</h4>
+                    <p>Free video lessons, practice questions, and exam preparation aligned to course framework.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>British Museum</h4>
+                    <p>Object-based learning resources connecting material culture to world history themes.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Crash Course World History</h4>
+                    <p>Engaging video content covering major world history topics and themes.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inquiry Tab -->
+        <div id="inquiry" class="tab-content">
+            <h2>❓ Inquiry-Based Learning</h2>
+            
+            <h3>Essential Questions by Unit</h3>
+            
+            <div class="unit-section">
+                <h4>Unit 1: The Global Tapestry</h4>
+                <ul>
+                    <li>What made some empires and states more successful than others in this period?</li>
+                    <li>How did belief systems shape political and social structures?</li>
+                    <li>What role did technology play in creating regional differences?</li>
+                </ul>
+            </div>
+
+            <div class="unit-section">
+                <h4>Unit 2: Networks of Exchange</h4>
+                <ul>
+                    <li>How did trade networks shape cultural and religious spread?</li>
+                    <li>What were the costs and benefits of increased interconnection?</li>
+                    <li>How did environmental factors shape trade routes and their effects?</li>
+                </ul>
+            </div>
+
+            <div class="unit-section">
+                <h4>Unit 3: Land-Based Empires</h4>
+                <ul>
+                    <li>How did empires maintain power over diverse populations?</li>
+                    <li>What role did religion play in empire-building?</li>
+                    <li>How did imperial expansion affect subject peoples differently?</li>
+                </ul>
+            </div>
+
+            <div class="unit-section">
+                <h4>Unit 4: Transoceanic Interconnections</h4>
+                <ul>
+                    <li>How did the Columbian Exchange transform societies on both sides of the Atlantic?</li>
+                    <li>Who benefited and who suffered from maritime expansion?</li>
+                    <li>How did global trade reshape labor systems worldwide?</li>
+                </ul>
+            </div>
+
+            <div class="unit-section">
+                <h4>Unit 5: Revolutions</h4>
+                <ul>
+                    <li>How did Enlightenment ideas spread and adapt to different contexts?</li>
+                    <li>Why did some revolutions succeed in their goals while others failed?</li>
+                    <li>How did industrialization change relationships between people and work?</li>
+                </ul>
+            </div>
+
+            <div class="unit-section">
+                <h4>Unit 6: Consequences of Industrialization</h4>
+                <ul>
+                    <li>What drove the "new imperialism" of the late 19th century?</li>
+                    <li>How did colonized peoples respond to imperial domination?</li>
+                    <li>What were the global effects of industrialization?</li>
+                </ul>
+            </div>
+
+            <div class="unit-section">
+                <h4>Units 7-9: 20th Century to Present</h4>
+                <ul>
+                    <li>How did world wars reshape the global order?</li>
+                    <li>What factors led to decolonization, and what challenges did new nations face?</li>
+                    <li>Is globalization creating a more unified or more divided world?</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Investigations Tab -->
+        <div id="investigations" class="tab-content">
+            <h2>🔍 Investigations & DBQs</h2>
+            
+            <h3>Document-Based Question Strategies</h3>
+            <div class="resource-card" style="margin-bottom: 1.5rem;">
+                <h4>DBQ Structure (7 Points)</h4>
+                <ul>
+                    <li><strong>Thesis (1 point):</strong> Historically defensible claim responding to the prompt</li>
+                    <li><strong>Contextualization (1 point):</strong> Broader historical context relevant to the prompt</li>
+                    <li><strong>Evidence from Documents (2 points):</strong> Use 6+ documents to support argument</li>
+                    <li><strong>Evidence Beyond Documents (1 point):</strong> Additional specific historical evidence</li>
+                    <li><strong>Sourcing (1 point):</strong> Explain how document's features are relevant</li>
+                    <li><strong>Complexity (1 point):</strong> Sophisticated understanding through nuanced argument</li>
+                </ul>
+            </div>
+
+            <h3>Practice DBQ Topics</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Trade Networks (Units 1-2)</h4>
+                    <p>Evaluate the extent to which trade networks transformed societies in the period 1200-1450.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Imperial Administration (Unit 3)</h4>
+                    <p>Compare the methods used by TWO land-based empires to maintain power over diverse populations.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Columbian Exchange (Unit 4)</h4>
+                    <p>Evaluate the extent to which the Columbian Exchange transformed the Americas in the period 1450-1750.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Revolutionary Ideas (Unit 5)</h4>
+                    <p>Analyze the ways in which Enlightenment ideas were adapted in different revolutionary movements.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Imperialism (Unit 6)</h4>
+                    <p>Evaluate the extent to which economic factors drove European imperialism in the period 1750-1900.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Decolonization (Units 7-8)</h4>
+                    <p>Analyze the factors that led to decolonization in Africa and Asia in the period 1945-1975.</p>
+                </div>
+            </div>
+
+            <h3>Comparison Investigations</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Empire Comparison</h4>
+                    <p>Compare how TWO of the following empires used religion to legitimate rule: Ottoman, Mughal, Qing, Spanish colonial.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Revolution Comparison</h4>
+                    <p>Compare the causes and outcomes of the French Revolution and the Haitian Revolution.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Videos Tab -->
+        <div id="videos" class="tab-content">
+            <h2>🎬 Video Resources</h2>
+            
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Crash Course World History</h4>
+                    <p>John Green's engaging series covering major world history topics in 10-15 minute episodes.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Heimler's History</h4>
+                    <p>AP-specific content with exam strategies, content review, and DBQ/LEQ practice aligned to course framework.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Khan Academy AP World History</h4>
+                    <p>Free instructional videos with practice questions organized by unit.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Asia for Educators Videos</h4>
+                    <p>Short documentary clips on Asian history topics with accompanying materials.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>History Channel Documentaries</h4>
+                    <p>Documentaries on world history topics (use clips with critical analysis).</p>
+                </div>
+                <div class="resource-card">
+                    <h4>BBC History</h4>
+                    <p>Documentary content on world civilizations and historical developments.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Articles Tab -->
+        <div id="articles" class="tab-content">
+            <h2>📰 Primary & Secondary Sources</h2>
+            
+            <h3>Primary Source Collections by Region</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>East Asian Sources</h4>
+                    <ul>
+                        <li>Zheng He's voyages - Ming court records</li>
+                        <li>Chinese examination system documents</li>
+                        <li>Tokugawa edicts and travelers' accounts</li>
+                        <li>Meiji reform documents</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>Islamic World Sources</h4>
+                    <ul>
+                        <li>Ibn Battuta's travels</li>
+                        <li>Ottoman court records and firmans</li>
+                        <li>Sufi texts and poetry</li>
+                        <li>Colonial resistance documents</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>African Sources</h4>
+                    <ul>
+                        <li>Mansa Musa pilgrimage accounts</li>
+                        <li>Swahili coast traders' records</li>
+                        <li>European explorers' accounts (with critique)</li>
+                        <li>Anti-colonial resistance writings</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>Americas Sources</h4>
+                    <ul>
+                        <li>Indigenous codices and oral traditions</li>
+                        <li>Spanish colonial accounts (Las Casas, etc.)</li>
+                        <li>Slave narratives</li>
+                        <li>Revolutionary declarations</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Key Documents for Each Unit</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Cross-Cultural Exchange</h4>
+                    <p>Marco Polo's Travels, Ibn Battuta's Rihla, accounts of Zheng He's voyages, descriptions of trade goods and routes.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Imperialism and Resistance</h4>
+                    <p>Berlin Conference documents, treaty texts, colonial administrative records, resistance movement manifestos.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Assessments Tab -->
+        <div id="assessments" class="tab-content">
+            <h2>📝 Assessments</h2>
+            
+            <h3>AP Exam Format</h3>
+            <table>
+                <tr>
+                    <th>Section</th>
+                    <th>Question Type</th>
+                    <th>Time</th>
+                    <th>Weight</th>
+                </tr>
+                <tr>
+                    <td>Section I, Part A</td>
+                    <td>55 Multiple Choice Questions</td>
+                    <td>55 minutes</td>
+                    <td>40%</td>
+                </tr>
+                <tr>
+                    <td>Section I, Part B</td>
+                    <td>3 Short Answer Questions</td>
+                    <td>40 minutes</td>
+                    <td>20%</td>
+                </tr>
+                <tr>
+                    <td>Section II, Part A</td>
+                    <td>1 Document-Based Question</td>
+                    <td>60 minutes</td>
+                    <td>25%</td>
+                </tr>
+                <tr>
+                    <td>Section II, Part B</td>
+                    <td>1 Long Essay Question</td>
+                    <td>40 minutes</td>
+                    <td>15%</td>
+                </tr>
+            </table>
+
+            <h3>Assessment Strategies</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Unit Assessments</h4>
+                    <p>Combine MC questions, an SAQ, and a timed essay component to mirror exam format while testing unit-specific content.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Skill-Based Assessments</h4>
+                    <p>Focus on specific reasoning processes (comparison, causation, CCOT) across multiple time periods and regions.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Document Analysis Quizzes</h4>
+                    <p>Regular practice with HAPP (Historical situation, Audience, Purpose, Point of view) analysis.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Geographic Competency</h4>
+                    <p>Map-based assessments testing knowledge of trade routes, empire boundaries, and regional geography.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Printables Tab -->
+        <div id="printables" class="tab-content">
+            <h2>📄 Printables & Organizers</h2>
+            
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>HAPP Document Analysis</h4>
+                    <p>Graphic organizer for Historical situation, Audience, Purpose, and Point of view analysis.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Comparison Charts</h4>
+                    <p>Templates for comparing empires, revolutions, or developments across regions.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Causation Diagrams</h4>
+                    <p>Flow charts showing short-term and long-term causes and effects.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Theme Tracking Sheets</h4>
+                    <p>Charts for tracking themes (ENV, CDI, GOV, ECON, SIO, TECH) across all units.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Regional Summary Charts</h4>
+                    <p>One-page summaries for each region in each time period.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>DBQ Planning Sheets</h4>
+                    <p>Structured organizers for thesis, document grouping, outside evidence, and sourcing.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vocabulary Tab -->
+        <div id="vocabulary" class="tab-content">
+            <h2>📖 Key Vocabulary</h2>
+            
+            <h3>Historical Thinking Terms</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Analysis Terms</h4>
+                    <ul>
+                        <li><strong>Contextualization:</strong> Placing events in broader historical context</li>
+                        <li><strong>Causation:</strong> Analyzing cause and effect relationships</li>
+                        <li><strong>Comparison:</strong> Identifying similarities and differences across time/space</li>
+                        <li><strong>CCOT:</strong> Continuity and change over time</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>Sourcing Terms</h4>
+                    <ul>
+                        <li><strong>Point of View:</strong> Author's perspective shaped by identity/experience</li>
+                        <li><strong>Purpose:</strong> Why the document was created</li>
+                        <li><strong>Audience:</strong> Intended readers/viewers</li>
+                        <li><strong>Historical Situation:</strong> Circumstances of creation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Content Vocabulary by Era</h3>
+            <div class="unit-section">
+                <h4>Units 1-2: 1200-1450</h4>
+                <p>Tributary system, monsoon, caravel, caravanserai, Dar al-Islam, Pax Mongolica, Bantu migration, syncretism, dhow, manorialism, feudalism</p>
+            </div>
+            <div class="unit-section">
+                <h4>Units 3-4: 1450-1750</h4>
+                <p>Devshirme, millet system, encomienda, hacienda, Columbian Exchange, Middle Passage, joint-stock company, mercantilism, mestizo, creole, maroon</p>
+            </div>
+            <div class="unit-section">
+                <h4>Units 5-6: 1750-1900</h4>
+                <p>Enlightenment, social contract, laissez-faire, industrialization, proletariat, nationalism, imperialism, Social Darwinism, assimilation, cash crop</p>
+            </div>
+            <div class="unit-section">
+                <h4>Units 7-9: 1900-Present</h4>
+                <p>Total war, mandate system, fascism, containment, proxy war, decolonization, non-aligned movement, neocolonialism, globalization, NGO</p>
+            </div>
+        </div>
+
+        <!-- Games Tab -->
+        <div id="games" class="tab-content">
+            <h2>🎮 Interactive Activities</h2>
+            
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Trade Route Simulations</h4>
+                    <p>Students simulate merchants on Silk Roads, Indian Ocean, or Trans-Saharan routes, making decisions about goods and risks.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Empire Building Game</h4>
+                    <p>Teams compete to build and maintain empires, addressing challenges of governance, economy, and social order.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Timeline Challenges</h4>
+                    <p>Students arrange events chronologically across regions, identifying connections and patterns.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Document Speed Dating</h4>
+                    <p>Timed rotations through primary sources with focused HAPP analysis questions.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Geography Challenges</h4>
+                    <p>Map-based games testing knowledge of trade routes, empire boundaries, and regional features.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Theme Connection Competitions</h4>
+                    <p>Teams race to connect events across time periods and regions using thematic reasoning.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Differentiation Tab -->
+        <div id="differentiation" class="tab-content">
+            <h2>🎯 Differentiation Strategies</h2>
+            
+            <h3>Scaffolding for Developing Readers</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Document Modification</h4>
+                    <ul>
+                        <li>Vocabulary glosses for primary sources</li>
+                        <li>Shorter excerpts with clear focus</li>
+                        <li>Visual supports (maps, images) paired with text</li>
+                        <li>Audio versions of documents</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>Writing Support</h4>
+                    <ul>
+                        <li>Thesis statement templates</li>
+                        <li>Evidence integration sentence starters</li>
+                        <li>Paragraph structure guides</li>
+                        <li>Transition word banks</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>English Learner Support</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Language Scaffolds</h4>
+                    <ul>
+                        <li>Visual timelines and graphic organizers</li>
+                        <li>Word walls with visual supports</li>
+                        <li>Sentence frames for analysis</li>
+                        <li>Partner and small group work</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>Content Access</h4>
+                    <ul>
+                        <li>Pre-teach key vocabulary</li>
+                        <li>Use maps and images as entry points</li>
+                        <li>Connect to students' home regions/cultures</li>
+                        <li>Allow multilingual supports when appropriate</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Extension for Advanced Students</h3>
+            <div class="resource-card">
+                <h4>Advanced Opportunities</h4>
+                <ul>
+                    <li>Historiographical analysis—how have interpretations changed?</li>
+                    <li>Independent research on underrepresented regions or topics</li>
+                    <li>Cross-course connections (AP World + AP Art History, for example)</li>
+                    <li>Current events analysis using historical frameworks</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Misconceptions Tab -->
+        <div id="misconceptions" class="tab-content">
+            <h2>⚠️ Common Misconceptions</h2>
+            
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Eurocentrism</h4>
+                    <p><strong>Misconception:</strong> World history is really about European history with some "other" places added.</p>
+                    <p><strong>Reality:</strong> Many of the most significant developments occurred outside Europe. China, the Islamic world, and other regions led in technology, trade, and culture for most of history.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Civilizational Progress</h4>
+                    <p><strong>Misconception:</strong> History is a story of progress from "primitive" to "advanced" societies.</p>
+                    <p><strong>Reality:</strong> All societies are complex. "Development" isn't linear, and different societies developed in different ways based on their contexts.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Isolated Civilizations</h4>
+                    <p><strong>Misconception:</strong> Major civilizations developed independently until Europeans connected them.</p>
+                    <p><strong>Reality:</strong> Extensive trade, migration, and cultural exchange connected Afro-Eurasia for millennia before European maritime expansion.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Static Cultures</h4>
+                    <p><strong>Misconception:</strong> Non-Western cultures were unchanging until impacted by the West.</p>
+                    <p><strong>Reality:</strong> All societies constantly change. Internal dynamics drove transformation in every region throughout history.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Columbus "Discovered" America</h4>
+                    <p><strong>Misconception:</strong> Columbus discovered an "empty" or "uncivilized" land.</p>
+                    <p><strong>Reality:</strong> The Americas had millions of people living in sophisticated societies. The arrival of Europeans was a catastrophe for Indigenous peoples.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Colonialism Was Beneficial</h4>
+                    <p><strong>Misconception:</strong> Colonialism brought "civilization" to colonized peoples.</p>
+                    <p><strong>Reality:</strong> Colonialism was exploitative, violent, and caused long-lasting damage to colonized societies while benefiting colonizers.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cultural Tab -->
+        <div id="cultural" class="tab-content">
+            <h2>🌍 Diverse Perspectives</h2>
+            
+            <h3>Global Perspectives in World History</h3>
+            <p>AP World History inherently requires multiple perspectives, but we must be intentional about including voices often marginalized in historical narratives.</p>
+
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Indigenous Perspectives</h4>
+                    <ul>
+                        <li>Pre-Columbian American civilizations on their own terms</li>
+                        <li>Indigenous responses to colonization</li>
+                        <li>Continuing Indigenous presence and activism</li>
+                        <li>Aboriginal Australian and Pacific Islander histories</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>African Perspectives</h4>
+                    <ul>
+                        <li>African agency in trade networks</li>
+                        <li>African responses to slave trade (resistance, adaptation)</li>
+                        <li>Anti-colonial movements led by Africans</li>
+                        <li>Post-independence nation-building</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>Women's Perspectives</h4>
+                    <ul>
+                        <li>Women's roles in different societies across eras</li>
+                        <li>Women's participation in revolutions and movements</li>
+                        <li>Global feminisms and women's activism</li>
+                        <li>Gender as analytical category across cultures</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>Subaltern Perspectives</h4>
+                    <ul>
+                        <li>Enslaved peoples' experiences and resistance</li>
+                        <li>Workers and peasants in historical change</li>
+                        <li>Colonized peoples' perspectives on imperialism</li>
+                        <li>Marginalized groups within all societies</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Avoiding Common Pitfalls</h3>
+            <div class="warning-box">
+                <h4>Teaching World History Responsibly</h4>
+                <ul>
+                    <li>Present non-European societies on their own terms, not just in relation to Europe</li>
+                    <li>Include primary sources from diverse perspectives, not just European observers</li>
+                    <li>Acknowledge limitations of available sources without dismissing non-European histories</li>
+                    <li>Address violence and exploitation honestly while recognizing agency and resistance</li>
+                    <li>Connect historical developments to contemporary issues and students' lives</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- AI for Teachers Tab -->
+        
+        <!-- Historical Sites Tab -->
+        <div id="historical-sites" class="tab-content">
+            <h2><span class="section-icon">🏛️</span> Historical Sites & Virtual Field Trips</h2>
+
+            <div class="content-card">
+                <h3>🏛️ Units 1-2 Sites (c. 1200-1450)</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Great Zimbabwe</strong> - African trade civilization</li>
+                    <li><strong>Samarkand (Uzbekistan)</strong> - Silk Road city</li>
+                    <li><strong>Angkor Wat (Cambodia)</strong> - Southeast Asian empire</li>
+                    <li><strong>Chichen Itza (Mexico)</strong> - Mesoamerican civilization</li>
+                </ul>
+            </div>
+
+            <div class="content-card warm">
+                <h3>🌍 Units 3-4 Sites (c. 1450-1750)</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Topkapi Palace (Istanbul)</strong> - Ottoman Empire</li>
+                    <li><strong>Forbidden City (Beijing)</strong> - Ming/Qing China</li>
+                    <li><strong>Taj Mahal (India)</strong> - Mughal Empire</li>
+                    <li><strong>Elmina Castle (Ghana)</strong> - Atlantic slave trade</li>
+                    <li><strong>Potosí (Bolivia)</strong> - Silver mining, colonial labor</li>
+                </ul>
+            </div>
+
+            <div class="content-card purple">
+                <h3>🏭 Units 5-9 Sites (c. 1750-Present)</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Ironbridge (England)</strong> - Industrial Revolution</li>
+                    <li><strong>Versailles (France)</strong> - Old Regime and Revolution</li>
+                    <li><strong>Hiroshima Peace Memorial</strong> - WWII and decolonization</li>
+                    <li><strong>Berlin Wall Memorial</strong> - Cold War</li>
+                    <li><strong>Robben Island (South Africa)</strong> - Decolonization, apartheid</li>
+                </ul>
+            </div>
+
+            <div class="content-card">
+                <h3>💻 Virtual Global Archives</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>UNESCO World Heritage</strong> - Global sites database</li>
+                    <li><strong>British Museum</strong> - World civilizations collections</li>
+                    <li><strong>World History for Us All</strong> - Teaching resources</li>
+                    <li><strong>Asia for Educators (Columbia)</strong> - Asian primary sources</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div id="ai-teachers" class="tab-content">
+            <h2>🤖 AI Tools for Teachers</h2>
+            
+            <div class="warning-box">
+                <h4>⚠️ Important Guidelines for AI Use</h4>
+                <ul>
+                    <li>Always verify AI-generated content for historical accuracy</li>
+                    <li>Be especially careful with non-Western history (AI may have biases or gaps)</li>
+                    <li>Never input student personal information into AI tools</li>
+                    <li>Follow your district's AI usage policies</li>
+                    <li>Model critical evaluation of AI outputs for students</li>
+                </ul>
+            </div>
+
+            <h3>Lesson Planning with AI</h3>
+            
+            <div class="prompt-box">
+                <strong>Unit Introduction:</strong><br>
+                "Create a 50-minute lesson introducing AP World History Unit 4 (Transoceanic Interconnections). Include: a compelling hook connecting to prior knowledge of trade networks, key content on European maritime exploration, a primary source excerpt with analysis questions, and an exit ticket on the skill of contextualization."
+            </div>
+
+            <div class="prompt-box">
+                <strong>Cross-Regional Comparison:</strong><br>
+                "Design a lesson comparing the Ottoman and Mughal empires' approaches to governing diverse populations. Include document excerpts from each empire, comparison graphic organizer, and discussion questions addressing the GOV and CDI themes."
+            </div>
+
+            <h3>Primary Source Support</h3>
+            <div class="prompt-box">
+                <strong>Document Contextualization:</strong><br>
+                "I'm teaching [specific primary source from non-Western region]. Provide: historical context students need, potential misunderstandings from cultural distance, connections to course themes, and 3 levels of analysis questions."
+            </div>
+
+            <h3>Assessment Creation</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>MC Question Development</h4>
+                    <div class="prompt-box">
+                        "Create 3 AP-style stimulus-based multiple choice questions for Unit 2 (Networks of Exchange). Use a passage about Indian Ocean trade. Include questions testing contextualization, sourcing, and making connections."
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <h4>SAQ Development</h4>
+                    <div class="prompt-box">
+                        "Write a short-answer question set for Unit 6 comparing European imperialism in two different regions. Include a map or data stimulus and model responses at different score levels."
+                    </div>
+                </div>
+            </div>
+
+            <h3>Differentiation Support</h3>
+            <div class="prompt-box">
+                <strong>Document Modification:</strong><br>
+                "Modify this primary source from [source] for students reading below grade level. Maintain historical accuracy while simplifying language. Provide vocabulary support and guiding questions."
+            </div>
+
+            <h3>Best Practices Checklist</h3>
+            <div class="resource-card">
+                <h4>Before Using AI-Generated World History Content:</h4>
+                <ul>
+                    <li>☐ Verify all historical facts, dates, and geographic details</li>
+                    <li>☐ Check for Eurocentric bias or framing</li>
+                    <li>☐ Ensure non-Western perspectives are accurately represented</li>
+                    <li>☐ Confirm primary source excerpts are accurate</li>
+                    <li>☐ Review for appropriate complexity and AP alignment</li>
+                    <li>☐ Check that diverse voices and experiences are included</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- AI for Students Tab -->
+        <div id="ai-students" class="tab-content">
+            <h2>🎓 AI Tools for Students</h2>
+            
+            <div class="warning-box">
+                <h4>⚠️ Student Guidelines for AI Use</h4>
+                <ul>
+                    <li>AI is a study tool, not a substitute for learning</li>
+                    <li>Always verify information—AI can make mistakes, especially about non-Western history</li>
+                    <li>Never submit AI-generated work as your own</li>
+                    <li>Use AI to understand concepts, not to avoid thinking</li>
+                    <li>Follow your teacher's and school's AI policies</li>
+                </ul>
+            </div>
+
+            <h3>Understanding Complex Concepts</h3>
+            
+            <div class="prompt-box">
+                <strong>Concept Explainer:</strong><br>
+                "Explain the concept of [syncretism/the millet system/the Columbian Exchange] in AP World History terms. Include: a clear definition, why it mattered historically, 2-3 specific examples from different regions, and how it connects to course themes."
+            </div>
+
+            <div class="prompt-box">
+                <strong>Cross-Regional Connections:</strong><br>
+                "Help me understand how the theme of [Technology and Innovation] appears in Unit 4, 5, and 6. What are the continuities and changes in how technology affected societies in different regions?"
+            </div>
+
+            <h3>Writing Practice</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Thesis Feedback</h4>
+                    <div class="prompt-box">
+                        "I'm writing a comparison essay on [topic]. Here's my thesis: [thesis]. Give me feedback on whether it's historically defensible, addresses both similarities AND differences, and makes a clear argument. Don't write it for me—help me improve it."
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <h4>Evidence Building</h4>
+                    <div class="prompt-box">
+                        "I'm arguing that [thesis]. What specific historical evidence from [regions/time period] could I use? List possibilities but let me decide which to use and how to analyze them."
+                    </div>
+                </div>
+            </div>
+
+            <h3>Document Analysis Practice</h3>
+            <div class="prompt-box">
+                <strong>HAPP Practice:</strong><br>
+                "I'm analyzing a document from [region/time period] about [topic]. Help me think through HAPP analysis. Ask me questions about Historical situation, Audience, Purpose, and Point of view rather than just telling me."
+            </div>
+
+            <h3>Study and Review</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Unit Quiz</h4>
+                    <div class="prompt-box">
+                        "Quiz me on AP World History Unit [X]. Ask me questions that cover different regions and themes. After each answer, explain the historical significance."
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <h4>Comparison Practice</h4>
+                    <div class="prompt-box">
+                        "Help me practice comparing [empire/development/event] in [region A] with [region B]. Ask me questions that help me identify similarities, differences, and reasons for both."
+                    </div>
+                </div>
+            </div>
+
+            <h3>Critical Thinking About AI and World History</h3>
+            <div class="resource-card">
+                <h4>Evaluating AI for World History</h4>
+                <p>Be especially critical when using AI for world history:</p>
+                <ul>
+                    <li><strong>Bias check:</strong> AI may reflect Western perspectives more than non-Western ones</li>
+                    <li><strong>Gap check:</strong> AI may have less information about some regions</li>
+                    <li><strong>Framing check:</strong> How does AI describe colonialism, imperialism, non-European societies?</li>
+                    <li><strong>Verification:</strong> Cross-reference with textbook and primary sources</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <p>AP World History: Modern Teacher Resource Hub | Georgia Standards Aligned</p>
+            <p>AP® is a trademark registered by the College Board, which is not affiliated with this resource.</p>
+        </footer>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.nav-buttons button').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

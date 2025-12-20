@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Grade Social Studies Teacher Resource Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-warm: #FF6B35;
+            --primary-cool: #4ECDC4;
+            --accent-yellow: #FFE66D;
+            --accent-pink: #FF8B94;
+            --accent-purple: #9B5DE5;
+            --deep-navy: #2C3E50;
+            --soft-cream: #FFF8F0;
+            --text-dark: #2D3436;
+            --text-light: #636E72;
+            --card-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            --hover-lift: translateY(-3px);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #4facfe 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.7;
+            color: var(--text-dark);
+        }
+        .container { max-width: 1400px; margin: 0 auto; }
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,248,240,0.95) 100%);
+            border-radius: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(78,205,196,0.1) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-20px, 20px) rotate(5deg); }
+        }
+        header h1 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-warm), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        header .grade-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #f5576c, #f093fb);
+            color: white;
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        header p {
+            color: var(--text-light);
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .decorative-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            font-size: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        .decorative-icons span { animation: bounce 2s ease-in-out infinite; }
+        .decorative-icons span:nth-child(2) { animation-delay: 0.2s; }
+        .decorative-icons span:nth-child(3) { animation-delay: 0.4s; }
+        .decorative-icons span:nth-child(4) { animation-delay: 0.6s; }
+        .decorative-icons span:nth-child(5) { animation-delay: 0.8s; }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .tab-navigation {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            padding: 25px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 25px;
+            margin-bottom: 30px;
+            box-shadow: var(--card-shadow);
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+        .tab-btn {
+            padding: 12px 18px;
+            border: none;
+            background: linear-gradient(135deg, #f5f6fa, #dfe6e9);
+            border-radius: 15px;
+            cursor: pointer;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .tab-btn:hover {
+            transform: var(--hover-lift);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        .tab-btn.active {
+            background: linear-gradient(135deg, #f5576c, #f093fb);
+            color: white;
+            box-shadow: 0 5px 25px rgba(245,87,108,0.4);
+        }
+        .tab-btn .icon { font-size: 1.1rem; }
+        .tab-content {
+            display: none;
+            background: rgba(255,255,255,0.97);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: var(--card-shadow);
+            animation: fadeIn 0.4s ease;
+        }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .tab-content h2 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: var(--deep-navy);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .tab-content h2 .section-icon { font-size: 2.5rem; }
+        .tab-content h3 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #f5576c;
+            margin: 30px 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--accent-yellow);
+        }
+        .tab-content h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--accent-purple);
+            margin: 20px 0 10px 0;
+        }
+        .tab-content p { margin-bottom: 15px; color: var(--text-dark); }
+        .content-card {
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary-cool);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .content-card:hover {
+            transform: var(--hover-lift);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+        .content-card.warm { border-left-color: #f5576c; }
+        .content-card.purple { border-left-color: var(--accent-purple); }
+        .content-card.yellow { border-left-color: var(--accent-yellow); }
+        .content-card.pink { border-left-color: var(--accent-pink); }
+        .standards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .standard-item {
+            background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+            border-radius: 15px;
+            padding: 20px;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+        .standard-item::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: -1;
+            margin: -2px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, #f5576c, var(--accent-purple));
+        }
+        .standard-code {
+            display: inline-block;
+            background: linear-gradient(135deg, #f5576c, #f093fb);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .resource-list { list-style: none; padding: 0; }
+        .resource-list li {
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+        .resource-list li:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .resource-list li .icon { font-size: 1.5rem; }
+        .resource-list li a {
+            color: #f5576c;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .resource-list li a:hover { color: var(--accent-purple); }
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .vocab-card {
+            background: linear-gradient(135deg, var(--soft-cream) 0%, #fff 100%);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-yellow);
+        }
+        .vocab-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .vocab-card .term {
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #f5576c;
+            margin-bottom: 8px;
+        }
+        .vocab-card .definition { font-size: 0.95rem; color: var(--text-light); }
+        .activity-card {
+            background: linear-gradient(135deg, #fff 0%, var(--soft-cream) 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border: 2px solid var(--accent-yellow);
+            position: relative;
+            overflow: hidden;
+        }
+        .activity-card h4 { color: var(--deep-navy); margin-bottom: 15px; }
+        .materials-list {
+            background: rgba(78,205,196,0.1);
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+        .materials-list strong { color: var(--primary-cool); }
+        .steps-list { counter-reset: steps; list-style: none; padding: 0; }
+        .steps-list li {
+            counter-increment: steps;
+            padding: 12px 20px 12px 60px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            position: relative;
+        }
+        .steps-list li::before {
+            content: counter(steps);
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #f5576c, #f093fb);
+            border-radius: 50%;
+            color: white;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+        .ai-tool-card {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 5px solid #0ea5e9;
+            position: relative;
+        }
+        .ai-tool-card::before {
+            content: '🤖';
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 2rem;
+            opacity: 0.3;
+        }
+        .ai-tool-card h4 { color: #0369a1; margin-bottom: 10px; font-size: 1.2rem; }
+        .ai-tool-card .tool-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #0ea5e9, #6366f1);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .ai-tool-card ul { margin-left: 20px; margin-top: 10px; }
+        .ai-tool-card li { margin-bottom: 8px; color: #475569; }
+        .ai-warning {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #f59e0b;
+        }
+        .ai-warning h4 { color: #b45309; margin-bottom: 10px; }
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #f5576c, #f093fb);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            box-shadow: 0 5px 25px rgba(245,87,108,0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .print-btn:hover { transform: scale(1.05); }
+        @media print {
+            body { background: white; padding: 0; }
+            .tab-navigation, .print-btn { display: none; }
+            .tab-content { display: block !important; break-inside: avoid; box-shadow: none; margin-bottom: 30px; }
+        }
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            .tab-btn { padding: 10px 12px; font-size: 0.8rem; }
+            .tab-content { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="grade-badge">📚 First Grade</div>
+            <h1>Social Studies Teacher Resource Hub</h1>
+            <p>Engaging resources aligned with Georgia Standards of Excellence for teaching historical figures, geography, citizenship, and economics</p>
+            <div class="decorative-icons">
+                <span>🏛️</span>
+                <span>🗺️</span>
+                <span>🇺🇸</span>
+                <span>👨‍👩‍👧‍👦</span>
+                <span>💰</span>
+            </div>
+        </header>
+
+        <nav class="tab-navigation">
+            <button class="tab-btn active" onclick="showTab('standards')"><span class="icon">📋</span> Standards</button>
+            <button class="tab-btn" onclick="showTab('background')"><span class="icon">📖</span> Background</button>
+            <button class="tab-btn" onclick="showTab('websites')"><span class="icon">🌐</span> Websites</button>
+            <button class="tab-btn" onclick="showTab('inquiry')"><span class="icon">🔍</span> Inquiry</button>
+            <button class="tab-btn" onclick="showTab('investigations')"><span class="icon">🔬</span> Investigations</button>
+            <button class="tab-btn" onclick="showTab('videos')"><span class="icon">🎬</span> Videos</button>
+            <button class="tab-btn" onclick="showTab('articles')"><span class="icon">📰</span> Articles</button>
+            <button class="tab-btn" onclick="showTab('assessments')"><span class="icon">✅</span> Assessments</button>
+            <button class="tab-btn" onclick="showTab('printables')"><span class="icon">📄</span> Printables</button>
+            <button class="tab-btn" onclick="showTab('vocabulary')"><span class="icon">📝</span> Vocabulary</button>
+            <button class="tab-btn" onclick="showTab('games')"><span class="icon">🎮</span> Games</button>
+            <button class="tab-btn" onclick="showTab('differentiation')"><span class="icon">🎯</span> Differentiation</button>
+            <button class="tab-btn" onclick="showTab('misconceptions')"><span class="icon">💡</span> Misconceptions</button>
+            <button class="tab-btn" onclick="showTab('cultural')"><span class="icon">🌎</span> Cultural</button>
+            <button class="tab-btn" onclick="showTab('historical-sites')"><span class="icon">🏛️</span> Historical Sites</button>
+            <button class="tab-btn" onclick="showTab('ai-teachers')"><span class="icon">🤖</span> AI for Teachers</button>
+            <button class="tab-btn" onclick="showTab('ai-students')"><span class="icon">🧒</span> AI for Students</button>
+        </nav>
+
+        <!-- Standards Tab -->
+        <div id="standards" class="tab-content active">
+            <h2><span class="section-icon">📋</span> Standards Alignment</h2>
+            
+            <div class="content-card">
+                <h3>📚 Standards Frameworks</h3>
+                <p>This hub aligns to multiple standards frameworks to support comprehensive social studies instruction:</p>
+                <ul style="margin-left: 20px;">
+                    <li><strong>GSE:</strong> Georgia Standards of Excellence (state standards)</li>
+                    <li><strong>AKS:</strong> Academic Knowledge and Skills (Gwinnett County)</li>
+                    <li><strong>NCSS:</strong> National Council for the Social Studies C3 Framework</li>
+                </ul>
+            </div>
+            
+            <h3>Georgia Standards of Excellence (GSE)</h3>
+            <div class="standards-grid">
+                <div class="standard-item">
+                    <span class="standard-code">SS1H1</span>
+                    <p><strong>Historical Figures:</strong> Read about and describe the life of historical figures in American history (Benjamin Franklin, Thomas Jefferson, Meriwether Lewis and William Clark, Harriet Tubman, Theodore Roosevelt, George Washington Carver)</p>
+                </div>
+                <div class="standard-item">
+                    <span class="standard-code">SS1G1</span>
+                    <p><strong>Geographic Representations:</strong> Describe how geographic features and cultural characteristics change from place to place using maps, globes, and photographs</p>
+                </div>
+                <div class="standard-item">
+                    <span class="standard-code">SS1G2</span>
+                    <p><strong>Location:</strong> Identify and locate the student's city, county, state, nation, and continent on maps and globes</p>
+                </div>
+                <div class="standard-item">
+                    <span class="standard-code">SS1G3</span>
+                    <p><strong>Human-Environment Interaction:</strong> Describe how people adapt to and modify their environment</p>
+                </div>
+                <div class="standard-item">
+                    <span class="standard-code">SS1CG1</span>
+                    <p><strong>Civic Participation:</strong> Describe how people in the local community and state make and enforce rules and laws</p>
+                </div>
+                <div class="standard-item">
+                    <span class="standard-code">SS1CG2</span>
+                    <p><strong>Civic Virtues:</strong> Explain the meaning of the Pledge of Allegiance and why it is recited</p>
+                </div>
+                <div class="standard-item">
+                    <span class="standard-code">SS1E1</span>
+                    <p><strong>Economic Decision Making:</strong> Explain that people must make choices because they cannot have everything they want (scarcity)</p>
+                </div>
+                <div class="standard-item">
+                    <span class="standard-code">SS1E2</span>
+                    <p><strong>Markets and Trade:</strong> Explain that people earn income by exchanging their labor for wages and use income to purchase goods and services</p>
+                </div>
+                <div class="standard-item">
+                    <span class="standard-code">SS1E3</span>
+                    <p><strong>Financial Literacy:</strong> Describe the costs and benefits of personal spending and saving choices</p>
+                </div>
+            </div>
+
+            <h3>NCSS Themes Addressed</h3>
+            <div class="content-card">
+                <ul class="resource-list">
+                    <li><span class="icon">⏰</span> <strong>Time, Continuity, and Change:</strong> Historical figures and their contributions</li>
+                    <li><span class="icon">🌍</span> <strong>People, Places, and Environments:</strong> Geographic features and locations</li>
+                    <li><span class="icon">🏛️</span> <strong>Power, Authority, and Governance:</strong> Rules, laws, and citizenship</li>
+                    <li><span class="icon">💰</span> <strong>Production, Distribution, and Consumption:</strong> Scarcity, income, and spending</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Teacher Background Tab -->
+        <div id="background" class="tab-content">
+            <h2><span class="section-icon">📖</span> Teacher Background Knowledge</h2>
+            
+            <div class="content-card">
+                <h3>Historical Figures Overview</h3>
+                <p><strong>Benjamin Franklin (1706-1790):</strong> Founding Father, scientist, inventor, author. Known for experiments with electricity, invented bifocals and the Franklin stove. Helped draft the Declaration of Independence.</p>
+                <p><strong>Thomas Jefferson (1743-1826):</strong> Third U.S. President, primary author of the Declaration of Independence. Champion of individual rights and education.</p>
+                <p><strong>Lewis and Clark (1804-1806):</strong> Led the Corps of Discovery expedition from St. Louis to the Pacific Ocean, mapping the American West.</p>
+            </div>
+
+            <div class="content-card warm">
+                <h3>Historical Figures Continued</h3>
+                <p><strong>Harriet Tubman (c.1822-1913):</strong> Escaped slave who became a conductor on the Underground Railroad, leading approximately 70 people to freedom. Later served as a Union spy during the Civil War.</p>
+                <p><strong>Theodore Roosevelt (1858-1919):</strong> 26th President, conservationist who established national parks. Known for his "Rough Riders" and the Panama Canal.</p>
+                <p><strong>George Washington Carver (c.1864-1943):</strong> Agricultural scientist who developed hundreds of products from peanuts, sweet potatoes, and other crops. Promoted crop rotation to help Southern farmers.</p>
+            </div>
+
+            <div class="content-card purple">
+                <h3>Geography Concepts</h3>
+                <p><strong>Geographic Features:</strong> Mountains, rivers, lakes, plains, deserts, coastlines</p>
+                <p><strong>Cultural Characteristics:</strong> Language, food, clothing, holidays, traditions</p>
+                <p><strong>Human-Environment Interaction:</strong> Building homes, farming, creating roads, using natural resources</p>
+                <p><strong>Location Vocabulary:</strong> City, county, state, nation, continent, hemisphere</p>
+            </div>
+
+            <div class="content-card yellow">
+                <h3>Economics Concepts</h3>
+                <p><strong>Scarcity:</strong> We can't have everything we want, so we must make choices.</p>
+                <p><strong>Income:</strong> Money earned from working (wages).</p>
+                <p><strong>Spending:</strong> Using money to buy goods and services.</p>
+                <p><strong>Saving:</strong> Setting aside money for future use.</p>
+                <p><strong>Opportunity Cost:</strong> What you give up when you make a choice.</p>
+            </div>
+        </div>
+
+        <!-- Websites Tab -->
+        <div id="websites" class="tab-content">
+            <h2><span class="section-icon">🌐</span> Historical Websites for Research</h2>
+            
+            <h3>Historical Figures</h3>
+            <ul class="resource-list">
+                <li><span class="icon">🏛️</span> <a href="https://www.loc.gov/teachers/" target="_blank">Library of Congress - Teachers</a> - Primary sources on historical figures</li>
+                <li><span class="icon">📚</span> <a href="https://www.ducksters.com/biography/" target="_blank">Ducksters Biographies</a> - Kid-friendly biographies</li>
+                <li><span class="icon">🌟</span> <a href="https://kids.nationalgeographic.com/" target="_blank">National Geographic Kids</a> - Explorers and history</li>
+            </ul>
+
+            <h3>Geography Resources</h3>
+            <ul class="resource-list">
+                <li><span class="icon">🗺️</span> <a href="https://www.nationalgeographic.org/education/" target="_blank">National Geographic Education</a> - Maps and geography</li>
+                <li><span class="icon">🌍</span> <a href="https://www.google.com/earth/" target="_blank">Google Earth</a> - Virtual exploration</li>
+                <li><span class="icon">📍</span> <a href="https://georgia.gov/georgia-facts-and-symbols" target="_blank">Georgia.gov</a> - Georgia facts and symbols</li>
+            </ul>
+
+            <h3>Civics and Economics</h3>
+            <ul class="resource-list">
+                <li><span class="icon">🏛️</span> <a href="https://bensguide.gpo.gov/" target="_blank">Ben's Guide to U.S. Government</a> - Kid-friendly civics</li>
+                <li><span class="icon">💰</span> <a href="https://www.econedlink.org/" target="_blank">EconEdLink</a> - Economics education resources</li>
+            </ul>
+        </div>
+
+        <!-- Inquiry Lessons Tab -->
+        <div id="inquiry" class="tab-content">
+            <h2><span class="section-icon">🔍</span> Inquiry-Based Lessons</h2>
+            
+            <div class="activity-card">
+                <h4>🔬 Inquiry 1: What Makes Someone a Hero?</h4>
+                <p><strong>Compelling Question:</strong> What makes someone a hero in American history?</p>
+                <div class="materials-list">
+                    <strong>Materials:</strong> Biographies of historical figures, chart paper, hero attribute cards
+                </div>
+                <ol class="steps-list">
+                    <li><strong>Engage:</strong> Ask students to name people they think are heroes. What makes them heroic?</li>
+                    <li><strong>Explore:</strong> In small groups, read about one historical figure and identify their heroic actions.</li>
+                    <li><strong>Explain:</strong> Create a class chart of "hero qualities" based on findings.</li>
+                    <li><strong>Elaborate:</strong> Students draw and write about a historical figure using hero qualities.</li>
+                    <li><strong>Evaluate:</strong> Present heroes and explain why they're important to American history.</li>
+                </ol>
+                <p><strong>Standards:</strong> SS1H1</p>
+            </div>
+
+            <div class="activity-card">
+                <h4>🗺️ Inquiry 2: How Does Where We Live Shape How We Live?</h4>
+                <p><strong>Compelling Question:</strong> How does geography affect the way people live?</p>
+                <ol class="steps-list">
+                    <li><strong>Engage:</strong> Show photos of homes in different environments. How are they different?</li>
+                    <li><strong>Explore:</strong> Compare living in mountains, near oceans, in deserts, and on plains.</li>
+                    <li><strong>Explain:</strong> Discuss how people adapt their homes, clothes, and food based on location.</li>
+                    <li><strong>Elaborate:</strong> Design a home for a specific environment.</li>
+                    <li><strong>Evaluate:</strong> Explain how the home fits the environment.</li>
+                </ol>
+                <p><strong>Standards:</strong> SS1G1, SS1G3</p>
+            </div>
+
+            <div class="activity-card">
+                <h4>💰 Inquiry 3: Why Can't We Have Everything We Want?</h4>
+                <p><strong>Compelling Question:</strong> Why do we have to make choices about what to buy?</p>
+                <ol class="steps-list">
+                    <li><strong>Engage:</strong> Give students a pretend $10. Show items costing more than $10 total. What do they do?</li>
+                    <li><strong>Explore:</strong> Discuss why we can't buy everything (scarcity).</li>
+                    <li><strong>Explain:</strong> Introduce opportunity cost - what you give up to get something else.</li>
+                    <li><strong>Elaborate:</strong> Role-play saving vs. spending decisions.</li>
+                    <li><strong>Evaluate:</strong> Write/draw about a choice and what was given up.</li>
+                </ol>
+                <p><strong>Standards:</strong> SS1E1, SS1E3</p>
+            </div>
+        </div>
+
+        <!-- Investigations Tab -->
+        <div id="investigations" class="tab-content">
+            <h2><span class="section-icon">🔬</span> Document-Based Investigations</h2>
+            
+            <div class="content-card">
+                <h3>Investigation 1: Benjamin Franklin's Inventions</h3>
+                <h4>Primary Source: Images of Franklin's inventions</h4>
+                <p><strong>Guiding Questions:</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>What problem do you think this invention solved?</li>
+                    <li>How might people have lived without this invention?</li>
+                    <li>What does this tell us about Benjamin Franklin?</li>
+                </ul>
+            </div>
+
+            <div class="content-card warm">
+                <h3>Investigation 2: Lewis and Clark Maps</h3>
+                <h4>Primary Source: Simplified expedition map</h4>
+                <ul style="margin-left: 20px;">
+                    <li>What route did Lewis and Clark take?</li>
+                    <li>What geographic features did they encounter?</li>
+                    <li>Why was this journey important?</li>
+                </ul>
+            </div>
+
+            <div class="content-card purple">
+                <h3>Investigation 3: Harriet Tubman and the Underground Railroad</h3>
+                <h4>Primary Source: Underground Railroad map (simplified)</h4>
+                <ul style="margin-left: 20px;">
+                    <li>What was the Underground Railroad?</li>
+                    <li>Why did people need to escape?</li>
+                    <li>How did Harriet Tubman help people?</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Videos Tab -->
+        <div id="videos" class="tab-content">
+            <h2><span class="section-icon">🎬</span> Educational Videos</h2>
+            
+            <h3>Historical Figures</h3>
+            <div class="content-card">
+                <ul class="resource-list">
+                    <li><span class="icon">🎥</span> <strong>BrainPOP Jr. - Benjamin Franklin</strong> - Biography for young learners</li>
+                    <li><span class="icon">🎥</span> <strong>BrainPOP Jr. - Harriet Tubman</strong> - Underground Railroad story</li>
+                    <li><span class="icon">🎥</span> <strong>Liberty's Kids</strong> - Episodes on American history</li>
+                </ul>
+            </div>
+
+            <h3>Geography</h3>
+            <div class="content-card warm">
+                <ul class="resource-list">
+                    <li><span class="icon">🎥</span> <strong>National Geographic Kids - 50 States</strong> - U.S. geography</li>
+                    <li><span class="icon">🎥</span> <strong>SciShow Kids - Maps</strong> - How maps work</li>
+                </ul>
+            </div>
+
+            <h3>Economics</h3>
+            <div class="content-card purple">
+                <ul class="resource-list">
+                    <li><span class="icon">🎥</span> <strong>BrainPOP Jr. - Saving and Spending</strong> - Financial literacy</li>
+                    <li><span class="icon">🎥</span> <strong>Sesame Street - Wants and Needs</strong> - Economic choices</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Articles Tab -->
+        <div id="articles" class="tab-content">
+            <h2><span class="section-icon">📰</span> Student Reading Passages</h2>
+            
+            <div class="content-card">
+                <h3>📖 Benjamin Franklin</h3>
+                <p style="font-size: 1.1rem; line-height: 2;">Benjamin Franklin was a great American. He was an inventor. He made bifocals to help people see. He did experiments with lightning. He helped write important papers for our country. Benjamin Franklin is on the $100 bill!</p>
+                <p><strong>Reading Level:</strong> 1st Grade | <strong>Standards:</strong> SS1H1</p>
+            </div>
+
+            <div class="content-card warm">
+                <h3>📖 Harriet Tubman</h3>
+                <p style="font-size: 1.1rem; line-height: 2;">Harriet Tubman was very brave. She escaped from slavery. Then she went back many times to help others escape. She used the Underground Railroad. This was not a real train. It was a secret path to freedom. Harriet Tubman is an American hero.</p>
+                <p><strong>Reading Level:</strong> 1st Grade | <strong>Standards:</strong> SS1H1</p>
+            </div>
+
+            <div class="content-card purple">
+                <h3>📖 Where Do You Live?</h3>
+                <p style="font-size: 1.1rem; line-height: 2;">You live in a city or town. Your city is in a county. Your county is in the state of Georgia. Georgia is in the United States of America. The United States is in North America. North America is a continent. You can find all of these on a map!</p>
+                <p><strong>Reading Level:</strong> 1st Grade | <strong>Standards:</strong> SS1G2</p>
+            </div>
+
+            <div class="content-card yellow">
+                <h3>📖 Saving and Spending</h3>
+                <p style="font-size: 1.1rem; line-height: 2;">When you get money, you have a choice. You can spend it now or save it for later. If you save, you can buy something bigger later. If you spend, you get something now. Both choices are okay! It's important to think about what you really want.</p>
+                <p><strong>Reading Level:</strong> 1st Grade | <strong>Standards:</strong> SS1E3</p>
+            </div>
+        </div>
+
+        <!-- Assessments Tab -->
+        <div id="assessments" class="tab-content">
+            <h2><span class="section-icon">✅</span> Assessment Strategies</h2>
+            
+            <div class="content-card">
+                <h3>Formative Assessments</h3>
+                <p><strong>Biography Brochures:</strong> Create a simple brochure about a historical figure.</p>
+                <p><strong>Map Skills Check:</strong> Label city, state, country, and continent on a blank map.</p>
+                <p><strong>Spending/Saving Journals:</strong> Track choices and reasons in a class store scenario.</p>
+            </div>
+
+            <div class="content-card warm">
+                <h3>Performance Tasks</h3>
+                <p><strong>Historical Figure Presentation:</strong> Dress as or present about a historical figure. (SS1H1)</p>
+                <p><strong>Community Map:</strong> Create a map of the local community with geographic features. (SS1G1, SS1G2)</p>
+                <p><strong>Economic Choices Book:</strong> Illustrate scarcity and choices. (SS1E1, SS1E3)</p>
+            </div>
+
+            <div class="content-card purple">
+                <h3>Observation Checklists</h3>
+                <ul style="margin-left: 20px;">
+                    <li>□ Can identify and describe historical figures</li>
+                    <li>□ Uses geographic vocabulary correctly</li>
+                    <li>□ Locates city, state, country on maps</li>
+                    <li>□ Understands scarcity and choices</li>
+                    <li>□ Can explain saving vs. spending</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Printables Tab -->
+        <div id="printables" class="tab-content">
+            <h2><span class="section-icon">📄</span> Printable Resources</h2>
+            
+            <div class="content-card">
+                <h3>Graphic Organizers</h3>
+                <ul class="resource-list">
+                    <li><span class="icon">📋</span> Historical Figure Biography Organizer</li>
+                    <li><span class="icon">📋</span> Map Labeling Worksheet (city, county, state, nation, continent)</li>
+                    <li><span class="icon">📋</span> Saving vs. Spending T-Chart</li>
+                    <li><span class="icon">📋</span> Wants vs. Needs Sort</li>
+                </ul>
+            </div>
+
+            <div class="content-card warm">
+                <h3>Activity Sheets</h3>
+                <ul class="resource-list">
+                    <li><span class="icon">✏️</span> Historical Figures Trading Cards Template</li>
+                    <li><span class="icon">✏️</span> My Community Map Template</li>
+                    <li><span class="icon">✏️</span> Pledge of Allegiance Illustrated Booklet</li>
+                    <li><span class="icon">✏️</span> My Spending Choices Mini-Book</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Vocabulary Tab -->
+        <div id="vocabulary" class="tab-content">
+            <h2><span class="section-icon">📝</span> Key Vocabulary</h2>
+            
+            <h3>Historical Terms</h3>
+            <div class="vocab-grid">
+                <div class="vocab-card">
+                    <div class="term">🔬 Inventor</div>
+                    <div class="definition">Someone who creates new things</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="term">🗺️ Explorer</div>
+                    <div class="definition">Someone who travels to discover new places</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="term">🦸 Hero</div>
+                    <div class="definition">Someone who does brave or good things</div>
+                </div>
+            </div>
+
+            <h3>Geography Terms</h3>
+            <div class="vocab-grid">
+                <div class="vocab-card">
+                    <div class="term">🏙️ City</div>
+                    <div class="definition">A large town where many people live</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="term">📍 State</div>
+                    <div class="definition">A part of a country with its own government</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="term">🌎 Continent</div>
+                    <div class="definition">A very large area of land</div>
+                </div>
+            </div>
+
+            <h3>Economics Terms</h3>
+            <div class="vocab-grid">
+                <div class="vocab-card">
+                    <div class="term">❌ Scarcity</div>
+                    <div class="definition">Not having enough of something for everyone</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="term">💵 Income</div>
+                    <div class="definition">Money earned from working</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="term">🏦 Saving</div>
+                    <div class="definition">Keeping money to use later</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Games Tab -->
+        <div id="games" class="tab-content">
+            <h2><span class="section-icon">🎮</span> Learning Games & Activities</h2>
+            
+            <div class="activity-card">
+                <h4>🎭 Historical Figure Wax Museum</h4>
+                <p>Students dress as historical figures and "come alive" when visitors approach to share their story.</p>
+                <p><strong>Standards:</strong> SS1H1</p>
+            </div>
+
+            <div class="activity-card">
+                <h4>🗺️ Map Detective</h4>
+                <p>Hide items around the classroom. Students use a map to find them, practicing map skills and directions.</p>
+                <p><strong>Standards:</strong> SS1G1, SS1G2</p>
+            </div>
+
+            <div class="activity-card">
+                <h4>💰 Classroom Store</h4>
+                <p>Set up a store with items at different prices. Students earn "money" and make spending/saving choices.</p>
+                <p><strong>Standards:</strong> SS1E1, SS1E2, SS1E3</p>
+            </div>
+
+            <div class="activity-card">
+                <h4>🏃 Pledge of Allegiance Freeze</h4>
+                <p>Students act out words from the Pledge when they hear them, then freeze to explain the meaning.</p>
+                <p><strong>Standards:</strong> SS1CG2</p>
+            </div>
+        </div>
+
+        <!-- Differentiation Tab -->
+        <div id="differentiation" class="tab-content">
+            <h2><span class="section-icon">🎯</span> Differentiation Strategies</h2>
+            
+            <div class="content-card">
+                <h3>English Language Learners (ELL)</h3>
+                <ul style="margin-left: 20px;">
+                    <li>Provide picture cards with vocabulary words and definitions</li>
+                    <li>Use sentence frames: "Benjamin Franklin invented _____."</li>
+                    <li>Partner with English-proficient peers for activities</li>
+                    <li>Create visual timelines for historical figures</li>
+                    <li>Use maps with labels in home language when possible</li>
+                </ul>
+            </div>
+
+            <div class="content-card warm">
+                <h3>Gifted and Advanced Learners</h3>
+                <ul style="margin-left: 20px;">
+                    <li>Research additional historical figures and compare contributions</li>
+                    <li>Create a "What would happen if..." scenario for historical events</li>
+                    <li>Design an invention to solve a modern problem</li>
+                    <li>Calculate more complex spending/saving scenarios</li>
+                    <li>Compare maps from different time periods</li>
+                </ul>
+            </div>
+
+            <div class="content-card purple">
+                <h3>Students with Learning Differences</h3>
+                <ul style="margin-left: 20px;">
+                    <li>Provide audio recordings of reading passages</li>
+                    <li>Use manipulatives for economic concepts (play money, tokens)</li>
+                    <li>Break biographical information into smaller chunks</li>
+                    <li>Offer choice in how to demonstrate learning</li>
+                    <li>Provide graphic organizers with partial completion</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Misconceptions Tab -->
+        <div id="misconceptions" class="tab-content">
+            <h2><span class="section-icon">💡</span> Common Misconceptions</h2>
+            
+            <div class="content-card">
+                <h3>Historical Figures</h3>
+                <h4>❌ Misconception: Benjamin Franklin was a President</h4>
+                <p>✅ <strong>Accurate:</strong> Franklin was never President. He was a Founding Father, inventor, and diplomat, but he never held the office of President.</p>
+                
+                <h4>❌ Misconception: The Underground Railroad was an actual train</h4>
+                <p>✅ <strong>Accurate:</strong> The Underground Railroad was a secret network of people and safe houses that helped enslaved people escape to freedom. There were no actual trains.</p>
+            </div>
+
+            <div class="content-card warm">
+                <h3>Geography</h3>
+                <h4>❌ Misconception: States and countries are the same thing</h4>
+                <p>✅ <strong>Accurate:</strong> States are parts of a country. Georgia is a state that is part of the country called the United States of America.</p>
+            </div>
+
+            <div class="content-card purple">
+                <h3>Economics</h3>
+                <h4>❌ Misconception: Money comes from the bank whenever you need it</h4>
+                <p>✅ <strong>Accurate:</strong> People earn money by working. The bank holds money that people have already earned and saved.</p>
+                
+                <h4>❌ Misconception: Saving means you can never spend the money</h4>
+                <p>✅ <strong>Accurate:</strong> Saving means setting money aside for later. You can still spend it, but you're waiting to spend it on something you really want or need.</p>
+            </div>
+        </div>
+
+        <!-- Cultural Connections Tab -->
+        <div id="cultural" class="tab-content">
+            <h2><span class="section-icon">🌎</span> Cultural Connections</h2>
+            
+            <div class="content-card">
+                <h3>Diverse Perspectives on Historical Figures</h3>
+                <ul style="margin-left: 20px;">
+                    <li>Include stories of lesser-known historical figures from diverse backgrounds</li>
+                    <li>Discuss how different groups might view historical events differently</li>
+                    <li>Connect to students' own cultural heroes and role models</li>
+                </ul>
+            </div>
+
+            <div class="content-card warm">
+                <h3>Geography and Cultural Diversity</h3>
+                <p>When teaching about geographic features and how people adapt:</p>
+                <ul style="margin-left: 20px;">
+                    <li>Show examples of homes from different cultures and climates</li>
+                    <li>Discuss how students' families might have adapted from their home countries</li>
+                    <li>Compare food, clothing, and traditions in different geographic areas</li>
+                </ul>
+            </div>
+
+            <div class="content-card purple">
+                <h3>Economics Across Cultures</h3>
+                <ul style="margin-left: 20px;">
+                    <li>Discuss how different cultures think about saving and spending</li>
+                    <li>Explore bartering traditions from various cultures</li>
+                    <li>Connect to family values around money and work</li>
+                </ul>
+            </div>
+
+            <div class="content-card yellow">
+                <h3>Recommended Diverse Books</h3>
+                <ul class="resource-list">
+                    <li><span class="icon">📚</span> "Henry's Freedom Box" by Ellen Levine (Harriet Tubman era)</li>
+                    <li><span class="icon">📚</span> "Separate Is Never Equal" by Duncan Tonatiuh</li>
+                    <li><span class="icon">📚</span> "The Name Jar" by Yangsook Choi</li>
+                </ul>
+            </div>
+        </div>
+
+        
+        <!-- Historical Sites Tab -->
+        <div id="historical-sites" class="tab-content">
+            <h2><span class="section-icon">🏛️</span> Historical Sites & Virtual Field Trips</h2>
+
+            <div class="content-card">
+                <h3>🍑 Georgia Historical Sites</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Martin Luther King Jr. National Historical Park (Atlanta)</strong> - Where Dr. King grew up and preached</li>
+                    <li><strong>Georgia State Capitol (Atlanta)</strong> - Gold dome where state laws are made</li>
+                    <li><strong>Georgia Aquarium (Atlanta)</strong> - World's largest aquarium, shows Georgia's connection to ocean</li>
+                    <li><strong>Savannah Historic District</strong> - One of America's oldest cities</li>
+                </ul>
+            </div>
+
+            <div class="content-card warm">
+                <h3>🇺🇸 National Sites for First Grade Topics</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Independence Hall (Philadelphia)</strong> - Where the Declaration of Independence was signed</li>
+                    <li><strong>Mount Vernon (Virginia)</strong> - George Washington's home</li>
+                    <li><strong>Monticello (Virginia)</strong> - Thomas Jefferson's home</li>
+                    <li><strong>Gateway Arch (St. Louis)</strong> - Celebrates westward expansion, connects to Lewis & Clark</li>
+                </ul>
+            </div>
+
+            <div class="content-card purple">
+                <h3>💻 Virtual Field Trips</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Google Arts & Culture</strong> - Virtual tours of historic sites</li>
+                    <li><strong>Mount Vernon Virtual Tour</strong> - Explore Washington's home online</li>
+                    <li><strong>Smithsonian National Museum of American History</strong> - Virtual exhibits</li>
+                    <li><strong>National Park Service WebRangers</strong> - Interactive activities</li>
+                </ul>
+            </div>
+
+            <div class="content-card">
+                <h3>📚 Connecting Sites to Standards</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>SS1H1:</strong> Historic homes connect to historical figures (Washington, Franklin, Lincoln)</li>
+                    <li><strong>SS1CG1-2:</strong> Capitol buildings show government in action</li>
+                    <li><strong>SS1G1-2:</strong> Any site visit supports map and geography skills</li>
+                    <li><strong>SS1E1-4:</strong> Sites show how goods/services work in communities</li>
+                </ul>
+            </div>
+
+        </div>
+
+<!-- AI Tools for Teachers Tab -->
+        <div id="ai-teachers" class="tab-content">
+            <h2><span class="section-icon">🤖</span> AI Tools for Teachers</h2>
+            
+            <div class="ai-warning">
+                <h4>⚠️ Important Considerations for AI Use</h4>
+                <p>Always review AI-generated content for historical accuracy. Verify facts about historical figures before sharing with students. Protect student privacy and follow district AI policies.</p>
+            </div>
+
+            <div class="ai-tool-card">
+                <span class="tool-badge">Lesson Planning</span>
+                <h4>ChatGPT / Claude for First Grade Content</h4>
+                <p>Use AI to create age-appropriate content aligned with SS1 standards:</p>
+                <ul>
+                    <li><strong>Generate simple biographies</strong> of historical figures at first-grade reading level</li>
+                    <li><strong>Create compare/contrast activities</strong> for historical figures</li>
+                    <li><strong>Write economics scenarios</strong> for spending/saving practice</li>
+                    <li><strong>Develop map skill activities</strong> with location vocabulary</li>
+                </ul>
+                <p><strong>Sample Prompt:</strong> "Write a 5-sentence biography of Harriet Tubman for first graders using simple vocabulary and short sentences."</p>
+            </div>
+
+            <div class="ai-tool-card">
+                <span class="tool-badge">Visual Content</span>
+                <h4>Image Generation for Historical Content</h4>
+                <p>Create visuals to support first grade social studies:</p>
+                <ul>
+                    <li><strong>Historical scene illustrations</strong> for biographies</li>
+                    <li><strong>Map legends and symbols</strong> for geography lessons</li>
+                    <li><strong>Economics visuals</strong> showing goods, services, needs, wants</li>
+                    <li><strong>Pledge of Allegiance illustrated panels</strong></li>
+                </ul>
+            </div>
+
+            <div class="ai-tool-card">
+                <span class="tool-badge">Differentiation</span>
+                <h4>AI for Creating Leveled Materials</h4>
+                <ul>
+                    <li><strong>Simplify reading passages</strong> for struggling readers</li>
+                    <li><strong>Create sentence frames</strong> for ELL students</li>
+                    <li><strong>Generate extension activities</strong> for advanced learners</li>
+                    <li><strong>Develop graphic organizers</strong> with scaffolding</li>
+                </ul>
+            </div>
+
+            <div class="ai-tool-card">
+                <span class="tool-badge">Assessment</span>
+                <h4>AI-Assisted Assessment Creation</h4>
+                <ul>
+                    <li><strong>Create matching activities</strong> for historical figures and contributions</li>
+                    <li><strong>Generate map labeling assessments</strong></li>
+                    <li><strong>Develop scenario-based economics questions</strong></li>
+                    <li><strong>Write observation checklist items</strong> aligned to standards</li>
+                </ul>
+            </div>
+
+            <div class="content-card">
+                <h3>Best Practices for Teacher AI Use</h3>
+                <ul style="margin-left: 20px;">
+                    <li>✅ Verify all historical facts before using with students</li>
+                    <li>✅ Check reading level appropriateness for first grade</li>
+                    <li>✅ Review for cultural sensitivity and accuracy</li>
+                    <li>✅ Customize generated content for your specific students</li>
+                    <li>✅ Never input student names or identifying information</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- AI Tools for Students Tab -->
+        <div id="ai-students" class="tab-content">
+            <h2><span class="section-icon">🧒</span> AI Tools for Students</h2>
+            
+            <div class="ai-warning">
+                <h4>⚠️ First Grade AI Safety Guidelines</h4>
+                <p>First grade students should only use AI tools with <strong>direct teacher supervision</strong>. All activities below are designed for teacher-led, whole-class experiences. Students should never independently access AI tools at this age.</p>
+            </div>
+
+            <div class="ai-tool-card">
+                <span class="tool-badge">Teacher-Led Activity</span>
+                <h4>🎨 Meet a Historical Figure</h4>
+                <p><strong>How it works:</strong> Teacher uses AI to have a "conversation" with a historical figure while students ask questions.</p>
+                <ul>
+                    <li><strong>Benjamin Franklin Interview:</strong> "What was it like to experiment with lightning?"</li>
+                    <li><strong>Harriet Tubman Story:</strong> "How did you help people escape to freedom?"</li>
+                    <li><strong>Lewis and Clark Adventure:</strong> "What did you discover on your journey?"</li>
+                </ul>
+                <p><strong>Learning Focus:</strong> Students see AI can simulate conversations, but teacher verifies historical accuracy.</p>
+                <p><strong>Standards:</strong> SS1H1</p>
+            </div>
+
+            <div class="ai-tool-card">
+                <span class="tool-badge">Teacher-Led Activity</span>
+                <h4>🗺️ Virtual Geography Explorer</h4>
+                <p><strong>How it works:</strong> Class uses AI-assisted mapping or images to explore different places.</p>
+                <ul>
+                    <li><strong>Find Our State:</strong> "Show us where Georgia is on the map!"</li>
+                    <li><strong>Compare Places:</strong> "What does a desert look like? What about mountains?"</li>
+                    <li><strong>Explore Continents:</strong> "Let's see what North America looks like from above."</li>
+                </ul>
+                <p><strong>Standards:</strong> SS1G1, SS1G2</p>
+            </div>
+
+            <div class="ai-tool-card">
+                <span class="tool-badge">Teacher-Led Activity</span>
+                <h4>💰 Money Choices Helper</h4>
+                <p><strong>How it works:</strong> Teacher presents spending/saving scenarios and uses AI to generate outcomes.</p>
+                <ul>
+                    <li><strong>Scenario Generator:</strong> "What happens if I save my money for 3 weeks?"</li>
+                    <li><strong>Choice Comparison:</strong> "Help us compare buying a toy now vs. saving for a bigger toy."</li>
+                    <li><strong>Needs vs. Wants:</strong> Generate pictures of items for sorting activities.</li>
+                </ul>
+                <p><strong>Standards:</strong> SS1E1, SS1E3</p>
+            </div>
+
+            <div class="ai-tool-card">
+                <span class="tool-badge">Teacher-Led Activity</span>
+                <h4>📖 Story Creation with Historical Figures</h4>
+                <p><strong>How it works:</strong> Class collaboratively creates a story about a historical figure with AI assistance.</p>
+                <ul>
+                    <li>"Let's write a story about Benjamin Franklin inventing something new!"</li>
+                    <li>"What adventure might Theodore Roosevelt have in a national park?"</li>
+                    <li>Students contribute ideas while teacher types and reads AI responses.</li>
+                </ul>
+                <p><strong>Standards:</strong> SS1H1</p>
+            </div>
+
+            <div class="content-card">
+                <h3>Age-Appropriate AI Concepts for First Grade</h3>
+                <ul style="margin-left: 20px;">
+                    <li>🤖 "The computer can pretend to be a historical figure, but it's not really them."</li>
+                    <li>📚 "AI learned from reading lots of books, just like we're learning to read!"</li>
+                    <li>✅ "We always check if the computer's answers match what we learned."</li>
+                    <li>👩‍🏫 "The teacher helps us know if the computer is right or wrong."</li>
+                </ul>
+            </div>
+
+            <div class="content-card warm">
+                <h3>Building Digital Citizenship</h3>
+                <ul style="margin-left: 20px;">
+                    <li>👨‍👩‍👧 Always use computers with a teacher or grown-up</li>
+                    <li>🤔 Think about whether information makes sense</li>
+                    <li>❓ Ask questions if something seems wrong</li>
+                    <li>🔒 Never share personal information with computers</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">
+        <span>🖨️</span> Print Hub
+    </button>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

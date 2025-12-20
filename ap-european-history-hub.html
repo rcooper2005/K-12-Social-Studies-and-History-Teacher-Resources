@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AP European History Teacher Resource Hub</title>
+    <style>
+        :root {
+            --primary-royal: #4338ca;
+            --primary-gold: #ca8a04;
+            --accent-red: #dc2626;
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --border-light: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary-royal) 0%, #312e81 50%, var(--primary-royal) 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-royal) 0%, var(--primary-gold) 100%);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .ap-badge {
+            display: inline-block;
+            background: var(--accent-red);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        nav {
+            background: var(--light-bg);
+            padding: 1rem;
+            border-bottom: 2px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .nav-buttons button {
+            padding: 0.5rem 0.85rem;
+            font-size: 0.85rem;
+            border: none;
+            background: var(--white);
+            color: var(--text-dark);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: var(--shadow);
+            white-space: nowrap;
+        }
+
+        .nav-buttons button:hover {
+            background: var(--primary-royal);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .nav-buttons button.active {
+            background: var(--primary-gold);
+            color: var(--white);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 2rem;
+            min-height: 500px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-content h2 {
+            color: var(--primary-royal);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--primary-gold);
+        }
+
+        .tab-content h3 {
+            color: var(--primary-gold);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .tab-content h4 {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .tab-content p, .tab-content li {
+            color: var(--text-medium);
+            line-height: 1.7;
+            margin-bottom: 0.75rem;
+        }
+
+        .tab-content ul, .tab-content ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .resource-card {
+            background: var(--light-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-gold);
+        }
+
+        .resource-card h4 {
+            color: var(--primary-royal);
+            margin-bottom: 0.5rem;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 1px solid #f59e0b;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .warning-box h4 {
+            color: #92400e;
+            margin-bottom: 0.5rem;
+        }
+
+        .warning-box p, .warning-box li {
+            color: #78350f;
+        }
+
+        .prompt-box {
+            background: #eef2ff;
+            border: 1px solid var(--primary-royal);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #312e81;
+        }
+
+        .unit-section {
+            background: var(--light-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--primary-royal);
+        }
+
+        .unit-section h4 {
+            color: var(--primary-royal);
+            font-size: 1.15rem;
+        }
+
+        .theme-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background: var(--primary-royal);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin: 0.25rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        th {
+            background: var(--primary-royal);
+            color: white;
+        }
+
+        tr:hover {
+            background: var(--light-bg);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+            border-radius: 10px;
+            padding: 1.25rem;
+            border-left: 4px solid var(--primary-royal);
+        }
+
+        footer {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            text-align: center;
+            color: var(--text-medium);
+            border-top: 2px solid var(--border-light);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            header h1 {
+                font-size: 1.6rem;
+            }
+
+            .nav-buttons button {
+                padding: 0.4rem 0.6rem;
+                font-size: 0.75rem;
+            }
+
+            .tab-content {
+                padding: 1rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .tab-content {
+                display: block !important;
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <span class="ap-badge">COLLEGE BOARD AP®</span>
+            <h1>🏰 AP European History Teacher Resource Hub</h1>
+            <p>Comprehensive Resources for European Historical Thinking | c. 1450 - Present</p>
+        </header>
+
+        <nav>
+            <div class="nav-buttons">
+                <button class="active" onclick="showTab('standards')">Standards</button>
+                <button onclick="showTab('background')">Background</button>
+                <button onclick="showTab('websites')">Websites</button>
+                <button onclick="showTab('inquiry')">Inquiry</button>
+                <button onclick="showTab('investigations')">Investigations</button>
+                <button onclick="showTab('videos')">Videos</button>
+                <button onclick="showTab('articles')">Articles</button>
+                <button onclick="showTab('assessments')">Assessments</button>
+                <button onclick="showTab('printables')">Printables</button>
+                <button onclick="showTab('vocabulary')">Vocabulary</button>
+                <button onclick="showTab('games')">Games</button>
+                <button onclick="showTab('differentiation')">Differentiation</button>
+                <button onclick="showTab('misconceptions')">Misconceptions</button>
+                <button onclick="showTab('cultural')">Cultural</button>
+                <button onclick="showTab('historical-sites')">Historical Sites</button>
+                <button onclick="showTab('ai-teachers')">AI for Teachers</button>
+                <button onclick="showTab('ai-students')">AI for Students</button>
+            </div>
+        </nav>
+
+        <!-- Standards Tab -->
+        <div id="standards" class="tab-content active">
+            <h2>📋 AP European History Course Framework</h2>
+
+            <div class="content-card">
+                <h3>📚 Standards Frameworks</h3>
+                <p>This AP course aligns to multiple standards frameworks:</p>
+                <ul style="margin-left: 20px;">
+                    <li><strong>College Board:</strong> AP Course and Exam Description (primary framework)</li>
+                    <li><strong>NCSS:</strong> National Council for the Social Studies C3 Framework</li>
+                    <li><strong>GSE:</strong> Georgia Standards of Excellence (state alignment)</li>
+                </ul>
+            </div>
+
+            <h3>Course Themes</h3>
+            <p>The AP European History course is organized around five thematic learning objectives:</p>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h4>Interaction of Europe and the World (INT)</h4>
+                    <p>European exploration, colonization, and imperialism, and the influence of global networks on European development.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Poverty and Prosperity (PP)</h4>
+                    <p>Economic developments from the Commercial Revolution through globalization, including capitalism, industrialization, and economic crises.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Objective Knowledge and Subjective Visions (OS)</h4>
+                    <p>Intellectual and cultural developments including the Scientific Revolution, Enlightenment, and modern artistic movements.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>States and Other Institutions of Power (SP)</h4>
+                    <p>Political developments including the rise of the nation-state, revolutions, and 20th-century ideologies.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Individual and Society (IS)</h4>
+                    <p>Social developments including class, gender, family, and ethnic identity, and challenges to traditional social patterns.</p>
+                </div>
+            </div>
+
+            <h3>Course Units</h3>
+            <div class="unit-section">
+                <h4>Unit 1: Renaissance and Exploration (c. 1450-1648) | 10-15% of Exam</h4>
+                <p>Italian and Northern Renaissance, new monarchies, Protestant and Catholic Reformations, religious wars.</p>
+                <span class="theme-badge">OS</span><span class="theme-badge">SP</span><span class="theme-badge">INT</span>
+            </div>
+            <div class="unit-section">
+                <h4>Unit 2: Age of Reformation (c. 1450-1648) | 10-15% of Exam</h4>
+                <p>Protestant Reformation, Catholic Reformation, religious conflicts and wars of religion, witchcraft trials.</p>
+                <span class="theme-badge">OS</span><span class="theme-badge">SP</span><span class="theme-badge">IS</span>
+            </div>
+            <div class="unit-section">
+                <h4>Unit 3: Absolutism and Constitutionalism (c. 1648-1815) | 10-15% of Exam</h4>
+                <p>Absolute monarchies, constitutionalism in England, balance of power, colonial competition.</p>
+                <span class="theme-badge">SP</span><span class="theme-badge">INT</span><span class="theme-badge">PP</span>
+            </div>
+            <div class="unit-section">
+                <h4>Unit 4: Scientific, Philosophical, and Political Developments (c. 1648-1815) | 10-15% of Exam</h4>
+                <p>Scientific Revolution, Enlightenment, French Revolution and Napoleon, political ideologies.</p>
+                <span class="theme-badge">OS</span><span class="theme-badge">SP</span><span class="theme-badge">IS</span>
+            </div>
+            <div class="unit-section">
+                <h4>Unit 5: Conflict, Crisis, and Reaction in the Late 18th Century (c. 1648-1815) | 10-15% of Exam</h4>
+                <p>French Revolution phases, Napoleon, Congress of Vienna, conservative reaction.</p>
+                <span class="theme-badge">SP</span><span class="theme-badge">IS</span><span class="theme-badge">OS</span>
+            </div>
+            <div class="unit-section">
+                <h4>Unit 6: Industrialization and Its Effects (c. 1815-1914) | 10-15% of Exam</h4>
+                <p>Industrial Revolution, urbanization, social effects, ideological responses, reform movements.</p>
+                <span class="theme-badge">PP</span><span class="theme-badge">IS</span><span class="theme-badge">OS</span>
+            </div>
+            <div class="unit-section">
+                <h4>Unit 7: 19th-Century Perspectives and Political Developments (c. 1815-1914) | 10-15% of Exam</h4>
+                <p>Nationalism, unification of Italy and Germany, imperialism, modernism, fin de siècle culture.</p>
+                <span class="theme-badge">SP</span><span class="theme-badge">INT</span><span class="theme-badge">OS</span>
+            </div>
+            <div class="unit-section">
+                <h4>Unit 8: 20th-Century Global Conflicts (c. 1914-Present) | 10-15% of Exam</h4>
+                <p>World War I, interwar period, rise of fascism, World War II, the Holocaust.</p>
+                <span class="theme-badge">SP</span><span class="theme-badge">IS</span><span class="theme-badge">INT</span>
+            </div>
+            <div class="unit-section">
+                <h4>Unit 9: Cold War and Contemporary Europe (c. 1914-Present) | 10-15% of Exam</h4>
+                <p>Cold War division, decolonization, welfare states, collapse of communism, European integration, contemporary challenges.</p>
+                <span class="theme-badge">SP</span><span class="theme-badge">PP</span><span class="theme-badge">IS</span>
+            </div>
+
+            <h3>Historical Thinking Skills</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Developments and Processes</h4>
+                    <p>Identify and explain historical developments and processes.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Sourcing and Situation</h4>
+                    <p>Analyze sourcing and situation of primary and secondary sources.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Claims and Evidence</h4>
+                    <p>Analyze arguments in primary and secondary sources.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Contextualization</h4>
+                    <p>Analyze contexts of historical events and developments.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Making Connections</h4>
+                    <p>Using comparison, causation, and continuity and change.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Argumentation</h4>
+                    <p>Develop an argument using evidence and historical reasoning.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Background Tab -->
+        <div id="background" class="tab-content">
+            <h2>📚 Teacher Background Knowledge</h2>
+            
+            <h3>Essential Content by Era</h3>
+            
+            <h4>Renaissance and Reformation (c. 1450-1648)</h4>
+            <p>Teachers should understand the Renaissance as a cultural and intellectual movement that began in Italian city-states and spread northward, emphasizing humanism, classical learning, and new artistic techniques. The Protestant Reformation shattered religious unity, leading to centuries of conflict but also to new ideas about individual conscience, church-state relations, and education. The Catholic Reformation reinvigorated the Church while new monarchies consolidated state power.</p>
+
+            <h4>Absolutism and Enlightenment (c. 1648-1789)</h4>
+            <p>The 17th and 18th centuries saw competing models of governance: absolutism (exemplified by Louis XIV) versus constitutionalism (England after 1688). The Scientific Revolution fundamentally changed how Europeans understood the natural world, while the Enlightenment applied rational critique to society, politics, and religion. Colonial expansion and commercial growth transformed European economies and global relationships.</p>
+
+            <h4>Revolution and Reaction (c. 1789-1848)</h4>
+            <p>The French Revolution marked a radical break with the Old Regime, experimenting with democratic governance, secularism, and nationalism before giving way to Napoleon. The Congress of Vienna attempted to restore stability, but liberal and nationalist movements challenged conservative order throughout the period.</p>
+
+            <h4>Industrialization and Nationalism (c. 1815-1914)</h4>
+            <p>The Industrial Revolution transformed production, social structure, and urban life. Socialism, liberalism, and conservatism competed to explain and address industrial society's problems. Nationalism reshaped the European map, unifying Germany and Italy while threatening multinational empires. New imperialism extended European power globally.</p>
+
+            <h4>20th Century Catastrophes and Recovery (c. 1914-Present)</h4>
+            <p>World War I destroyed the old order, leading to revolution in Russia, the rise of fascism, and another devastating war. The Holocaust represented an unprecedented genocide. The Cold War divided Europe until 1989. Since then, European integration has advanced while new challenges—migration, nationalism, economic crisis—test European unity.</p>
+
+            <h3>Historiographical Awareness</h3>
+            <p>AP European History requires understanding that historians interpret the past differently. Students should recognize how interpretations of the French Revolution, nationalism, imperialism, and other topics have evolved and remain contested.</p>
+        </div>
+
+        <!-- Websites Tab -->
+        <div id="websites" class="tab-content">
+            <h2>🌐 Educational Websites</h2>
+            
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>AP Central - College Board</h4>
+                    <p>Official AP European History resources including course framework, exam information, and scoring guidelines.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Internet Modern History Sourcebook</h4>
+                    <p>Fordham University's collection of primary sources organized by era and topic.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>BBC History</h4>
+                    <p>Articles, timelines, and multimedia on British and European history topics.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Europeana</h4>
+                    <p>Digital access to European cultural heritage—art, documents, photographs, and artifacts.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>National Gallery (London)</h4>
+                    <p>Art history resources connecting visual culture to historical developments.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Khan Academy - AP European History</h4>
+                    <p>Free video lessons and practice aligned to course framework.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>German History in Documents and Images</h4>
+                    <p>Primary sources on German history from 1500 to present.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Liberty, Equality, Fraternity</h4>
+                    <p>Comprehensive resources on the French Revolution with primary sources.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inquiry Tab -->
+        <div id="inquiry" class="tab-content">
+            <h2>❓ Inquiry-Based Learning</h2>
+            
+            <h3>Essential Questions by Unit</h3>
+            
+            <div class="unit-section">
+                <h4>Units 1-2: Renaissance and Reformation</h4>
+                <ul>
+                    <li>How did the Renaissance change European views of humanity and the world?</li>
+                    <li>Why did the Protestant Reformation succeed where earlier reform movements failed?</li>
+                    <li>How did religious conflict reshape European politics and society?</li>
+                </ul>
+            </div>
+
+            <div class="unit-section">
+                <h4>Units 3-4: Absolutism and Enlightenment</h4>
+                <ul>
+                    <li>What made some monarchs "absolute" and others "constitutional"?</li>
+                    <li>How did the Scientific Revolution change the relationship between knowledge and authority?</li>
+                    <li>Were Enlightenment ideals universal or did they contain contradictions?</li>
+                </ul>
+            </div>
+
+            <div class="unit-section">
+                <h4>Unit 5: Revolutionary Era</h4>
+                <ul>
+                    <li>Why did the French Revolution become increasingly radical?</li>
+                    <li>Was Napoleon a child of the Revolution or its destroyer?</li>
+                    <li>Could the Congress of Vienna system have lasted?</li>
+                </ul>
+            </div>
+
+            <div class="unit-section">
+                <h4>Units 6-7: Long 19th Century</h4>
+                <ul>
+                    <li>Who won and who lost in the Industrial Revolution?</li>
+                    <li>How did nationalism reshape the European map?</li>
+                    <li>What drove the "new imperialism" and how did Europeans justify it?</li>
+                </ul>
+            </div>
+
+            <div class="unit-section">
+                <h4>Units 8-9: 20th Century</h4>
+                <ul>
+                    <li>How did World War I destroy the 19th-century order?</li>
+                    <li>Why did democracy fail in some countries but survive in others during the interwar period?</li>
+                    <li>How should we understand the Holocaust—as uniquely German, broadly European, or universally human?</li>
+                    <li>What has held the European Union together, and what threatens it?</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Investigations Tab -->
+        <div id="investigations" class="tab-content">
+            <h2>🔍 Investigations & DBQs</h2>
+            
+            <h3>Document-Based Question Structure</h3>
+            <div class="resource-card" style="margin-bottom: 1.5rem;">
+                <h4>DBQ Rubric (7 Points)</h4>
+                <ul>
+                    <li><strong>Thesis (1 point):</strong> Historically defensible claim responding to prompt</li>
+                    <li><strong>Contextualization (1 point):</strong> Broader historical context relevant to prompt</li>
+                    <li><strong>Evidence from Documents (2 points):</strong> Use 6+ documents to support argument</li>
+                    <li><strong>Evidence Beyond Documents (1 point):</strong> Additional specific historical evidence</li>
+                    <li><strong>Sourcing (1 point):</strong> Explain how document's features are relevant</li>
+                    <li><strong>Complexity (1 point):</strong> Sophisticated understanding through nuanced argument</li>
+                </ul>
+            </div>
+
+            <h3>Practice DBQ Topics</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Protestant Reformation</h4>
+                    <p>Evaluate the extent to which the Protestant Reformation transformed European society in the period 1517-1648.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Enlightenment and Revolution</h4>
+                    <p>Analyze the ways in which Enlightenment ideas influenced the French Revolution.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Industrial Revolution</h4>
+                    <p>Evaluate the extent to which industrialization changed family life and gender roles in Europe, 1750-1900.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Nationalism</h4>
+                    <p>Compare and contrast the role of nationalism in the unification of Italy and Germany.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>World War I</h4>
+                    <p>Analyze the factors that contributed to the outbreak of World War I.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Interwar Period</h4>
+                    <p>Evaluate the extent to which economic factors led to the rise of fascism in Europe.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Videos Tab -->
+        <div id="videos" class="tab-content">
+            <h2>🎬 Video Resources</h2>
+            
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Crash Course European History</h4>
+                    <p>John Green's series covering major European history topics in engaging 10-15 minute episodes.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Heimler's History</h4>
+                    <p>AP-specific content with exam strategies and content review aligned to framework.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Khan Academy AP Euro</h4>
+                    <p>Free instructional videos with practice questions by unit.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>The Great War (YouTube)</h4>
+                    <p>Week-by-week coverage of World War I with detailed analysis.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>BBC Documentaries</h4>
+                    <p>High-quality documentaries on European history topics.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Art History Videos</h4>
+                    <p>Smarthistory and museum resources connecting art to historical context.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Articles Tab -->
+        <div id="articles" class="tab-content">
+            <h2>📰 Primary & Secondary Sources</h2>
+            
+            <h3>Essential Primary Sources by Era</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Renaissance & Reformation</h4>
+                    <ul>
+                        <li>Machiavelli, The Prince (excerpts)</li>
+                        <li>Luther's 95 Theses and other writings</li>
+                        <li>Calvin's Institutes excerpts</li>
+                        <li>Council of Trent decrees</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>Absolutism & Enlightenment</h4>
+                    <ul>
+                        <li>Bossuet on divine right</li>
+                        <li>Locke's Two Treatises</li>
+                        <li>Voltaire, Montesquieu, Rousseau selections</li>
+                        <li>Encyclopedia excerpts</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>Revolutionary Era</h4>
+                    <ul>
+                        <li>Declaration of the Rights of Man</li>
+                        <li>Olympe de Gouges' Declaration</li>
+                        <li>Napoleon's speeches and Code</li>
+                        <li>Congress of Vienna documents</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>19th Century</h4>
+                    <ul>
+                        <li>Communist Manifesto excerpts</li>
+                        <li>Mill, On Liberty excerpts</li>
+                        <li>Nationalist speeches (Mazzini, etc.)</li>
+                        <li>Imperialist justifications</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>20th Century</h4>
+                    <ul>
+                        <li>Treaty of Versailles excerpts</li>
+                        <li>Fascist speeches and programs</li>
+                        <li>Holocaust testimony and documents</li>
+                        <li>Cold War speeches</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Assessments Tab -->
+        <div id="assessments" class="tab-content">
+            <h2>📝 Assessments</h2>
+            
+            <h3>AP Exam Format</h3>
+            <table>
+                <tr>
+                    <th>Section</th>
+                    <th>Question Type</th>
+                    <th>Time</th>
+                    <th>Weight</th>
+                </tr>
+                <tr>
+                    <td>Section I, Part A</td>
+                    <td>55 Multiple Choice Questions</td>
+                    <td>55 minutes</td>
+                    <td>40%</td>
+                </tr>
+                <tr>
+                    <td>Section I, Part B</td>
+                    <td>3 Short Answer Questions</td>
+                    <td>40 minutes</td>
+                    <td>20%</td>
+                </tr>
+                <tr>
+                    <td>Section II, Part A</td>
+                    <td>1 Document-Based Question</td>
+                    <td>60 minutes</td>
+                    <td>25%</td>
+                </tr>
+                <tr>
+                    <td>Section II, Part B</td>
+                    <td>1 Long Essay Question</td>
+                    <td>40 minutes</td>
+                    <td>15%</td>
+                </tr>
+            </table>
+
+            <h3>Assessment Strategies</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Art Analysis</h4>
+                    <p>Use artwork as stimulus for analysis of historical context, patronage, and cultural values.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Document Sets</h4>
+                    <p>Group documents by theme, allowing practice with sourcing and synthesis.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Causation Essays</h4>
+                    <p>Focus on explaining causes and effects of major developments.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Comparison Essays</h4>
+                    <p>Compare developments across time periods or between countries.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Printables Tab -->
+        <div id="printables" class="tab-content">
+            <h2>📄 Printables & Organizers</h2>
+            
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>HIPP/HAPP Analysis</h4>
+                    <p>Document analysis organizer for Historical context, Intended audience, Purpose, Point of view.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Theme Tracking Charts</h4>
+                    <p>Track development of INT, PP, OS, SP, IS themes across all units.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Comparison Charts</h4>
+                    <p>Templates for comparing political systems, revolutions, or ideologies.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Causation Diagrams</h4>
+                    <p>Map short-term and long-term causes and effects.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Art Analysis Sheets</h4>
+                    <p>Structured analysis of artwork connecting to historical context.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>DBQ Planning Sheets</h4>
+                    <p>Thesis development, document grouping, outside evidence organization.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vocabulary Tab -->
+        <div id="vocabulary" class="tab-content">
+            <h2>📖 Key Vocabulary</h2>
+            
+            <h3>Content Vocabulary by Era</h3>
+            <div class="unit-section">
+                <h4>Renaissance & Reformation</h4>
+                <p>Humanism, secularism, perspective, patron, vernacular, indulgences, predestination, justification by faith, Counter-Reformation, Index, Jesuits, Huguenots</p>
+            </div>
+            <div class="unit-section">
+                <h4>Absolutism & Enlightenment</h4>
+                <p>Divine right, mercantilism, balance of power, constitutionalism, natural rights, social contract, philosophe, deism, salon, enlightened absolutism</p>
+            </div>
+            <div class="unit-section">
+                <h4>Revolutionary Era</h4>
+                <p>Estates, National Assembly, Jacobin, sans-culottes, Thermidor, coup d'état, Continental System, nationalism, liberalism, conservatism</p>
+            </div>
+            <div class="unit-section">
+                <h4>19th Century</h4>
+                <p>Laissez-faire, proletariat, bourgeoisie, socialism, Marxism, Realpolitik, Risorgimento, Social Darwinism, mission civilisatrice, Scramble for Africa</p>
+            </div>
+            <div class="unit-section">
+                <h4>20th Century</h4>
+                <p>Total war, self-determination, mandate, fascism, Lebensraum, appeasement, Blitzkrieg, Holocaust, Iron Curtain, détente, Solidarity, Maastricht</p>
+            </div>
+        </div>
+
+        <!-- Games Tab -->
+        <div id="games" class="tab-content">
+            <h2>🎮 Interactive Activities</h2>
+            
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Diplomacy Simulations</h4>
+                    <p>Simulate balance of power negotiations, Congress of Vienna, or interwar diplomacy.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Reformation Debate</h4>
+                    <p>Students take roles of Catholics, Lutherans, Calvinists, Radicals debating key issues.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>French Revolution Phases</h4>
+                    <p>Role-play different revolutionary factions and their competing visions.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Art Style Challenge</h4>
+                    <p>Identify and analyze artworks by movement (Renaissance, Baroque, Romantic, etc.).</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Timeline Races</h4>
+                    <p>Competitive chronology activities covering key events.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Ideology Identification</h4>
+                    <p>Sort quotes and policies by political ideology (liberal, conservative, socialist, etc.).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Differentiation Tab -->
+        <div id="differentiation" class="tab-content">
+            <h2>🎯 Differentiation Strategies</h2>
+            
+            <h3>Scaffolding Support</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Document Modification</h4>
+                    <ul>
+                        <li>Vocabulary glosses for archaic or complex language</li>
+                        <li>Shortened excerpts with clear focus</li>
+                        <li>Visual supports (portraits, maps) paired with text</li>
+                        <li>Modern translations alongside originals</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>Writing Support</h4>
+                    <ul>
+                        <li>Thesis templates and sentence starters</li>
+                        <li>Evidence integration guides</li>
+                        <li>Argument structure organizers</li>
+                        <li>Peer review protocols</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Extension for Advanced Students</h3>
+            <div class="resource-card">
+                <h4>Advanced Opportunities</h4>
+                <ul>
+                    <li>Historiographical essays analyzing how interpretations have changed</li>
+                    <li>Primary language document analysis (French, German, Latin)</li>
+                    <li>Independent research on specialized topics</li>
+                    <li>Cross-course connections (Art History, Philosophy)</li>
+                </ul>
+            </div>
+
+            <h3>English Learner Support</h3>
+            <div class="resource-card">
+                <h4>Language Scaffolds</h4>
+                <ul>
+                    <li>Visual timelines and concept maps</li>
+                    <li>Word walls with visual supports</li>
+                    <li>Sentence frames for historical analysis</li>
+                    <li>Partner work and discussion protocols</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Misconceptions Tab -->
+        <div id="misconceptions" class="tab-content">
+            <h2>⚠️ Common Misconceptions</h2>
+            
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>The "Dark Ages"</h4>
+                    <p><strong>Misconception:</strong> The medieval period was entirely backward and stagnant.</p>
+                    <p><strong>Reality:</strong> The medieval period saw significant developments in philosophy, technology, and governance. The Renaissance built on medieval achievements.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Luther as Modern Liberal</h4>
+                    <p><strong>Misconception:</strong> Luther was a champion of religious freedom and individual conscience in modern terms.</p>
+                    <p><strong>Reality:</strong> Luther remained deeply conservative in many ways and supported persecution of other Protestant groups and Jews.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Enlightenment Universalism</h4>
+                    <p><strong>Misconception:</strong> Enlightenment thinkers believed in equality for all people.</p>
+                    <p><strong>Reality:</strong> Most Enlightenment thinkers excluded women, non-Europeans, and the poor from full citizenship. Their ideas were used to justify both liberation and oppression.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>The French Revolution</h4>
+                    <p><strong>Misconception:</strong> The French Revolution was simply the triumph of democratic ideals.</p>
+                    <p><strong>Reality:</strong> The Revolution was complex, including democratic aspirations but also violence, authoritarianism, and competing visions of society.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Industrial Revolution Benefits</h4>
+                    <p><strong>Misconception:</strong> Industrialization benefited everyone through progress.</p>
+                    <p><strong>Reality:</strong> Industrialization brought tremendous gains but also exploitation, urban squalor, and environmental damage. Benefits were unequally distributed.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>World War I Causes</h4>
+                    <p><strong>Misconception:</strong> WWI was caused by the assassination of Franz Ferdinand.</p>
+                    <p><strong>Reality:</strong> The assassination was a trigger, not a cause. Long-term causes included imperialism, nationalism, alliance systems, and militarism.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cultural Tab -->
+        <div id="cultural" class="tab-content">
+            <h2>🌍 Diverse Perspectives</h2>
+            
+            <h3>Expanding European History</h3>
+            <p>While AP European History focuses on Europe, we should include perspectives often marginalized in traditional narratives.</p>
+
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Women's Perspectives</h4>
+                    <ul>
+                        <li>Women writers and artists of the Renaissance</li>
+                        <li>Women in the Reformation</li>
+                        <li>Revolutionary women (Olympe de Gouges, etc.)</li>
+                        <li>Women in industrialization and reform</li>
+                        <li>Women in world wars and resistance</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>Jewish European Experience</h4>
+                    <ul>
+                        <li>Medieval and early modern Jewish communities</li>
+                        <li>Enlightenment emancipation debates</li>
+                        <li>19th-century antisemitism</li>
+                        <li>Holocaust testimonies and memorials</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>Colonial Subjects' Perspectives</h4>
+                    <ul>
+                        <li>Voices from European colonies</li>
+                        <li>Anti-colonial resistance</li>
+                        <li>Post-colonial migration to Europe</li>
+                        <li>Contemporary debates on colonial legacy</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>Working-Class Perspectives</h4>
+                    <ul>
+                        <li>Peasant revolts and popular movements</li>
+                        <li>Industrial workers' testimony</li>
+                        <li>Labor movement primary sources</li>
+                        <li>Oral histories and working-class literature</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Eastern European Perspectives</h3>
+            <div class="resource-card">
+                <p>Traditional European history often focuses on Western Europe. Include perspectives from:</p>
+                <ul>
+                    <li>Russia and the Russian Empire</li>
+                    <li>Poland and the partitions</li>
+                    <li>The Habsburg multinational empire</li>
+                    <li>The Balkans and Ottoman Europe</li>
+                    <li>Eastern European experiences under communism and after</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- AI for Teachers Tab -->
+        
+        <!-- Historical Sites Tab -->
+        <div id="historical-sites" class="tab-content">
+            <h2><span class="section-icon">🏛️</span> Historical Sites & Virtual Field Trips</h2>
+
+            <div class="content-card">
+                <h3>🎨 Units 1-2 Sites (Renaissance & Reformation)</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Florence Historic Centre</strong> - Renaissance art and banking</li>
+                    <li><strong>Vatican City/Sistine Chapel</strong> - Renaissance and Catholic Church</li>
+                    <li><strong>Wittenberg (Germany)</strong> - Luther and Reformation</li>
+                    <li><strong>Geneva (Switzerland)</strong> - Calvin's Reformed church</li>
+                </ul>
+            </div>
+
+            <div class="content-card warm">
+                <h3>🏰 Units 3-5 Sites (Absolutism to Napoleon)</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Palace of Versailles</strong> - Absolutism and Revolution</li>
+                    <li><strong>Westminster/Parliament (London)</strong> - Constitutionalism</li>
+                    <li><strong>Bastille site/Place de la Concorde (Paris)</strong> - French Revolution</li>
+                    <li><strong>Waterloo (Belgium)</strong> - Napoleon's defeat</li>
+                </ul>
+            </div>
+
+            <div class="content-card purple">
+                <h3>🏭 Units 6-9 Sites (Industrial to Present)</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Ironbridge Gorge (England)</strong> - Industrial Revolution</li>
+                    <li><strong>Auschwitz-Birkenau (Poland)</strong> - Holocaust</li>
+                    <li><strong>Normandy Beaches (France)</strong> - WWII</li>
+                    <li><strong>Berlin Wall Memorial</strong> - Cold War and reunification</li>
+                    <li><strong>European Parliament (Brussels/Strasbourg)</strong> - EU integration</li>
+                </ul>
+            </div>
+
+            <div class="content-card">
+                <h3>💻 Virtual European Archives</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Europeana</strong> - European cultural heritage</li>
+                    <li><strong>British National Archives</strong> - Primary sources</li>
+                    <li><strong>French National Archives</strong> - Revolution documents</li>
+                    <li><strong>German History in Documents</strong> - German sources</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div id="ai-teachers" class="tab-content">
+            <h2>🤖 AI Tools for Teachers</h2>
+            
+            <div class="warning-box">
+                <h4>⚠️ Important Guidelines for AI Use</h4>
+                <ul>
+                    <li>Always verify AI-generated content for historical accuracy</li>
+                    <li>Check for historiographical accuracy—interpretations should reflect current scholarship</li>
+                    <li>Never input student personal information into AI tools</li>
+                    <li>Follow your district's AI usage policies</li>
+                    <li>Model critical evaluation of AI outputs for students</li>
+                </ul>
+            </div>
+
+            <h3>Lesson Planning with AI</h3>
+            
+            <div class="prompt-box">
+                <strong>Unit Introduction:</strong><br>
+                "Create a 50-minute lesson introducing AP European History Unit 4 (Scientific, Philosophical, and Political Developments). Include: a compelling hook, key content on the Scientific Revolution, a primary source excerpt with HIPP analysis questions, and connections to the OS theme."
+            </div>
+
+            <div class="prompt-box">
+                <strong>Art Integration:</strong><br>
+                "Design a lesson using Delacroix's 'Liberty Leading the People' to teach about Romanticism and the revolutionary tradition. Include visual analysis questions, historical context, and connections to the IS and OS themes."
+            </div>
+
+            <h3>Assessment Creation</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>MC Question Development</h4>
+                    <div class="prompt-box">
+                        "Create 3 AP-style stimulus-based multiple choice questions for Unit 5 (French Revolution). Use an excerpt from a revolutionary speech. Include questions testing contextualization, sourcing, and claims/evidence."
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <h4>DBQ Document Selection</h4>
+                    <div class="prompt-box">
+                        "Suggest 7 documents for a DBQ on 'Evaluate the extent to which the Industrial Revolution changed women's roles in European society, 1750-1900.' Include diverse perspectives and document types."
+                    </div>
+                </div>
+            </div>
+
+            <h3>Differentiation Support</h3>
+            <div class="prompt-box">
+                <strong>Document Modification:</strong><br>
+                "Modify this excerpt from Rousseau's Social Contract for struggling readers. Maintain the key ideas while simplifying language. Provide vocabulary support and guiding questions at multiple levels."
+            </div>
+
+            <h3>Best Practices Checklist</h3>
+            <div class="resource-card">
+                <h4>Before Using AI-Generated Content:</h4>
+                <ul>
+                    <li>☐ Verify all historical facts, names, and dates</li>
+                    <li>☐ Check that interpretations reflect current scholarship</li>
+                    <li>☐ Ensure primary source excerpts are accurate</li>
+                    <li>☐ Confirm appropriate complexity for AP level</li>
+                    <li>☐ Check for inclusion of diverse perspectives</li>
+                    <li>☐ Verify art and cultural references are accurate</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- AI for Students Tab -->
+        <div id="ai-students" class="tab-content">
+            <h2>🎓 AI Tools for Students</h2>
+            
+            <div class="warning-box">
+                <h4>⚠️ Student Guidelines for AI Use</h4>
+                <ul>
+                    <li>AI is a study tool, not a substitute for learning</li>
+                    <li>Always verify historical information with reliable sources</li>
+                    <li>Never submit AI-generated work as your own</li>
+                    <li>Use AI to understand concepts, not to avoid thinking</li>
+                    <li>Follow your teacher's and school's AI policies</li>
+                </ul>
+            </div>
+
+            <h3>Understanding Complex Concepts</h3>
+            
+            <div class="prompt-box">
+                <strong>Concept Explainer:</strong><br>
+                "Explain the concept of [mercantilism/the social contract/nationalism] in AP European History terms. Include: a clear definition, why it mattered historically, 2-3 specific examples, and how it connects to course themes."
+            </div>
+
+            <div class="prompt-box">
+                <strong>Ideology Comparison:</strong><br>
+                "Help me understand the differences between liberalism, conservatism, and socialism in 19th-century Europe. What did each believe about government, economy, and society? Give specific examples of each in action."
+            </div>
+
+            <h3>Writing Practice</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Thesis Feedback</h4>
+                    <div class="prompt-box">
+                        "I'm writing an LEQ comparing [topic]. Here's my thesis: [thesis]. Give me feedback on whether it's historically defensible and makes a clear argument. Help me improve it without writing it for me."
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <h4>Contextualization Practice</h4>
+                    <div class="prompt-box">
+                        "I'm writing a DBQ about [topic]. Help me brainstorm contextualization ideas. What broader developments should I discuss before introducing my thesis? Ask me questions to develop my thinking."
+                    </div>
+                </div>
+            </div>
+
+            <h3>Document Analysis Practice</h3>
+            <div class="prompt-box">
+                <strong>HIPP Practice:</strong><br>
+                "I'm analyzing [document from European history]. Help me think through HIPP. Ask me questions about Historical situation, Intended audience, Purpose, and Point of view. Guide me to answers rather than telling me."
+            </div>
+
+            <h3>Study and Review</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Unit Review</h4>
+                    <div class="prompt-box">
+                        "Quiz me on AP European History Unit [X]. Ask questions covering different themes and types of content. After each answer, explain why the correct answer matters historically."
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <h4>Causation Chains</h4>
+                    <div class="prompt-box">
+                        "Help me trace the causes of [World War I/French Revolution/etc.]. Start with long-term causes and work toward immediate triggers. Check my understanding at each step."
+                    </div>
+                </div>
+            </div>
+
+            <h3>Critical Thinking About AI</h3>
+            <div class="resource-card">
+                <h4>Evaluating AI for European History</h4>
+                <p>Apply historical thinking skills to AI itself:</p>
+                <ul>
+                    <li><strong>Sourcing:</strong> What data was AI trained on? What biases might it have?</li>
+                    <li><strong>Verification:</strong> Cross-reference with textbooks, primary sources, scholarly sources</li>
+                    <li><strong>Historiography:</strong> Does AI reflect current scholarship or outdated interpretations?</li>
+                    <li><strong>Perspective:</strong> Whose voices might be underrepresented in AI responses?</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <p>AP European History Teacher Resource Hub | Georgia Standards Aligned</p>
+            <p>AP® is a trademark registered by the College Board, which is not affiliated with this resource.</p>
+        </footer>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.nav-buttons button').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

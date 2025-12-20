@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AP U.S. History Teacher Resource Hub</title>
+    <style>
+        :root {
+            --primary-navy: #1e3a5f;
+            --primary-red: #b91c1c;
+            --accent-gold: #b8860b;
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --border-light: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary-navy) 0%, #2d5a87 50%, var(--primary-navy) 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-red) 100%);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .ap-badge {
+            display: inline-block;
+            background: var(--accent-gold);
+            color: var(--primary-navy);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        nav {
+            background: var(--light-bg);
+            padding: 1rem;
+            border-bottom: 2px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .nav-buttons button {
+            padding: 0.5rem 0.85rem;
+            font-size: 0.85rem;
+            border: none;
+            background: var(--white);
+            color: var(--text-dark);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: var(--shadow);
+            white-space: nowrap;
+        }
+
+        .nav-buttons button:hover {
+            background: var(--primary-navy);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .nav-buttons button.active {
+            background: var(--primary-red);
+            color: var(--white);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 2rem;
+            min-height: 500px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-content h2 {
+            color: var(--primary-navy);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--primary-red);
+        }
+
+        .tab-content h3 {
+            color: var(--primary-red);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .tab-content h4 {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .tab-content p, .tab-content li {
+            color: var(--text-medium);
+            line-height: 1.7;
+            margin-bottom: 0.75rem;
+        }
+
+        .tab-content ul, .tab-content ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .resource-card {
+            background: var(--light-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-red);
+        }
+
+        .resource-card h4 {
+            color: var(--primary-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 1px solid #f59e0b;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .warning-box h4 {
+            color: #92400e;
+            margin-bottom: 0.5rem;
+        }
+
+        .warning-box p, .warning-box li {
+            color: #78350f;
+        }
+
+        .prompt-box {
+            background: #f0f9ff;
+            border: 1px solid #0ea5e9;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #0c4a6e;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-radius: 10px;
+            padding: 1.25rem;
+            border-left: 4px solid var(--primary-navy);
+        }
+
+        .period-section {
+            background: var(--light-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--primary-red);
+        }
+
+        .period-section h4 {
+            color: var(--primary-navy);
+            font-size: 1.15rem;
+        }
+
+        .theme-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background: var(--primary-navy);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin: 0.25rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        th {
+            background: var(--primary-navy);
+            color: white;
+        }
+
+        tr:hover {
+            background: var(--light-bg);
+        }
+
+        footer {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            text-align: center;
+            color: var(--text-medium);
+            border-top: 2px solid var(--border-light);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            header h1 {
+                font-size: 1.6rem;
+            }
+
+            .nav-buttons button {
+                padding: 0.4rem 0.6rem;
+                font-size: 0.75rem;
+            }
+
+            .tab-content {
+                padding: 1rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .tab-content {
+                display: block !important;
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <span class="ap-badge">COLLEGE BOARD AP®</span>
+            <h1>🇺🇸 AP U.S. History Teacher Resource Hub</h1>
+            <p>Comprehensive Resources for APUSH Success | Periods 1-9 | Historical Thinking Skills</p>
+        </header>
+
+        <nav>
+            <div class="nav-buttons">
+                <button class="active" onclick="showTab('standards')">Standards</button>
+                <button onclick="showTab('background')">Background</button>
+                <button onclick="showTab('websites')">Websites</button>
+                <button onclick="showTab('inquiry')">Inquiry</button>
+                <button onclick="showTab('investigations')">Investigations</button>
+                <button onclick="showTab('videos')">Videos</button>
+                <button onclick="showTab('articles')">Articles</button>
+                <button onclick="showTab('assessments')">Assessments</button>
+                <button onclick="showTab('printables')">Printables</button>
+                <button onclick="showTab('vocabulary')">Vocabulary</button>
+                <button onclick="showTab('games')">Games</button>
+                <button onclick="showTab('differentiation')">Differentiation</button>
+                <button onclick="showTab('misconceptions')">Misconceptions</button>
+                <button onclick="showTab('cultural')">Cultural</button>
+                <button onclick="showTab('historical-sites')">Historical Sites</button>
+                <button onclick="showTab('ai-teachers')">AI for Teachers</button>
+                <button onclick="showTab('ai-students')">AI for Students</button>
+            </div>
+        </nav>
+
+        <!-- Standards Tab -->
+        <div id="standards" class="tab-content active">
+            <h2>📋 AP U.S. History Course Framework</h2>
+
+            <div class="content-card">
+                <h3>📚 Standards Frameworks</h3>
+                <p>This AP course aligns to multiple standards frameworks:</p>
+                <ul style="margin-left: 20px;">
+                    <li><strong>College Board:</strong> AP Course and Exam Description (primary framework)</li>
+                    <li><strong>NCSS:</strong> National Council for the Social Studies C3 Framework</li>
+                    <li><strong>GSE:</strong> Georgia Standards of Excellence (state alignment)</li>
+                </ul>
+            </div>
+
+            <h3>Course Themes</h3>
+            <p>The AP U.S. History course is organized around eight thematic learning objectives:</p>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h4>American and National Identity (NAT)</h4>
+                    <p>How and why definitions of American and national identity have developed, as well as related topics such as citizenship, constitutionalism, and foreign policy.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Work, Exchange, and Technology (WXT)</h4>
+                    <p>The factors behind the development of systems of economic exchange, the role of technology and economic markets, and the effects on society and government policy.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Geography and the Environment (GEO)</h4>
+                    <p>The role of geography and both human and natural environmental factors in social and political developments in what would become the United States.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Migration and Settlement (MIG)</h4>
+                    <p>The causes and effects of migration to, and mobility within, what would become the United States.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Politics and Power (POL)</h4>
+                    <p>How political beliefs and institutions have changed and the effects of social movements.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>America in the World (WOR)</h4>
+                    <p>The interactions between nations that affected North American history in the colonial period, and how the United States has related to the rest of the world.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>American and Regional Culture (ARC)</h4>
+                    <p>The development of and interactions among different cultures and cultural groups.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Social Structures (SOC)</h4>
+                    <p>How social categories, roles, and practices have been maintained and challenged over time.</p>
+                </div>
+            </div>
+
+            <h3>Historical Periods</h3>
+            <div class="period-section">
+                <h4>Period 1: 1491-1607 (4-6% of Exam)</h4>
+                <p>Native American societies before European contact; early European exploration and colonization; Columbian Exchange.</p>
+                <span class="theme-badge">NAT</span><span class="theme-badge">GEO</span><span class="theme-badge">WOR</span>
+            </div>
+            <div class="period-section">
+                <h4>Period 2: 1607-1754 (6-8% of Exam)</h4>
+                <p>Colonial development; relationships among European powers and Indigenous peoples; slavery and labor systems; colonial society and culture.</p>
+                <span class="theme-badge">MIG</span><span class="theme-badge">WXT</span><span class="theme-badge">SOC</span>
+            </div>
+            <div class="period-section">
+                <h4>Period 3: 1754-1800 (10-17% of Exam)</h4>
+                <p>French and Indian War; colonial resistance; American Revolution; creation of the Constitution; early republic challenges.</p>
+                <span class="theme-badge">NAT</span><span class="theme-badge">POL</span><span class="theme-badge">WOR</span>
+            </div>
+            <div class="period-section">
+                <h4>Period 4: 1800-1848 (10-17% of Exam)</h4>
+                <p>Jeffersonian democracy; market revolution; reform movements; territorial expansion; sectional tensions; emergence of American culture.</p>
+                <span class="theme-badge">WXT</span><span class="theme-badge">ARC</span><span class="theme-badge">MIG</span>
+            </div>
+            <div class="period-section">
+                <h4>Period 5: 1844-1877 (10-17% of Exam)</h4>
+                <p>Manifest Destiny; slavery controversy; Civil War; Reconstruction; transformation of the West.</p>
+                <span class="theme-badge">POL</span><span class="theme-badge">SOC</span><span class="theme-badge">NAT</span>
+            </div>
+            <div class="period-section">
+                <h4>Period 6: 1865-1898 (10-17% of Exam)</h4>
+                <p>Industrialization; Gilded Age politics; immigration and urbanization; the New South; Western development; emergence as global power.</p>
+                <span class="theme-badge">WXT</span><span class="theme-badge">MIG</span><span class="theme-badge">GEO</span>
+            </div>
+            <div class="period-section">
+                <h4>Period 7: 1890-1945 (10-17% of Exam)</h4>
+                <p>Progressivism; imperialism; World War I; 1920s culture and economy; Great Depression and New Deal; World War II.</p>
+                <span class="theme-badge">WOR</span><span class="theme-badge">POL</span><span class="theme-badge">ARC</span>
+            </div>
+            <div class="period-section">
+                <h4>Period 8: 1945-1980 (10-17% of Exam)</h4>
+                <p>Cold War; civil rights movement; Great Society; Vietnam; social movements; Nixon and Watergate; economic challenges.</p>
+                <span class="theme-badge">NAT</span><span class="theme-badge">SOC</span><span class="theme-badge">WOR</span>
+            </div>
+            <div class="period-section">
+                <h4>Period 9: 1980-Present (4-6% of Exam)</h4>
+                <p>Conservative resurgence; end of Cold War; globalization; demographic changes; technology and society; 21st-century challenges.</p>
+                <span class="theme-badge">POL</span><span class="theme-badge">WXT</span><span class="theme-badge">GEO</span>
+            </div>
+
+            <h3>Historical Thinking Skills</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Developments and Processes</h4>
+                    <p>Identify and explain historical developments and processes.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Sourcing and Situation</h4>
+                    <p>Analyze sourcing and situation of primary and secondary sources.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Claims and Evidence in Sources</h4>
+                    <p>Analyze arguments in primary and secondary sources.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Contextualization</h4>
+                    <p>Analyze the contexts of historical events, developments, or processes.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Making Connections</h4>
+                    <p>Using historical reasoning processes (comparison, causation, continuity and change).</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Argumentation</h4>
+                    <p>Develop an argument using evidence and reasoning.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Background Tab -->
+        <div id="background" class="tab-content">
+            <h2>📚 Teacher Background Knowledge</h2>
+            
+            <h3>Essential Content Knowledge by Period</h3>
+            
+            <h4>Period 1: Pre-Columbian and Early Contact (1491-1607)</h4>
+            <p>Teachers should understand the diversity of Native American societies before contact, including different social structures (from nomadic bands to complex chiefdoms), economic systems, and cultural practices. The Columbian Exchange was a transformative biological and cultural exchange that reshaped both hemispheres—diseases decimated Indigenous populations while new crops, animals, and ideas transformed societies on both continents.</p>
+
+            <h4>Period 2: Colonial America (1607-1754)</h4>
+            <p>Understanding the distinct colonial regions is crucial: New England (Puritan, town-based, commercial), Middle Colonies (diverse, agricultural and commercial), and Southern Colonies (plantation economy, hierarchical society). The development of slavery as a racialized labor system and the various forms of colonial resistance to British policies laid groundwork for later developments.</p>
+
+            <h4>Period 3: Revolution and Early Republic (1754-1800)</h4>
+            <p>The ideological foundations of the Revolution drew from Enlightenment thinking, republican ideals, and colonial experiences with self-governance. The Constitutional Convention debates—federalism vs. anti-federalism, large vs. small states, slavery compromises—established frameworks still debated today. Hamilton vs. Jefferson represented competing visions of America's future.</p>
+
+            <h4>Period 4: Growth and Reform (1800-1848)</h4>
+            <p>The Market Revolution transformed the economy through transportation improvements, manufacturing growth, and the emergence of a market-oriented society. The Second Great Awakening sparked reform movements including abolitionism, women's rights, temperance, and educational reform. Jacksonian Democracy represented both expanded white male democracy and increased oppression of Native Americans and African Americans.</p>
+
+            <h4>Period 5: Civil War Era (1844-1877)</h4>
+            <p>Territorial expansion intensified sectional tensions as debates over slavery in new territories led to compromises that ultimately failed. The Civil War transformed the nation—the end of slavery, assertion of federal power, and questions about the meaning of freedom that Reconstruction only partially addressed before its abandonment.</p>
+
+            <h4>Period 6: Gilded Age (1865-1898)</h4>
+            <p>Industrialization brought massive economic growth alongside labor exploitation, political corruption, and social inequality. The "New Immigration" from Southern and Eastern Europe transformed urban America. The "New South" and Jim Crow created a system of racial apartheid, while the conquest of the West destroyed Native American ways of life.</p>
+
+            <h4>Period 7: Modern America Emerges (1890-1945)</h4>
+            <p>Progressivism sought to address industrial society's problems through reform. American imperialism extended U.S. power globally. World War I and its aftermath reshaped American society, as did the cultural conflicts and economic boom of the 1920s. The Great Depression and New Deal fundamentally altered the relationship between government and economy, and World War II made the U.S. a global superpower.</p>
+
+            <h4>Period 8: Cold War America (1945-1980)</h4>
+            <p>The Cold War shaped foreign and domestic policy for decades. The civil rights movement challenged and transformed American racial hierarchy, inspiring other social movements. The Vietnam War and Watergate eroded public trust in government. Economic challenges ended postwar prosperity.</p>
+
+            <h4>Period 9: Contemporary America (1980-Present)</h4>
+            <p>Conservative resurgence reshaped politics and policy. The end of the Cold War and rise of globalization created new challenges. Demographic transformation, technological revolution, and debates over American identity continue to shape the nation.</p>
+
+            <h3>Historiographical Perspectives</h3>
+            <p>AP U.S. History requires understanding that historical interpretation evolves. Teachers should be familiar with how different schools of thought—Progressive, Consensus, New Left, New Social History—have shaped understanding of key events and processes.</p>
+        </div>
+
+        <!-- Websites Tab -->
+        <div id="websites" class="tab-content">
+            <h2>🌐 Educational Websites</h2>
+            
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>AP Central - College Board</h4>
+                    <p>Official AP U.S. History resources including course framework, exam information, sample questions, and scoring guidelines.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>SHEG - Stanford History Education Group</h4>
+                    <p>Reading Like a Historian curriculum with primary source lessons organized by period and topic.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Library of Congress</h4>
+                    <p>Primary Source Sets, Teaching with Primary Sources, and digitized historical documents.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>National Archives - DocsTeach</h4>
+                    <p>Primary sources, document analysis activities, and teaching resources organized by era.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Gilder Lehrman Institute</h4>
+                    <p>AP U.S. History resources, primary sources, essays by historians, and multimedia content.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Digital History (University of Houston)</h4>
+                    <p>Textbook content, primary sources, and interactive features covering all periods.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>American Yawp</h4>
+                    <p>Free, peer-reviewed, open American history textbook with primary source reader.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Khan Academy - APUSH</h4>
+                    <p>Free video lessons, practice questions, and exam preparation aligned to the AP framework.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>JSTOR Daily</h4>
+                    <p>Accessible articles connecting current events to historical context with links to primary sources.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Facing History and Ourselves</h4>
+                    <p>Resources on civil rights, immigration, and civic engagement with emphasis on perspective-taking.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inquiry Tab -->
+        <div id="inquiry" class="tab-content">
+            <h2>❓ Inquiry-Based Learning</h2>
+            
+            <h3>Essential Questions by Period</h3>
+            
+            <div class="period-section">
+                <h4>Period 1: 1491-1607</h4>
+                <ul>
+                    <li>How did diverse Native American societies reflect adaptation to their environments?</li>
+                    <li>Was the Columbian Exchange a "fair trade"? Who benefited and who suffered?</li>
+                    <li>How did European, African, and Indigenous worldviews differ regarding land, labor, and community?</li>
+                </ul>
+            </div>
+
+            <div class="period-section">
+                <h4>Period 2: 1607-1754</h4>
+                <ul>
+                    <li>How did geography shape the development of distinct colonial regions?</li>
+                    <li>Why did slavery become the dominant labor system in the colonies?</li>
+                    <li>To what extent were the American colonies democratic?</li>
+                </ul>
+            </div>
+
+            <div class="period-section">
+                <h4>Period 3: 1754-1800</h4>
+                <ul>
+                    <li>Was the American Revolution truly revolutionary? For whom?</li>
+                    <li>How did the Constitution balance competing interests and values?</li>
+                    <li>What were the most significant challenges facing the new nation?</li>
+                </ul>
+            </div>
+
+            <div class="period-section">
+                <h4>Period 4: 1800-1848</h4>
+                <ul>
+                    <li>How did the Market Revolution transform American society and culture?</li>
+                    <li>To what extent did Jacksonian Democracy expand or limit freedom?</li>
+                    <li>How did reform movements reflect both the possibilities and limits of American democracy?</li>
+                </ul>
+            </div>
+
+            <div class="period-section">
+                <h4>Period 5: 1844-1877</h4>
+                <ul>
+                    <li>Was the Civil War inevitable? At what point did compromise become impossible?</li>
+                    <li>What did freedom mean for formerly enslaved people after emancipation?</li>
+                    <li>Was Reconstruction a success or failure? By whose definition?</li>
+                </ul>
+            </div>
+
+            <div class="period-section">
+                <h4>Period 6: 1865-1898</h4>
+                <ul>
+                    <li>Who were the winners and losers of industrialization?</li>
+                    <li>How did Americans respond to the challenges of industrial society?</li>
+                    <li>How did the meanings of "American" change with new immigration?</li>
+                </ul>
+            </div>
+
+            <div class="period-section">
+                <h4>Period 7: 1890-1945</h4>
+                <ul>
+                    <li>How effective were Progressive reforms in addressing industrial society's problems?</li>
+                    <li>How did World Wars I and II transform American society and global role?</li>
+                    <li>Did the New Deal fundamentally change American government and society?</li>
+                </ul>
+            </div>
+
+            <div class="period-section">
+                <h4>Period 8: 1945-1980</h4>
+                <ul>
+                    <li>How did Cold War concerns shape domestic and foreign policy?</li>
+                    <li>How did the civil rights movement change America? What work remained?</li>
+                    <li>Why did Americans lose faith in their government during this period?</li>
+                </ul>
+            </div>
+
+            <div class="period-section">
+                <h4>Period 9: 1980-Present</h4>
+                <ul>
+                    <li>How has the conservative movement reshaped American politics and society?</li>
+                    <li>How have globalization and demographic change transformed America?</li>
+                    <li>What defines American identity in the 21st century?</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Investigations Tab -->
+        <div id="investigations" class="tab-content">
+            <h2>🔍 Investigations & DBQs</h2>
+            
+            <h3>Document-Based Question Strategies</h3>
+            <div class="resource-card" style="margin-bottom: 1.5rem;">
+                <h4>DBQ Structure</h4>
+                <ul>
+                    <li><strong>Contextualization:</strong> Situate the question in broader historical context (1 point)</li>
+                    <li><strong>Thesis:</strong> Make a historically defensible claim that responds to all parts of the question (1 point)</li>
+                    <li><strong>Evidence from Documents:</strong> Use content from at least 6 documents to support argument (2 points)</li>
+                    <li><strong>Evidence Beyond Documents:</strong> Incorporate specific historical evidence not in documents (1 point)</li>
+                    <li><strong>Sourcing:</strong> Explain how document's POV, purpose, situation, or audience is relevant (1 point)</li>
+                    <li><strong>Complexity:</strong> Demonstrate sophisticated understanding through nuanced argument (1 point)</li>
+                </ul>
+            </div>
+
+            <h3>Practice DBQ Topics by Period</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Colonial Society (Period 2)</h4>
+                    <p>Evaluate the extent to which colonial society was democratic. Consider political participation, social mobility, and the status of different groups.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>American Revolution (Period 3)</h4>
+                    <p>Analyze the degree to which the American Revolution was revolutionary. Consider political, social, and economic changes.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Reform Movements (Period 4)</h4>
+                    <p>Evaluate the effectiveness of antebellum reform movements in achieving their goals. Consider abolition, women's rights, temperance.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Reconstruction (Period 5)</h4>
+                    <p>Evaluate the extent to which Reconstruction was a success. Consider political, social, and economic changes for African Americans.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Labor in the Gilded Age (Period 6)</h4>
+                    <p>Analyze the factors that contributed to labor unrest during the Gilded Age. Consider working conditions, immigration, and corporate power.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>New Deal (Period 7)</h4>
+                    <p>Evaluate the extent to which the New Deal changed the role of the federal government. Consider relief, recovery, and reform programs.</p>
+                </div>
+            </div>
+
+            <h3>Long Essay Question Practice</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Comparison</h4>
+                    <p>Compare and contrast the ways in which TWO of the following groups sought to achieve their goals: abolitionists, labor unions, civil rights activists.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Causation</h4>
+                    <p>Explain the causes AND effects of the Market Revolution on American society from 1815-1860.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Continuity and Change</h4>
+                    <p>Evaluate the extent to which the role of the federal government changed from 1877 to 1945.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Videos Tab -->
+        <div id="videos" class="tab-content">
+            <h2>🎬 Video Resources</h2>
+            
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Crash Course US History</h4>
+                    <p>John Green's engaging series covering all APUSH periods in 10-15 minute episodes. Great for review and engagement.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Heimler's History</h4>
+                    <p>AP-specific content with exam strategies, content review, and DBQ/LEQ practice. Closely aligned to course framework.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Adam Norris APUSH</h4>
+                    <p>Comprehensive lecture videos organized by period with detailed content coverage.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Ken Burns Documentaries</h4>
+                    <p>The Civil War, The Vietnam War, The Roosevelts - in-depth primary source-rich documentaries.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>American Experience (PBS)</h4>
+                    <p>Documentary series on American history topics with accompanying teaching resources.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Eyes on the Prize</h4>
+                    <p>Essential documentary series on the civil rights movement with primary footage and interviews.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Khan Academy APUSH</h4>
+                    <p>Free instructional videos aligned to each period and skill with practice questions.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>C-SPAN Classroom</h4>
+                    <p>Primary source video content including historical speeches, events, and American History TV.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Articles Tab -->
+        <div id="articles" class="tab-content">
+            <h2>📰 Primary & Secondary Sources</h2>
+            
+            <h3>Essential Primary Source Collections</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Founding Documents</h4>
+                    <ul>
+                        <li>Declaration of Independence</li>
+                        <li>Constitution and Bill of Rights</li>
+                        <li>Federalist and Anti-Federalist Papers</li>
+                        <li>Washington's Farewell Address</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>Slavery and Abolition</h4>
+                    <ul>
+                        <li>Slave narratives (Douglass, Jacobs)</li>
+                        <li>Dred Scott v. Sandford (1857)</li>
+                        <li>Lincoln-Douglas Debates</li>
+                        <li>Emancipation Proclamation</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>Reform and Rights</h4>
+                    <ul>
+                        <li>Declaration of Sentiments (1848)</li>
+                        <li>Plessy v. Ferguson (1896)</li>
+                        <li>Letter from Birmingham Jail (1963)</li>
+                        <li>Brown v. Board of Education (1954)</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>Political and Economic</h4>
+                    <ul>
+                        <li>Monroe Doctrine</li>
+                        <li>FDR's Inaugural Address (1933)</li>
+                        <li>Truman Doctrine</li>
+                        <li>Reagan's "Evil Empire" Speech</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Recommended Secondary Source Reading</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Scholarly Articles</h4>
+                    <p>JSTOR, Organization of American Historians (OAH) Magazine of History, Journal of American History articles accessible for student reading.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Historiographical Essays</h4>
+                    <p>Understanding how historians have interpreted key events differently over time—essential for complexity points.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Assessments Tab -->
+        <div id="assessments" class="tab-content">
+            <h2>📝 Assessments</h2>
+            
+            <h3>AP Exam Format</h3>
+            <table>
+                <tr>
+                    <th>Section</th>
+                    <th>Question Type</th>
+                    <th>Time</th>
+                    <th>Weight</th>
+                </tr>
+                <tr>
+                    <td>Section I, Part A</td>
+                    <td>55 Multiple Choice Questions</td>
+                    <td>55 minutes</td>
+                    <td>40%</td>
+                </tr>
+                <tr>
+                    <td>Section I, Part B</td>
+                    <td>3 Short Answer Questions</td>
+                    <td>40 minutes</td>
+                    <td>20%</td>
+                </tr>
+                <tr>
+                    <td>Section II, Part A</td>
+                    <td>1 Document-Based Question</td>
+                    <td>60 minutes</td>
+                    <td>25%</td>
+                </tr>
+                <tr>
+                    <td>Section II, Part B</td>
+                    <td>1 Long Essay Question</td>
+                    <td>40 minutes</td>
+                    <td>15%</td>
+                </tr>
+            </table>
+
+            <h3>Formative Assessment Strategies</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Stimulus-Based MC Practice</h4>
+                    <p>Regular practice with primary source analysis questions using released exam questions and teacher-created items.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>SAQ Sprints</h4>
+                    <p>Timed short answer practice focusing on using evidence to support claims. Target: 13 minutes per question.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Document Analysis</h4>
+                    <p>HIPP (Historical context, Intended audience, Purpose, Point of view) analysis of individual documents.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Thesis Statement Practice</h4>
+                    <p>Regular practice crafting historically defensible thesis statements for DBQ and LEQ prompts.</p>
+                </div>
+            </div>
+
+            <h3>Summative Assessment Ideas</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Period Assessments</h4>
+                    <p>Full AP-style assessments covering 1-2 periods with MC, SAQ, and timed essay components.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Skills-Based Assessments</h4>
+                    <p>Focused assessments on specific skills (causation, comparison, CCOT) across multiple periods.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Printables Tab -->
+        <div id="printables" class="tab-content">
+            <h2>📄 Printables & Organizers</h2>
+            
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Document Analysis (HIPP)</h4>
+                    <p>Graphic organizer for analyzing Historical context, Intended audience, Purpose, and Point of view.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>DBQ Planning Sheet</h4>
+                    <p>Structured organizer for thesis development, document grouping, outside evidence, and sourcing.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>LEQ Outline Template</h4>
+                    <p>Framework for contextualization, thesis, evidence organization, and complexity.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Period Summary Charts</h4>
+                    <p>One-page summaries for each period including key concepts, themes, and vocabulary.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Theme Tracking Sheets</h4>
+                    <p>Charts tracking development of each theme (NAT, WXT, GEO, etc.) across all periods.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Comparison Charts</h4>
+                    <p>Templates for comparing events, movements, or developments across time periods.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Causation Diagrams</h4>
+                    <p>Graphic organizers showing cause and effect relationships with short and long-term factors.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Continuity and Change Charts</h4>
+                    <p>Before/after analysis templates for tracking change over time.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vocabulary Tab -->
+        <div id="vocabulary" class="tab-content">
+            <h2>📖 Key Vocabulary</h2>
+            
+            <h3>Historical Thinking Skills Vocabulary</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Analysis Terms</h4>
+                    <ul>
+                        <li><strong>Contextualization:</strong> Placing events in broader historical context</li>
+                        <li><strong>Causation:</strong> Analyzing cause and effect relationships</li>
+                        <li><strong>Comparison:</strong> Identifying similarities and differences</li>
+                        <li><strong>CCOT:</strong> Continuity and change over time</li>
+                        <li><strong>Periodization:</strong> How historians divide time into eras</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>Sourcing Terms</h4>
+                    <ul>
+                        <li><strong>Point of View:</strong> Author's perspective or bias</li>
+                        <li><strong>Purpose:</strong> Why the document was created</li>
+                        <li><strong>Audience:</strong> Intended readers/viewers</li>
+                        <li><strong>Historical Situation:</strong> Circumstances of creation</li>
+                        <li><strong>Corroboration:</strong> Comparing multiple sources</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Content Vocabulary by Period</h3>
+            <div class="period-section">
+                <h4>Periods 1-2: Colonial Era</h4>
+                <p>Columbian Exchange, encomienda, mestizo, indentured servitude, mercantilism, salutary neglect, Middle Passage, Great Awakening, joint-stock company, House of Burgesses</p>
+            </div>
+            <div class="period-section">
+                <h4>Period 3: Revolution and Constitution</h4>
+                <p>Republicanism, virtual representation, popular sovereignty, federalism, checks and balances, elastic clause, strict/loose construction, judicial review, precedent</p>
+            </div>
+            <div class="period-section">
+                <h4>Period 4: Early Republic to Antebellum</h4>
+                <p>Market Revolution, cult of domesticity, Second Great Awakening, nullification, Manifest Destiny, nativism, abolitionism, transcendentalism, sectionalism</p>
+            </div>
+            <div class="period-section">
+                <h4>Period 5: Civil War and Reconstruction</h4>
+                <p>Popular sovereignty, Confederate States, Emancipation Proclamation, total war, Radical Republicans, Freedmen's Bureau, sharecropping, Redeemers, Jim Crow</p>
+            </div>
+            <div class="period-section">
+                <h4>Period 6: Gilded Age</h4>
+                <p>Vertical/horizontal integration, Social Darwinism, Gospel of Wealth, Populism, New South, Dawes Act, Chinese Exclusion Act, nativism, machine politics</p>
+            </div>
+            <div class="period-section">
+                <h4>Period 7: Progressive Era to WWII</h4>
+                <p>Muckraker, direct democracy, imperialism, dollar diplomacy, Great Migration, Red Scare, laissez-faire, Dust Bowl, New Deal coalition, containment</p>
+            </div>
+            <div class="period-section">
+                <h4>Periods 8-9: Cold War to Present</h4>
+                <p>McCarthyism, massive retaliation, domino theory, Great Society, counterculture, détente, stagflation, Reaganomics, globalization, culture wars</p>
+            </div>
+        </div>
+
+        <!-- Games Tab -->
+        <div id="games" class="tab-content">
+            <h2>🎮 Interactive Activities</h2>
+            
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Gilder Lehrman AP Quiz</h4>
+                    <p>Online quizzes aligned to APUSH periods and themes with immediate feedback.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Quizizz and Kahoot</h4>
+                    <p>Gamified review for key terms, concepts, and chronology. Create custom games by period.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Mission US</h4>
+                    <p>Interactive games placing students in historical scenarios (Revolution, slavery, immigration).</p>
+                </div>
+                <div class="resource-card">
+                    <h4>iCivics</h4>
+                    <p>Games focused on government and civic participation with APUSH connections.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Timeline Activities</h4>
+                    <p>Students arrange events chronologically, defending placement with historical reasoning.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Historical Simulations</h4>
+                    <p>Constitutional Convention, Treaty of Versailles, Cold War decision-making simulations.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Document Speed Dating</h4>
+                    <p>Timed rotation through primary sources with focused analysis questions.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Theme Connection Challenges</h4>
+                    <p>Teams compete to connect events across periods using thematic reasoning.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Differentiation Tab -->
+        <div id="differentiation" class="tab-content">
+            <h2>🎯 Differentiation Strategies</h2>
+            
+            <h3>Scaffolding for Developing Readers</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Document Modification</h4>
+                    <ul>
+                        <li>Provide vocabulary glosses for challenging primary sources</li>
+                        <li>Use excerpted rather than full documents</li>
+                        <li>Pair difficult texts with more accessible versions</li>
+                        <li>Provide document summaries alongside originals</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>Writing Support</h4>
+                    <ul>
+                        <li>Thesis statement frames and templates</li>
+                        <li>Paragraph structure guides (TEAL, ACE)</li>
+                        <li>Evidence sentence starters</li>
+                        <li>Transition word banks by type</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Extension for Advanced Students</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Historiographical Exploration</h4>
+                    <p>Compare multiple historians' interpretations of key events. Analyze how historical interpretation has changed over time.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Independent Research</h4>
+                    <p>Conduct primary source research on local history connections to national events. Create museum-quality document analyses.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>AP Seminar Connections</h4>
+                    <p>Cross-disciplinary research projects connecting historical events to contemporary issues.</p>
+                </div>
+            </div>
+
+            <h3>English Learner Support</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Language Scaffolds</h4>
+                    <ul>
+                        <li>Visual timelines and graphic organizers</li>
+                        <li>Word walls with visual supports</li>
+                        <li>Sentence frames for historical analysis</li>
+                        <li>Partner work for document analysis</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>Content Access</h4>
+                    <ul>
+                        <li>Pre-teach key vocabulary before readings</li>
+                        <li>Use images and maps as entry points</li>
+                        <li>Allow native language supports when appropriate</li>
+                        <li>Provide audio versions of texts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Misconceptions Tab -->
+        <div id="misconceptions" class="tab-content">
+            <h2>⚠️ Common Misconceptions</h2>
+            
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Native American Societies</h4>
+                    <p><strong>Misconception:</strong> Native Americans were primitive or had no history before European contact.</p>
+                    <p><strong>Reality:</strong> Complex societies with diverse political systems, trade networks, agricultural practices, and cultural achievements existed for thousands of years.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Colonial Unity</h4>
+                    <p><strong>Misconception:</strong> Colonists always wanted independence and shared a unified American identity.</p>
+                    <p><strong>Reality:</strong> Regional differences were significant. Many colonists remained loyal to Britain, and unified "American" identity developed gradually through and after the Revolution.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>The Constitution</h4>
+                    <p><strong>Misconception:</strong> The Founders agreed on the Constitution; it was the obvious solution.</p>
+                    <p><strong>Reality:</strong> Intense debates and compromises shaped the Constitution. Anti-Federalists opposed it, and even supporters disagreed about interpretation.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Slavery and the Civil War</h4>
+                    <p><strong>Misconception:</strong> The Civil War was primarily about "states' rights" rather than slavery.</p>
+                    <p><strong>Reality:</strong> Confederate states explicitly cited slavery as the cause in secession documents. "States' rights" referred primarily to the right to maintain slavery.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Reconstruction</h4>
+                    <p><strong>Misconception:</strong> Reconstruction was a time of Northern "revenge" on the South.</p>
+                    <p><strong>Reality:</strong> Reconstruction attempted to rebuild the nation and secure rights for freed people. Its "failure" came from its abandonment, not its goals.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Immigration</h4>
+                    <p><strong>Misconception:</strong> Immigrants always assimilated quickly and were welcomed.</p>
+                    <p><strong>Reality:</strong> Each wave faced significant discrimination. Assimilation was complex, often multi-generational, and involved cultural negotiation rather than simple adoption.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>The New Deal</h4>
+                    <p><strong>Misconception:</strong> The New Deal ended the Great Depression.</p>
+                    <p><strong>Reality:</strong> The New Deal provided relief and reformed capitalism, but World War II mobilization ultimately ended the Depression.</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Civil Rights Movement</h4>
+                    <p><strong>Misconception:</strong> The civil rights movement was just about Martin Luther King Jr. and happened only in the South.</p>
+                    <p><strong>Reality:</strong> The movement involved thousands of activists, multiple organizations, and addressed both Southern segregation and Northern discrimination.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cultural Tab -->
+        <div id="cultural" class="tab-content">
+            <h2>🌍 Diverse Perspectives</h2>
+            
+            <h3>Incorporating Multiple Perspectives</h3>
+            <p>AP U.S. History requires understanding how different groups experienced historical events. Teaching diverse perspectives isn't just about inclusion—it's about historical accuracy and developing critical thinking.</p>
+
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Native American Perspectives</h4>
+                    <ul>
+                        <li>Pre-contact societies as complex civilizations</li>
+                        <li>Indian Removal from Cherokee perspective</li>
+                        <li>Wounded Knee and the "closing" of the frontier</li>
+                        <li>American Indian Movement and contemporary issues</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>African American Perspectives</h4>
+                    <ul>
+                        <li>Enslaved persons' resistance and agency</li>
+                        <li>Reconstruction through Black Southerners' eyes</li>
+                        <li>Great Migration narratives</li>
+                        <li>Civil rights movement beyond mainstream narrative</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>Women's Perspectives</h4>
+                    <ul>
+                        <li>Colonial and revolutionary era women's roles</li>
+                        <li>Women's labor in industrialization</li>
+                        <li>Suffrage movement's complexities (race, class)</li>
+                        <li>Women's movements post-1960</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>Latino/Hispanic Perspectives</h4>
+                    <ul>
+                        <li>Spanish colonial legacy in the Southwest</li>
+                        <li>Mexican-American War from Mexican perspective</li>
+                        <li>Labor movements and civil rights activism</li>
+                        <li>Immigration history and policy debates</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>Asian American Perspectives</h4>
+                    <ul>
+                        <li>Chinese railroad workers and exclusion</li>
+                        <li>Japanese internment firsthand accounts</li>
+                        <li>Korean and Vietnam War refugee experiences</li>
+                        <li>Model minority myth and its problems</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>Working-Class Perspectives</h4>
+                    <ul>
+                        <li>Labor movement primary sources</li>
+                        <li>Gilded Age from workers' viewpoint</li>
+                        <li>Great Depression oral histories</li>
+                        <li>Deindustrialization and changing economy</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Resources for Diverse Perspectives</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Digital Collections</h4>
+                    <p>Slave Narratives (Library of Congress), Japanese American Relocation Digital Archives, Immigration History Research Center</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Oral History Projects</h4>
+                    <p>StoryCorps, Veterans History Project, Ellis Island Oral Histories, Civil Rights Movement oral histories</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI for Teachers Tab -->
+        
+        <!-- Historical Sites Tab -->
+        <div id="historical-sites" class="tab-content">
+            <h2><span class="section-icon">🏛️</span> Historical Sites & Virtual Field Trips</h2>
+
+            <div class="content-card">
+                <h3>🏛️ Period 1-3 Sites (1491-1800)</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Cahokia Mounds (Illinois)</strong> - Pre-Columbian civilization</li>
+                    <li><strong>Jamestown & Colonial Williamsburg</strong> - Colonial America</li>
+                    <li><strong>Independence Hall & Valley Forge</strong> - Revolutionary Era</li>
+                    <li><strong>Mount Vernon & Monticello</strong> - Founders, enslaved communities</li>
+                </ul>
+            </div>
+
+            <div class="content-card warm">
+                <h3>⚔️ Period 4-6 Sites (1800-1898)</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Lowell Mills (Massachusetts)</strong> - Market Revolution, labor</li>
+                    <li><strong>Seneca Falls (New York)</strong> - Women's rights movement</li>
+                    <li><strong>Gettysburg, Antietam</strong> - Civil War battlefields</li>
+                    <li><strong>Promontory Summit (Utah)</strong> - Transcontinental railroad</li>
+                    <li><strong>Ellis Island</strong> - Immigration</li>
+                </ul>
+            </div>
+
+            <div class="content-card purple">
+                <h3>🌐 Period 7-9 Sites (1890-Present)</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Pearl Harbor</strong> - WWII entry</li>
+                    <li><strong>National Mall Memorials</strong> - 20th century history</li>
+                    <li><strong>Selma to Montgomery Trail</strong> - Civil Rights</li>
+                    <li><strong>September 11 Memorial</strong> - Contemporary era</li>
+                </ul>
+            </div>
+
+            <div class="content-card">
+                <h3>💻 Virtual Primary Source Archives</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Library of Congress</strong> - Primary source collections by period</li>
+                    <li><strong>National Archives</strong> - DocsTeach DBQ resources</li>
+                    <li><strong>Gilder Lehrman Institute</strong> - Document-based activities</li>
+                    <li><strong>SHEG Reading Like a Historian</strong> - Inquiry lessons</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div id="ai-teachers" class="tab-content">
+            <h2>🤖 AI Tools for Teachers</h2>
+            
+            <div class="warning-box">
+                <h4>⚠️ Important Guidelines for AI Use</h4>
+                <ul>
+                    <li>Always verify AI-generated content for historical accuracy</li>
+                    <li>Never input student personal information into AI tools</li>
+                    <li>Follow your district's AI usage policies</li>
+                    <li>Use AI as a starting point, not a final product</li>
+                    <li>Model critical evaluation of AI outputs for students</li>
+                </ul>
+            </div>
+
+            <h3>Lesson Planning with AI</h3>
+            <p>Use AI to accelerate lesson planning while maintaining AP rigor:</p>
+            
+            <div class="prompt-box">
+                <strong>Period Introduction Prompt:</strong><br>
+                "Create a 50-minute lesson introducing APUSH Period 4 (1800-1848). Include: a compelling hook, key content to cover, 2-3 primary source excerpts with analysis questions, and an exit ticket aligned to skill 3 (Claims and Evidence). Target AP-level rigor."
+            </div>
+
+            <div class="prompt-box">
+                <strong>DBQ Preparation Prompt:</strong><br>
+                "Design a scaffolded DBQ preparation sequence for the topic 'Evaluate the extent to which the Market Revolution changed American society, 1815-1860.' Include document selection criteria, HIPP analysis practice, thesis development activities, and a peer review protocol."
+            </div>
+
+            <h3>Primary Source Analysis Support</h3>
+            <div class="prompt-box">
+                <strong>Document Contextualization:</strong><br>
+                "I'm teaching [specific primary source]. Provide historical context students need to understand this document, potential misunderstandings students might have, and 3 levels of analysis questions (basic comprehension, sourcing, connection to themes)."
+            </div>
+
+            <h3>Assessment Creation</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Stimulus-Based MC Questions</h4>
+                    <div class="prompt-box">
+                        "Create 3 AP-style stimulus-based multiple choice questions using this excerpt from [document]. Include questions testing skill 1 (Developments and Processes), skill 2 (Sourcing), and skill 4 (Contextualization). Provide answer explanations."
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <h4>SAQ Prompts</h4>
+                    <div class="prompt-box">
+                        "Write a short-answer question set (parts a, b, c) for Period 6 focusing on industrialization. Include a stimulus (excerpt or image description) and model responses at different score levels."
+                    </div>
+                </div>
+            </div>
+
+            <h3>Differentiation Support</h3>
+            <div class="prompt-box">
+                <strong>Document Modification:</strong><br>
+                "Modify this primary source excerpt from [document] for struggling readers while maintaining historical accuracy. Provide: a simplified version with vocabulary support, and an analysis scaffold with sentence starters."
+            </div>
+
+            <div class="prompt-box">
+                <strong>Extension Activities:</strong><br>
+                "Create an extension activity for advanced students studying [topic]. Focus on historiographical debate—provide 2-3 different historians' interpretations and questions guiding students to evaluate the arguments."
+            </div>
+
+            <h3>Review and Exam Prep</h3>
+            <div class="prompt-box">
+                <strong>Period Review:</strong><br>
+                "Create a comprehensive review guide for Period [X] including: key concepts organized by theme, essential vocabulary with AP-specific definitions, common exam topics, and 5 practice thesis statements for LEQ prompts."
+            </div>
+
+            <h3>Best Practices Checklist</h3>
+            <div class="resource-card">
+                <h4>Before Using AI-Generated Content:</h4>
+                <ul>
+                    <li>☐ Verify all historical facts and dates</li>
+                    <li>☐ Check that content aligns with current AP framework</li>
+                    <li>☐ Ensure primary source excerpts are accurate</li>
+                    <li>☐ Review for appropriate complexity and rigor</li>
+                    <li>☐ Confirm diverse perspectives are included</li>
+                    <li>☐ Check historiographical claims against scholarship</li>
+                    <li>☐ Adapt content to your specific students' needs</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- AI for Students Tab -->
+        <div id="ai-students" class="tab-content">
+            <h2>🎓 AI Tools for Students</h2>
+            
+            <div class="warning-box">
+                <h4>⚠️ Student Guidelines for AI Use</h4>
+                <ul>
+                    <li>AI is a study tool, not a substitute for learning</li>
+                    <li>Always verify historical information with reliable sources</li>
+                    <li>Never submit AI-generated work as your own</li>
+                    <li>Use AI to understand concepts, not to avoid thinking</li>
+                    <li>Follow your teacher's and school's AI policies</li>
+                </ul>
+            </div>
+
+            <h3>Understanding Complex Concepts</h3>
+            <p>Use AI to help explain difficult historical concepts and connections:</p>
+            
+            <div class="prompt-box">
+                <strong>Concept Explainer:</strong><br>
+                "Explain the concept of [republicanism/Manifest Destiny/containment] in AP U.S. History terms. Include: a clear definition, why it mattered historically, 2-3 specific examples from the relevant period, and how it connects to APUSH themes."
+            </div>
+
+            <div class="prompt-box">
+                <strong>Theme Connections:</strong><br>
+                "Help me understand how the theme of [Work, Exchange, and Technology] applies across Periods 4, 6, and 7. What are the continuities and changes in how Americans worked and produced goods?"
+            </div>
+
+            <h3>Writing Practice and Feedback</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Thesis Development</h4>
+                    <div class="prompt-box">
+                        "I'm writing an LEQ on: [prompt]. Here's my thesis: [thesis]. Give me feedback on whether it's historically defensible, addresses all parts of the prompt, and makes a clear argument. Suggest improvements without writing it for me."
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <h4>Evidence Suggestions</h4>
+                    <div class="prompt-box">
+                        "I'm arguing that [thesis]. What specific historical evidence (events, people, documents, data) could I use to support this argument? List possibilities but let me decide which to use and how."
+                    </div>
+                </div>
+            </div>
+
+            <h3>Document Analysis Practice</h3>
+            <div class="prompt-box">
+                <strong>HIPP Practice:</strong><br>
+                "I'm analyzing [document name/description]. Help me think through the HIPP elements. Ask me questions about the Historical context, Intended audience, Purpose, and Point of view rather than just telling me the answers."
+            </div>
+
+            <h3>Study and Review</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h4>Period Quiz</h4>
+                    <div class="prompt-box">
+                        "Quiz me on APUSH Period [X]. Ask me 5 questions covering different themes. After each answer, tell me if I'm right and explain why the correct answer matters historically."
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <h4>Causation Chains</h4>
+                    <div class="prompt-box">
+                        "Help me trace the causes of [Civil War/Great Depression/civil rights movement]. Start with long-term causes and work toward immediate triggers. Ask me questions to check my understanding at each step."
+                    </div>
+                </div>
+            </div>
+
+            <h3>Exam Preparation</h3>
+            <div class="prompt-box">
+                <strong>DBQ Practice:</strong><br>
+                "Give me a practice DBQ prompt on [topic]. Then, after I develop my thesis and outline, give me feedback on my approach before I write. Help me think about document grouping and sourcing opportunities."
+            </div>
+
+            <div class="prompt-box">
+                <strong>SAQ Timed Practice:</strong><br>
+                "Give me an SAQ with stimulus for Period [X]. I'll try to answer in 12 minutes, then show you my response. Score it using AP rubric criteria and explain what would improve my score."
+            </div>
+
+            <h3>Critical Thinking About AI</h3>
+            <div class="resource-card">
+                <h4>Evaluating AI as a Historical Source</h4>
+                <p>Practice the same critical thinking you apply to primary sources:</p>
+                <ul>
+                    <li><strong>Who created it?</strong> AI trained on texts that may contain biases or errors</li>
+                    <li><strong>What's the purpose?</strong> To generate plausible-sounding text, not guarantee truth</li>
+                    <li><strong>What's missing?</strong> AI may lack recent scholarship or specific details</li>
+                    <li><strong>How can you verify?</strong> Cross-reference with textbooks, primary sources, scholarly sources</li>
+                </ul>
+            </div>
+
+            <h3>Ethical Use Reminders</h3>
+            <div class="warning-box">
+                <h4>Academic Integrity</h4>
+                <p>Using AI appropriately means:</p>
+                <ul>
+                    <li>Getting explanations and feedback, not answers to copy</li>
+                    <li>Practicing skills, not bypassing them</li>
+                    <li>Developing your own historical thinking, with AI as a tutor</li>
+                    <li>Always being honest with your teacher about how you used AI</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <p>AP U.S. History Teacher Resource Hub | Georgia Standards Aligned</p>
+            <p>AP® is a trademark registered by the College Board, which is not affiliated with this resource.</p>
+        </footer>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.nav-buttons button').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High School U.S. History Teacher Resource Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #c0392b; --secondary: #2980b9; --accent: #f39c12; --dark: #2c3e50; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #c0392b 0%, #192a56 50%, #2980b9 100%); min-height: 100vh; padding: 20px; line-height: 1.7; color: var(--dark); }
+        .container { max-width: 1400px; margin: 0 auto; }
+        header { text-align: center; padding: 40px 20px; background: rgba(255,255,255,0.95); border-radius: 30px; margin-bottom: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+        header h1 { font-family: 'Nunito', sans-serif; font-size: 2.8rem; font-weight: 800; background: linear-gradient(135deg, #c0392b, #2980b9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px; }
+        header .grade-badge { display: inline-block; background: linear-gradient(135deg, #c0392b, #e74c3c); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+        header p { color: #636e72; font-size: 1.15rem; max-width: 700px; margin: 0 auto; }
+        .decorative-icons { display: flex; justify-content: center; gap: 20px; margin-top: 20px; font-size: 2rem; }
+        .tab-navigation { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; padding: 25px; background: rgba(255,255,255,0.95); border-radius: 25px; margin-bottom: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); position: sticky; top: 10px; z-index: 100; }
+        .tab-btn { padding: 12px 18px; border: none; background: linear-gradient(135deg, #f5f6fa, #dfe6e9); border-radius: 15px; cursor: pointer; font-family: 'Quicksand', sans-serif; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease; display: flex; align-items: center; gap: 6px; }
+        .tab-btn:hover { transform: translateY(-3px); }
+        .tab-btn.active { background: linear-gradient(135deg, #c0392b, #e74c3c); color: white; }
+        .tab-content { display: none; background: rgba(255,255,255,0.97); border-radius: 25px; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+        .tab-content.active { display: block; }
+        .tab-content h2 { font-family: 'Nunito', sans-serif; font-size: 2rem; font-weight: 800; margin-bottom: 25px; color: var(--dark); }
+        .tab-content h3 { font-family: 'Nunito', sans-serif; font-size: 1.4rem; font-weight: 700; color: #c0392b; margin: 30px 0 15px 0; padding-bottom: 10px; border-bottom: 3px solid var(--accent); }
+        .tab-content h4 { font-size: 1.15rem; font-weight: 700; color: #2980b9; margin: 20px 0 10px 0; }
+        .content-card { background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%); border-radius: 20px; padding: 25px; margin-bottom: 20px; border-left: 5px solid #c0392b; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .content-card.blue { border-left-color: #2980b9; }
+        .content-card.gold { border-left-color: var(--accent); }
+        .content-card.green { border-left-color: #27ae60; }
+        .standards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+        .standard-item { background: #f8f9fa; border-radius: 15px; padding: 20px; border: 2px solid #c0392b; }
+        .standard-code { display: inline-block; background: linear-gradient(135deg, #c0392b, #e74c3c); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; margin-bottom: 10px; }
+        .resource-list { list-style: none; padding: 0; }
+        .resource-list li { padding: 15px 20px; margin-bottom: 10px; background: #f8f9fa; border-radius: 12px; display: flex; align-items: center; gap: 15px; transition: all 0.3s ease; }
+        .resource-list li:hover { transform: translateX(10px); }
+        .resource-list li a { color: #c0392b; text-decoration: none; font-weight: 600; }
+        .vocab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
+        .vocab-card { background: #fff; border-radius: 15px; padding: 20px; text-align: center; border: 2px solid var(--accent); }
+        .vocab-card .term { font-size: 1.2rem; font-weight: 800; color: #c0392b; margin-bottom: 8px; }
+        .vocab-card .definition { font-size: 0.9rem; color: #636e72; }
+        .activity-card { background: #fff; border-radius: 20px; padding: 30px; margin-bottom: 25px; border: 2px solid var(--accent); }
+        .steps-list { counter-reset: steps; list-style: none; padding: 0; }
+        .steps-list li { counter-increment: steps; padding: 12px 20px 12px 60px; margin-bottom: 10px; background: #f8f9fa; border-radius: 12px; position: relative; }
+        .steps-list li::before { content: counter(steps); position: absolute; left: 15px; top: 50%; transform: translateY(-50%); width: 30px; height: 30px; background: linear-gradient(135deg, #c0392b, #e74c3c); border-radius: 50%; color: white; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+        .ai-tool-card { background: linear-gradient(135deg, #e8f4fd 0%, #d1ecf1 100%); border-radius: 20px; padding: 25px; margin-bottom: 20px; border-left: 5px solid #0ea5e9; }
+        .ai-tool-card h4 { color: #0369a1; margin-bottom: 10px; }
+        .ai-tool-card .tool-badge { display: inline-block; background: linear-gradient(135deg, #0ea5e9, #6366f1); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; margin-bottom: 10px; }
+        .ai-tool-card ul { margin-left: 20px; margin-top: 10px; }
+        .ai-warning { background: linear-gradient(135deg, #fef3c7, #fde68a); border-radius: 15px; padding: 20px; margin: 20px 0; border-left: 5px solid #f59e0b; }
+        .ai-warning h4 { color: #b45309; margin-bottom: 10px; }
+        .print-btn { position: fixed; bottom: 30px; right: 30px; background: linear-gradient(135deg, #c0392b, #e74c3c); color: white; border: none; padding: 15px 25px; border-radius: 50px; cursor: pointer; font-weight: 700; z-index: 1000; }
+        @media print { .tab-navigation, .print-btn { display: none; } .tab-content { display: block !important; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="grade-badge">🇺🇸 High School</div>
+            <h1>U.S. History Teacher Resource Hub</h1>
+            <p>Comprehensive resources for teaching United States history from colonization through modern times, aligned with Georgia Standards of Excellence</p>
+            <div class="decorative-icons">
+                <span>🗽</span><span>📜</span><span>⚔️</span><span>🏛️</span><span>🇺🇸</span>
+            </div>
+        </header>
+
+        <nav class="tab-navigation">
+            <button class="tab-btn active" onclick="showTab('standards')"><span class="icon">📋</span> Standards</button>
+            <button class="tab-btn" onclick="showTab('background')"><span class="icon">📖</span> Background</button>
+            <button class="tab-btn" onclick="showTab('websites')"><span class="icon">🌐</span> Websites</button>
+            <button class="tab-btn" onclick="showTab('inquiry')"><span class="icon">🔍</span> Inquiry</button>
+            <button class="tab-btn" onclick="showTab('investigations')"><span class="icon">🔬</span> Investigations</button>
+            <button class="tab-btn" onclick="showTab('videos')"><span class="icon">🎬</span> Videos</button>
+            <button class="tab-btn" onclick="showTab('articles')"><span class="icon">📰</span> Articles</button>
+            <button class="tab-btn" onclick="showTab('assessments')"><span class="icon">✅</span> Assessments</button>
+            <button class="tab-btn" onclick="showTab('printables')"><span class="icon">📄</span> Printables</button>
+            <button class="tab-btn" onclick="showTab('vocabulary')"><span class="icon">📝</span> Vocabulary</button>
+            <button class="tab-btn" onclick="showTab('games')"><span class="icon">🎮</span> Games</button>
+            <button class="tab-btn" onclick="showTab('differentiation')"><span class="icon">🎯</span> Differentiation</button>
+            <button class="tab-btn" onclick="showTab('misconceptions')"><span class="icon">💡</span> Misconceptions</button>
+            <button class="tab-btn" onclick="showTab('cultural')"><span class="icon">🌎</span> Cultural</button>
+            <button class="tab-btn" onclick="showTab('historical-sites')"><span class="icon">🏛️</span> Historical Sites</button>
+            <button class="tab-btn" onclick="showTab('ai-teachers')"><span class="icon">🤖</span> AI for Teachers</button>
+            <button class="tab-btn" onclick="showTab('ai-students')"><span class="icon">🧒</span> AI for Students</button>
+        </nav>
+
+        <div id="standards" class="tab-content active">
+            <h2>📋 Standards Alignment</h2>
+
+            <div class="content-card">
+                <h3>📚 Standards Frameworks</h3>
+                <p>This hub aligns to multiple standards frameworks to support comprehensive social studies instruction:</p>
+                <ul style="margin-left: 20px;">
+                    <li><strong>GSE:</strong> Georgia Standards of Excellence (state standards)</li>
+                    <li><strong>AKS:</strong> Academic Knowledge and Skills (Gwinnett County)</li>
+                    <li><strong>NCSS:</strong> National Council for the Social Studies C3 Framework</li>
+                </ul>
+            </div>
+
+            <h3>Georgia Standards of Excellence - U.S. History</h3>
+            <div class="standards-grid">
+                <div class="standard-item">
+                    <span class="standard-code">SSUSH1-4</span>
+                    <p><strong>Colonial & Revolutionary Era:</strong> Analyze colonization, development of self-government, causes of Revolution, formation of new nation</p>
+                </div>
+                <div class="standard-item">
+                    <span class="standard-code">SSUSH5-8</span>
+                    <p><strong>New Nation & Expansion:</strong> Analyze Constitution, early republic, westward expansion, sectional tensions, Civil War and Reconstruction</p>
+                </div>
+                <div class="standard-item">
+                    <span class="standard-code">SSUSH9-12</span>
+                    <p><strong>Industrial & Progressive Era:</strong> Analyze industrialization, immigration, Progressive reforms, imperialism, WWI</p>
+                </div>
+                <div class="standard-item">
+                    <span class="standard-code">SSUSH13-17</span>
+                    <p><strong>Modern Era:</strong> Analyze 1920s, Great Depression, New Deal, WWII, Cold War beginnings</p>
+                </div>
+                <div class="standard-item">
+                    <span class="standard-code">SSUSH18-22</span>
+                    <p><strong>Post-War America:</strong> Analyze Civil Rights Movement, Vietnam War, social movements, end of Cold War</p>
+                </div>
+                <div class="standard-item">
+                    <span class="standard-code">SSUSH23-25</span>
+                    <p><strong>Contemporary Era:</strong> Analyze recent political, economic, and social developments</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="background" class="tab-content">
+            <h2>📖 Teacher Background Knowledge</h2>
+            <div class="content-card">
+                <h3>Founding Era (1607-1800)</h3>
+                <p><strong>Colonial Period:</strong> Three colonial regions with distinct economies and cultures. Development of representative government (Virginia House of Burgesses, Mayflower Compact).</p>
+                <p><strong>Revolution:</strong> Philosophical influences (Enlightenment). Key documents (Declaration, Constitution, Bill of Rights). Debates between Federalists and Anti-Federalists.</p>
+            </div>
+            <div class="content-card blue">
+                <h3>Expansion & Conflict (1800-1877)</h3>
+                <p><strong>Territorial Growth:</strong> Louisiana Purchase, Texas, Mexican Cession, Oregon. Manifest Destiny ideology.</p>
+                <p><strong>Sectional Crisis:</strong> Slavery's expansion as central issue. Compromises failed. Civil War (1861-65) killed 620,000+.</p>
+                <p><strong>Reconstruction:</strong> 13th-15th Amendments. Brief period of Black political participation. Ended by 1877 compromise.</p>
+            </div>
+            <div class="content-card gold">
+                <h3>Industrial America (1877-1945)</h3>
+                <p><strong>Gilded Age:</strong> Rapid industrialization. Robber barons, labor movements. Immigration wave.</p>
+                <p><strong>Progressive Era:</strong> Reform movements addressing industrialization's problems. Women's suffrage (19th Amendment, 1920).</p>
+                <p><strong>World Wars & Depression:</strong> WWI, isolationism, Roaring 20s, Great Depression, New Deal, WWII.</p>
+            </div>
+            <div class="content-card green">
+                <h3>Contemporary Era (1945-Present)</h3>
+                <p><strong>Cold War:</strong> US-Soviet rivalry. Korea, Vietnam, nuclear arms race. Collapse of USSR (1991).</p>
+                <p><strong>Civil Rights:</strong> Montgomery to Selma. Legislation of 1964-65. Ongoing struggle for equality.</p>
+                <p><strong>Recent:</strong> Technology revolution, globalization, 9/11, political polarization.</p>
+            </div>
+        </div>
+
+        <div id="websites" class="tab-content">
+            <h2>🌐 Historical Websites</h2>
+            <ul class="resource-list">
+                <li><span class="icon">📜</span> <a href="https://www.archives.gov/education" target="_blank">National Archives</a></li>
+                <li><span class="icon">📚</span> <a href="https://www.loc.gov/teachers/" target="_blank">Library of Congress</a></li>
+                <li><span class="icon">🏛️</span> <a href="https://www.docsteach.org/" target="_blank">DocsTeach</a></li>
+                <li><span class="icon">📰</span> <a href="https://sheg.stanford.edu/" target="_blank">Stanford History Education Group</a></li>
+                <li><span class="icon">🎓</span> <a href="https://www.digitalhistory.uh.edu/" target="_blank">Digital History</a></li>
+            </ul>
+        </div>
+
+        <div id="inquiry" class="tab-content">
+            <h2>🔍 Inquiry-Based Lessons</h2>
+            <div class="activity-card">
+                <h4>📜 Inquiry 1: Was the Constitution a Revolutionary Document?</h4>
+                <p><strong>Compelling Question:</strong> Did the Constitution fulfill or betray the ideals of the Revolution?</p>
+                <ol class="steps-list">
+                    <li><strong>Engage:</strong> Compare Declaration's promises to Constitution's provisions.</li>
+                    <li><strong>Explore:</strong> Analyze who gained rights and who was excluded.</li>
+                    <li><strong>Explain:</strong> Examine debates at Constitutional Convention.</li>
+                    <li><strong>Elaborate:</strong> Write from perspective of different groups (enslaved people, women, property-less men).</li>
+                    <li><strong>Evaluate:</strong> Argue whether Constitution was revolutionary or conservative.</li>
+                </ol>
+                <p><strong>Standards:</strong> SSUSH3-4</p>
+            </div>
+            <div class="activity-card">
+                <h4>✊ Inquiry 2: What Made the Civil Rights Movement Successful?</h4>
+                <p><strong>Compelling Question:</strong> Which strategies and factors were most important for civil rights gains?</p>
+                <ol class="steps-list">
+                    <li><strong>Engage:</strong> Show timeline of legislation vs. protests.</li>
+                    <li><strong>Explore:</strong> Research different strategies: legal, direct action, economic, political.</li>
+                    <li><strong>Explain:</strong> Analyze how strategies interacted and reinforced each other.</li>
+                    <li><strong>Elaborate:</strong> Apply analysis to contemporary movements.</li>
+                    <li><strong>Evaluate:</strong> Rank factors by importance with evidence.</li>
+                </ol>
+                <p><strong>Standards:</strong> SSUSH18-19</p>
+            </div>
+        </div>
+
+        <div id="investigations" class="tab-content">
+            <h2>🔬 Document-Based Investigations</h2>
+            <div class="content-card">
+                <h3>Investigation 1: Federalist vs. Anti-Federalist Debates</h3>
+                <p><strong>Primary Sources:</strong> Federalist Papers excerpts, Anti-Federalist writings</p>
+                <ul style="margin-left: 20px;">
+                    <li>What were the main arguments for and against the Constitution?</li>
+                    <li>How did these debates shape the Bill of Rights?</li>
+                    <li>Which concerns remain relevant today?</li>
+                </ul>
+            </div>
+            <div class="content-card blue">
+                <h3>Investigation 2: Lincoln-Douglas Debates</h3>
+                <p><strong>Primary Sources:</strong> Debate excerpts</p>
+                <ul style="margin-left: 20px;">
+                    <li>How did Lincoln and Douglas differ on slavery?</li>
+                    <li>What does this reveal about Northern views on race?</li>
+                    <li>How did these debates shape the 1860 election?</li>
+                </ul>
+            </div>
+            <div class="content-card gold">
+                <h3>Investigation 3: Japanese American Internment</h3>
+                <p><strong>Primary Sources:</strong> Executive Order 9066, personal testimonies</p>
+                <ul style="margin-left: 20px;">
+                    <li>What was the government's justification?</li>
+                    <li>How did internment affect Japanese Americans?</li>
+                    <li>What does this teach about civil liberties during wartime?</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="videos" class="tab-content">
+            <h2>🎬 Educational Videos</h2>
+            <div class="content-card">
+                <ul class="resource-list">
+                    <li><span class="icon">🎥</span> <strong>Crash Course US History</strong> - Comprehensive series</li>
+                    <li><span class="icon">🎥</span> <strong>Ken Burns Documentaries</strong> - Civil War, Vietnam, etc.</li>
+                    <li><span class="icon">🎥</span> <strong>Eyes on the Prize</strong> - Civil Rights Movement</li>
+                    <li><span class="icon">🎥</span> <strong>American Experience (PBS)</strong> - Various topics</li>
+                    <li><span class="icon">🎥</span> <strong>Gilder Lehrman Institute</strong> - Expert lectures</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="articles" class="tab-content">
+            <h2>📰 Sample Reading Passages</h2>
+            <div class="content-card">
+                <h3>📖 The Great Migration</h3>
+                <p>Between 1910 and 1970, approximately six million African Americans left the rural South for cities in the North, Midwest, and West. They fled Jim Crow segregation, violence, and limited economic opportunities. They sought factory jobs, better schools, and the right to vote. The Great Migration transformed American cities, creating vibrant Black communities in places like Chicago's South Side and New York's Harlem. It shaped American culture, from the Harlem Renaissance to the birth of Chicago blues. But migrants also faced discrimination in their new homes—segregated housing, job discrimination, and racial violence.</p>
+                <p><strong>Standards:</strong> SSUSH11, SSUSH18</p>
+            </div>
+            <div class="content-card blue">
+                <h3>📖 The Cold War at Home</h3>
+                <p>While the United States and Soviet Union never fought directly, the Cold War profoundly shaped American life. Fear of communism led to the "Red Scare" of the late 1940s and 1950s. Senator Joseph McCarthy accused thousands of Americans of being communists, often without evidence. Lives and careers were destroyed. The House Un-American Activities Committee investigated Hollywood, leading to blacklists. At the same time, Cold War competition drove the space race, the interstate highway system, and increased funding for education after Sputnik's launch. The nuclear arms race created both terror and a strange sense of normalcy as children practiced "duck and cover" drills.</p>
+                <p><strong>Standards:</strong> SSUSH17, SSUSH20</p>
+            </div>
+        </div>
+
+        <div id="assessments" class="tab-content">
+            <h2>✅ Assessment Strategies</h2>
+            <div class="content-card">
+                <h3>Performance Tasks</h3>
+                <p><strong>Document-Based Question (DBQ):</strong> Analyze multiple primary sources. (All standards)</p>
+                <p><strong>Long Essay Question (LEQ):</strong> Develop historical argument. (All standards)</p>
+                <p><strong>Oral History Project:</strong> Interview about lived experience. (SSUSH17-25)</p>
+                <p><strong>Museum Exhibit:</strong> Curate sources on a theme. (All standards)</p>
+            </div>
+        </div>
+
+        <div id="printables" class="tab-content">
+            <h2>📄 Printable Resources</h2>
+            <div class="content-card">
+                <ul class="resource-list">
+                    <li><span class="icon">📋</span> U.S. History Timeline Template</li>
+                    <li><span class="icon">📋</span> Primary Source Analysis Sheet</li>
+                    <li><span class="icon">📋</span> DBQ Outline Template</li>
+                    <li><span class="icon">📋</span> Historical Argument Graphic Organizer</li>
+                    <li><span class="icon">📋</span> Era Comparison Chart</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="vocabulary" class="tab-content">
+            <h2>📝 Key Vocabulary</h2>
+            <div class="vocab-grid">
+                <div class="vocab-card"><div class="term">🏛️ Federalism</div><div class="definition">Division of power between national and state governments</div></div>
+                <div class="vocab-card"><div class="term">📜 Amendment</div><div class="definition">Formal change to the Constitution</div></div>
+                <div class="vocab-card"><div class="term">🔄 Reconstruction</div><div class="definition">Rebuilding after Civil War</div></div>
+                <div class="vocab-card"><div class="term">🏭 Industrialization</div><div class="definition">Shift to manufacturing economy</div></div>
+                <div class="vocab-card"><div class="term">✊ Civil Rights</div><div class="definition">Rights guaranteed to all citizens</div></div>
+                <div class="vocab-card"><div class="term">🌐 Containment</div><div class="definition">Cold War policy to stop communism's spread</div></div>
+            </div>
+        </div>
+
+        <div id="games" class="tab-content">
+            <h2>🎮 Learning Games</h2>
+            <div class="activity-card">
+                <h4>⏰ Timeline Challenge</h4>
+                <p>Arrange events chronologically across all eras.</p>
+            </div>
+            <div class="activity-card">
+                <h4>📜 Document Detective</h4>
+                <p>Identify and analyze historical documents.</p>
+            </div>
+            <div class="activity-card">
+                <h4>🗣️ Historical Debates</h4>
+                <p>Argue different perspectives on key issues.</p>
+            </div>
+        </div>
+
+        <div id="differentiation" class="tab-content">
+            <h2>🎯 Differentiation Strategies</h2>
+            <div class="content-card">
+                <h3>ELL Support</h3>
+                <ul style="margin-left: 20px;">
+                    <li>Visual timelines and concept maps</li>
+                    <li>Vocabulary with context and images</li>
+                    <li>Scaffolded writing templates</li>
+                    <li>Connect to students' backgrounds</li>
+                </ul>
+            </div>
+            <div class="content-card blue">
+                <h3>Advanced Learners</h3>
+                <ul style="margin-left: 20px;">
+                    <li>Historiographical analysis</li>
+                    <li>Original research projects</li>
+                    <li>AP US History preparation</li>
+                    <li>Primary source analysis in depth</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="misconceptions" class="tab-content">
+            <h2>💡 Common Misconceptions</h2>
+            <div class="content-card">
+                <h4>❌ The Founding Fathers all agreed on everything</h4>
+                <p>✅ <strong>Accurate:</strong> The Founders had significant disagreements about the Constitution, federal power, slavery, and more. These debates shaped American government.</p>
+            </div>
+            <div class="content-card blue">
+                <h4>❌ The Civil War was only about states' rights</h4>
+                <p>✅ <strong>Accurate:</strong> The "states' right" at issue was primarily slavery. Secession declarations explicitly cited slavery as the cause.</p>
+            </div>
+            <div class="content-card gold">
+                <h4>❌ Progress in civil rights was steady and inevitable</h4>
+                <p>✅ <strong>Accurate:</strong> Civil rights gains came through struggle and were often followed by backlash. Progress was neither inevitable nor linear.</p>
+            </div>
+        </div>
+
+        <div id="cultural" class="tab-content">
+            <h2>🌎 Cultural Connections</h2>
+            <div class="content-card">
+                <h3>Multiple Perspectives</h3>
+                <ul style="margin-left: 20px;">
+                    <li>Include voices historically marginalized in textbooks</li>
+                    <li>Examine events from Native American, African American, Latino, Asian American, and women's perspectives</li>
+                    <li>Discuss how interpretations of history have changed</li>
+                </ul>
+            </div>
+            <div class="content-card blue">
+                <h3>Local Connections</h3>
+                <ul style="margin-left: 20px;">
+                    <li>Connect national events to Georgia and local history</li>
+                    <li>Use local primary sources and sites</li>
+                    <li>Conduct oral history projects in community</li>
+                </ul>
+            </div>
+        </div>
+
+        
+        <!-- Historical Sites Tab -->
+        <div id="historical-sites" class="tab-content">
+            <h2><span class="section-icon">🏛️</span> Historical Sites & Virtual Field Trips</h2>
+
+            <div class="content-card">
+                <h3>🗽 Founding and Early Republic Sites</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Independence Hall (Philadelphia)</strong> - Declaration, Constitution</li>
+                    <li><strong>Colonial Williamsburg (Virginia)</strong> - Colonial life</li>
+                    <li><strong>Mount Vernon & Monticello</strong> - Founders' homes</li>
+                    <li><strong>Valley Forge National Historical Park</strong> - Revolutionary War</li>
+                </ul>
+            </div>
+
+            <div class="content-card warm">
+                <h3>⚔️ Civil War and Reconstruction Sites</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Gettysburg National Military Park</strong> - Turning point</li>
+                    <li><strong>Ford's Theatre</strong> - Lincoln assassination</li>
+                    <li><strong>Antietam National Battlefield</strong> - Emancipation context</li>
+                    <li><strong>National Museum of African American History</strong> - Slavery to freedom</li>
+                </ul>
+            </div>
+
+            <div class="content-card purple">
+                <h3>🏭 20th Century Sites</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Ellis Island/Statue of Liberty</strong> - Immigration</li>
+                    <li><strong>Pearl Harbor National Memorial</strong> - WWII</li>
+                    <li><strong>National Mall Memorials</strong> - MLK Jr., WWII, Vietnam, Korea</li>
+                    <li><strong>National September 11 Memorial</strong> - Contemporary history</li>
+                </ul>
+            </div>
+
+            <div class="content-card">
+                <h3>💻 Virtual Field Trips</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>National Archives</strong> - Founding documents</li>
+                    <li><strong>Smithsonian American History</strong> - Virtual exhibits</li>
+                    <li><strong>Library of Congress</strong> - Primary sources</li>
+                    <li><strong>National Park Service</strong> - Historic site tours</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div id="ai-teachers" class="tab-content">
+            <h2>🤖 AI Tools for Teachers</h2>
+            <div class="ai-warning">
+                <h4>⚠️ Important Considerations</h4>
+                <p>Verify historical accuracy. Present multiple perspectives, especially on contested topics. Be aware of potential bias in AI interpretations of American history.</p>
+            </div>
+            <div class="ai-tool-card">
+                <span class="tool-badge">Lesson Planning</span>
+                <h4>AI for U.S. History Content</h4>
+                <ul>
+                    <li><strong>Generate reading passages</strong> at appropriate levels</li>
+                    <li><strong>Create DBQ document sets</strong> with analysis questions</li>
+                    <li><strong>Develop comparison activities</strong> across eras</li>
+                    <li><strong>Write simulation scenarios</strong> for historical debates</li>
+                </ul>
+            </div>
+            <div class="ai-tool-card">
+                <span class="tool-badge">Primary Sources</span>
+                <h4>Document Support</h4>
+                <ul>
+                    <li><strong>Simplify complex documents</strong> while maintaining meaning</li>
+                    <li><strong>Generate context</strong> for primary sources</li>
+                    <li><strong>Create scaffolded questions</strong> for document analysis</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="ai-students" class="tab-content">
+            <h2>🧒 AI Tools for Students</h2>
+            <div class="ai-warning">
+                <h4>⚠️ High School AI Guidelines</h4>
+                <p>Use AI to support historical thinking, not replace it. Always verify facts with reliable sources. Be aware that AI may reflect certain historical interpretations.</p>
+            </div>
+            <div class="ai-tool-card">
+                <span class="tool-badge">Research Support</span>
+                <h4>🔍 Historical Research</h4>
+                <ul>
+                    <li>"Explain the causes of the American Revolution."</li>
+                    <li>"What were the different perspectives on Reconstruction?"</li>
+                    <li>"Analyze the impact of the New Deal."</li>
+                </ul>
+            </div>
+            <div class="ai-tool-card">
+                <span class="tool-badge">Essay Support</span>
+                <h4>✍️ Writing Development</h4>
+                <ul>
+                    <li>Generate thesis statement options</li>
+                    <li>Outline DBQ essays</li>
+                    <li>Find counterarguments to address</li>
+                    <li>Get feedback on historical reasoning</li>
+                </ul>
+            </div>
+            <div class="ai-tool-card">
+                <span class="tool-badge">Document Analysis</span>
+                <h4>📜 Primary Source Help</h4>
+                <ul>
+                    <li>Explain archaic language</li>
+                    <li>Provide historical context</li>
+                    <li>Generate analysis questions</li>
+                    <li>Compare multiple perspectives</li>
+                </ul>
+            </div>
+            <div class="content-card">
+                <h3>Critical Evaluation</h3>
+                <ul style="margin-left: 20px;">
+                    <li>🔍 <strong>Verify with primary sources</strong></li>
+                    <li>📚 <strong>Check against scholarly sources</strong></li>
+                    <li>⚖️ <strong>Look for bias</strong> in interpretations</li>
+                    <li>📝 <strong>Cite properly</strong> - AI is a tool, not a source</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">🖨️ Print Hub</button>
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
