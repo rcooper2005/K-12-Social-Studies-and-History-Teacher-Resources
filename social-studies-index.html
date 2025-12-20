@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏛️ K-12 Social Studies Teacher Resource Hubs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+            min-height: 100vh;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #5b21b6;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: #8b5cf6;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-top: 4px solid #8b5cf6;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #8b5cf6;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+
+        .section {
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #5b21b6;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #8b5cf6;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hub-count {
+            background: #8b5cf6;
+            color: white;
+            font-size: 0.875rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        .grade-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 20px;
+        }
+
+        .grade-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-left: 4px solid #8b5cf6;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: block;
+        }
+
+        .grade-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+        }
+
+        .grade-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #5b21b6;
+            margin-bottom: 8px;
+        }
+
+        .grade-card p {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .standards-tag {
+            font-size: 0.75rem;
+            color: #5b21b6;
+            font-weight: 600;
+            background: #ede9fe;
+            padding: 4px 10px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .features-section {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            margin-top: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .features-section h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #5b21b6;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .features-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .feature-tag {
+            background: #f5f3ff;
+            color: #5b21b6;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid #cbd5e1;
+        }
+
+        footer p {
+            color: #64748b;
+            font-size: 0.875rem;
+            margin-bottom: 8px;
+        }
+
+        footer a {
+            color: #8b5cf6;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.75rem; }
+            .stats-bar { gap: 12px; }
+            .stat-item { padding: 12px 16px; }
+            .grade-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏛️ K-12 Social Studies Teacher Resource Hubs</h1>
+            <p class="subtitle">Comprehensive Teaching Resources Aligned to Georgia Standards of Excellence</p>
+        </header>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-number">17</div>
+                <div class="stat-label">Tabs per Hub</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">✓</div>
+                <div class="stat-label">GSE Aligned</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">AI</div>
+                <div class="stat-label">Tools Integrated</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">18</div>
+                <div class="stat-label">Total Hubs</div>
+            </div>
+        </div>
+
+        <section class="section">
+            <h2 class="section-title">📚 Elementary School (K-5) <span class="hub-count">6 Hubs</span></h2>
+            <div class="grade-grid">
+                <a href="kindergarten-social-studies-hub.html" class="grade-card">
+                    <h3>Kindergarten Social Studies</h3>
+                    <p>Foundations of citizenship, community helpers, American symbols, and basic geography concepts.</p>
+                    <span class="standards-tag">SSKH • SSKCG • SSKG • SSKE</span>
+                </a>
+                <a href="grade1-social-studies-hub.html" class="grade-card">
+                    <h3>1st Grade Social Studies</h3>
+                    <p>Historical figures, good citizenship, map skills, and basic economic concepts.</p>
+                    <span class="standards-tag">SS1H • SS1CG • SS1G • SS1E</span>
+                </a>
+                <a href="grade2-social-studies-hub.html" class="grade-card">
+                    <h3>2nd Grade Social Studies</h3>
+                    <p>Georgia history introduction, government structure, geographic regions, and economic choices.</p>
+                    <span class="standards-tag">SS2H • SS2CG • SS2G • SS2E</span>
+                </a>
+                <a href="grade3-social-studies-hub.html" class="grade-card">
+                    <h3>3rd Grade Social Studies</h3>
+                    <p>Native American cultures, European exploration, colonial life, and United States geography.</p>
+                    <span class="standards-tag">SS3H • SS3CG • SS3G • SS3E</span>
+                </a>
+                <a href="grade4-georgia-studies-hub.html" class="grade-card">
+                    <h3>4th Grade Georgia Studies</h3>
+                    <p>Comprehensive Georgia history from Native Americans through modern times, state government, geography.</p>
+                    <span class="standards-tag">SS4H • SS4CG • SS4G • SS4E</span>
+                </a>
+                <a href="grade5-us-history-hub.html" class="grade-card">
+                    <h3>5th Grade U.S. History</h3>
+                    <p>American history from exploration through Reconstruction, Constitution, and U.S. geography.</p>
+                    <span class="standards-tag">SS5H • SS5CG • SS5G • SS5E</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">🌍 Middle School (6-8) <span class="hub-count">4 Hubs</span></h2>
+            <div class="grade-grid">
+                <a href="grade6-world-cultures-hub.html" class="grade-card">
+                    <h3>6th Grade World Cultures</h3>
+                    <p>Latin America, Canada, Europe, and Australia—geography, history, government, and economics.</p>
+                    <span class="standards-tag">SS6G • SS6H • SS6CG • SS6E</span>
+                </a>
+                <a href="grade7-world-geography-hub.html" class="grade-card">
+                    <h3>7th Grade World Geography</h3>
+                    <p>Africa, Southwest Asia, and Southern/Eastern Asia—physical geography, cultures, global connections.</p>
+                    <span class="standards-tag">SS7G • SS7H • SS7CG • SS7E</span>
+                </a>
+                <a href="grade8-georgia-history-hub.html" class="grade-card">
+                    <h3>8th Grade Georgia Studies</h3>
+                    <p>In-depth Georgia history from colonial period through modern era, state government, and economics.</p>
+                    <span class="standards-tag">SS8G • SS8H • SS8CG • SS8E</span>
+                </a>
+                <a href="grade8-us-history-hub.html" class="grade-card">
+                    <h3>8th Grade U.S. History</h3>
+                    <p>Georgia's role in American history, connecting state and national narratives.</p>
+                    <span class="standards-tag">SS8H • SS8CG • SS8G • SS8E</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">🎓 High School (9-12) <span class="hub-count">4 Hubs</span></h2>
+            <div class="grade-grid">
+                <a href="world-history-hub.html" class="grade-card">
+                    <h3>World History</h3>
+                    <p>Global civilizations from ancient times through the modern era, world religions, international relations.</p>
+                    <span class="standards-tag">SSWH1-22 • World History</span>
+                </a>
+                <a href="us-history-hub.html" class="grade-card">
+                    <h3>U.S. History</h3>
+                    <p>American history from colonization through the 21st century, with emphasis on primary source analysis.</p>
+                    <span class="standards-tag">SSUSH1-25 • U.S. History</span>
+                </a>
+                <a href="government-civics-hub.html" class="grade-card">
+                    <h3>Government/Civics</h3>
+                    <p>U.S. Constitution, branches of government, civil rights, political parties, and civic participation.</p>
+                    <span class="standards-tag">SSCG1-22 • Civics/Government</span>
+                </a>
+                <a href="economics-hub.html" class="grade-card">
+                    <h3>Economics</h3>
+                    <p>Microeconomics, macroeconomics, international trade, personal finance, and the Federal Reserve.</p>
+                    <span class="standards-tag">SSEIN • SSEMI • SSEMA • SSEPF</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">🏆 Advanced Placement (AP) <span class="hub-count">4 Hubs</span></h2>
+            <div class="grade-grid">
+                <a href="ap-us-history-hub.html" class="grade-card">
+                    <h3>AP U.S. History</h3>
+                    <p>Periods 1-9, historical thinking skills, DBQ and LEQ strategies, thematic analysis across American history.</p>
+                    <span class="standards-tag">College Board AP® • NAT • WXT • POL</span>
+                </a>
+                <a href="ap-world-history-hub.html" class="grade-card">
+                    <h3>AP World History: Modern</h3>
+                    <p>Global connections from c. 1200 CE to present, cross-cultural comparisons, world systems analysis.</p>
+                    <span class="standards-tag">College Board AP® • ENV • CDI • GOV</span>
+                </a>
+                <a href="ap-european-history-hub.html" class="grade-card">
+                    <h3>AP European History</h3>
+                    <p>Renaissance through contemporary Europe, intellectual movements, political developments, cultural change.</p>
+                    <span class="standards-tag">College Board AP® • INT • PP • OS</span>
+                </a>
+                <a href="ap-human-geography-hub.html" class="grade-card">
+                    <h3>AP Human Geography</h3>
+                    <p>Population, culture, political, agricultural, urban, and economic geography with spatial analysis skills.</p>
+                    <span class="standards-tag">College Board AP® • Units 1-7</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <h3>📋 Each Hub Includes 17 Resource Tabs</h3>
+            <div class="features-grid">
+                <span class="feature-tag">📋 Standards</span>
+                <span class="feature-tag">👩‍🏫 Teacher Background</span>
+                <span class="feature-tag">🌐 Websites</span>
+                <span class="feature-tag">📚 Lesson Plans</span>
+                <span class="feature-tag">🔍 Inquiry Activities</span>
+                <span class="feature-tag">🎬 Videos</span>
+                <span class="feature-tag">📰 Articles</span>
+                <span class="feature-tag">📝 Assessments</span>
+                <span class="feature-tag">🖨️ Printables</span>
+                <span class="feature-tag">🔤 Vocabulary</span>
+                <span class="feature-tag">🎮 Games</span>
+                <span class="feature-tag">♿ Differentiation</span>
+                <span class="feature-tag">❓ Misconceptions</span>
+                <span class="feature-tag">🌍 Cultural Connections</span>
+                <span class="feature-tag">🏛️ Historical Sites</span>
+                <span class="feature-tag">🤖 AI for Teachers</span>
+                <span class="feature-tag">🧒 AI for Students</span>
+            </div>
+        </section>
+
+        <footer>
+            <p>Created by Dr. Rebecca Cooper</p>
+            <p>Standards: GSE (Georgia Standards of Excellence) • AKS (Academic Knowledge and Skills) • NCSS C3 Framework • College Board AP®</p>
+            <p><a href="https://github.com/rcooper2005/K-12-Social-Studies-and-History-Teacher-Resources">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+</html>
