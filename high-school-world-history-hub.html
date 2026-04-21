@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>High School World History Teacher Resource Hub</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>High School World History Teacher Resource Hub</title><meta content="High School World History teaching hub: global civilizations from ancient times through the modern era, world religions, and international relations. GSE-aligned." name="description"/><meta content="Dr. Rebecca Cooper" name="author"/><meta content="High School World History Teacher Resource Hub | Georgia K-12 Teacher Resources" property="og:title"/><meta content="High School World History teaching hub: global civilizations from ancient times through the modern era, world religions, and international relations. GSE-aligned." property="og:description"/><meta content="website" property="og:type"/><meta content="https://rcooper2005.github.io/K-12-Social-Studies-and-History-Teacher-Resources/high-school-world-history-hub.html" property="og:url"/><meta content="Georgia K-12 Teacher Resources" property="og:site_name"/><meta content="summary" name="twitter:card"/><meta content="High School World History Teacher Resource Hub | Georgia K-12 Teacher Resources" name="twitter:title"/><meta content="High School World History teaching hub: global civilizations from ancient times through the modern era, world religions, and international relations. GSE-aligned." name="twitter:description"/><link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🏛️%3C/text%3E%3C/svg%3E" rel="icon" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Quicksand:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
         :root { --primary: #8e44ad; --secondary: #2980b9; --accent: #e67e22; --dark: #2c3e50; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #8e44ad 0%, #3498db 50%, #1abc9c 100%); min-height: 100vh; padding: 20px; line-height: 1.7; color: var(--dark); }
@@ -54,443 +55,422 @@
         .print-btn { position: fixed; bottom: 30px; right: 30px; background: linear-gradient(135deg, #8e44ad, #9b59b6); color: white; border: none; padding: 15px 25px; border-radius: 50px; cursor: pointer; font-weight: 700; z-index: 1000; }
         @media print { .tab-navigation, .print-btn { display: none; } .tab-content { display: block !important; } }
     </style>
-</head>
+<style>
+/* CC license footer — added site-wide for consistent attribution */
+footer .cc-license { font-size: 0.85em; color: #666; text-align: center;
+  padding: 1em; margin-top: 2em; border-top: 1px solid #ddd; line-height: 1.7; }
+footer .cc-license a { color: #1a4b8c; }
+footer .cc-license img { vertical-align: middle; }
+</style></head>
 <body>
-    <div class="container">
-        <header>
-            <div class="grade-badge">🌍 High School</div>
-            <h1>World History Teacher Resource Hub</h1>
-            <p>Comprehensive resources for teaching world history from ancient civilizations through modern times, aligned with Georgia Standards of Excellence</p>
-            <div class="decorative-icons">
-                <span>🏛️</span><span>⚔️</span><span>🌍</span><span>🏰</span><span>🚀</span>
-            </div>
-        </header>
-
-        <nav class="tab-navigation">
-            <button class="tab-btn active" onclick="showTab('standards')"><span class="icon">📋</span> Standards</button>
-            <button class="tab-btn" onclick="showTab('background')"><span class="icon">📖</span> Background</button>
-            <button class="tab-btn" onclick="showTab('websites')"><span class="icon">🌐</span> Websites</button>
-            <button class="tab-btn" onclick="showTab('inquiry')"><span class="icon">🔍</span> Inquiry</button>
-            <button class="tab-btn" onclick="showTab('investigations')"><span class="icon">🔬</span> Investigations</button>
-            <button class="tab-btn" onclick="showTab('videos')"><span class="icon">🎬</span> Videos</button>
-            <button class="tab-btn" onclick="showTab('articles')"><span class="icon">📰</span> Articles</button>
-            <button class="tab-btn" onclick="showTab('assessments')"><span class="icon">✅</span> Assessments</button>
-            <button class="tab-btn" onclick="showTab('printables')"><span class="icon">📄</span> Printables</button>
-            <button class="tab-btn" onclick="showTab('vocabulary')"><span class="icon">📝</span> Vocabulary</button>
-            <button class="tab-btn" onclick="showTab('games')"><span class="icon">🎮</span> Games</button>
-            <button class="tab-btn" onclick="showTab('differentiation')"><span class="icon">🎯</span> Differentiation</button>
-            <button class="tab-btn" onclick="showTab('misconceptions')"><span class="icon">💡</span> Misconceptions</button>
-            <button class="tab-btn" onclick="showTab('cultural')"><span class="icon">🌎</span> Cultural</button>
-            <button class="tab-btn" onclick="showTab('historical-sites')"><span class="icon">🏛️</span> Historical Sites</button>
-            <button class="tab-btn" onclick="showTab('ai-teachers')"><span class="icon">🤖</span> AI for Teachers</button>
-            <button class="tab-btn" onclick="showTab('ai-students')"><span class="icon">🧒</span> AI for Students</button>
-        </nav>
-
-        <div id="standards" class="tab-content active">
-            <h2>📋 Standards Alignment</h2>
-
-            <div class="content-card">
-                <h3>📚 Standards Frameworks</h3>
-                <p>This hub aligns to multiple standards frameworks to support comprehensive social studies instruction:</p>
-                <ul style="margin-left: 20px;">
-                    <li><strong>GSE:</strong> Georgia Standards of Excellence (state standards)</li>
-                    <li><strong>AKS:</strong> Academic Knowledge and Skills (Gwinnett County)</li>
-                    <li><strong>NCSS:</strong> National Council for the Social Studies C3 Framework</li>
-                </ul>
-            </div>
-
-            <h3>Georgia Standards of Excellence - World History</h3>
-            <div class="standards-grid">
-                <div class="standard-item">
-                    <span class="standard-code">SSWH1-3</span>
-                    <p><strong>Ancient World:</strong> Analyze origins of civilization, classical civilizations (Greece, Rome, China, India), and major world religions</p>
-                </div>
-                <div class="standard-item">
-                    <span class="standard-code">SSWH4-7</span>
-                    <p><strong>Post-Classical Era:</strong> Analyze Byzantine Empire, Islamic civilization, Medieval Europe, East Asian developments, African kingdoms</p>
-                </div>
-                <div class="standard-item">
-                    <span class="standard-code">SSWH8-10</span>
-                    <p><strong>Early Modern:</strong> Analyze Renaissance, Reformation, Age of Exploration, and emergence of nation-states</p>
-                </div>
-                <div class="standard-item">
-                    <span class="standard-code">SSWH11-14</span>
-                    <p><strong>Age of Revolution:</strong> Analyze Scientific Revolution, Enlightenment, political revolutions, and Industrial Revolution</p>
-                </div>
-                <div class="standard-item">
-                    <span class="standard-code">SSWH15-17</span>
-                    <p><strong>Modern Era:</strong> Analyze imperialism, WWI, Russian Revolution, rise of totalitarianism, WWII, Holocaust</p>
-                </div>
-                <div class="standard-item">
-                    <span class="standard-code">SSWH18-21</span>
-                    <p><strong>Contemporary World:</strong> Analyze Cold War, decolonization, globalization, and contemporary challenges</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="background" class="tab-content">
-            <h2>📖 Teacher Background Knowledge</h2>
-            <div class="content-card">
-                <h3>Ancient & Classical World</h3>
-                <p><strong>River Valley Civilizations:</strong> Mesopotamia (Tigris-Euphrates), Egypt (Nile), Indus Valley, China (Yellow River). Developed agriculture, writing, government.</p>
-                <p><strong>Classical Greece:</strong> Democracy, philosophy, arts. Athens vs. Sparta. Persian Wars, Peloponnesian War. Alexander the Great spread Hellenistic culture.</p>
-                <p><strong>Roman Empire:</strong> Republic to Empire. Pax Romana. Law, engineering, Christianity's spread. Fall of Western Roman Empire (476 CE).</p>
-            </div>
-            <div class="content-card warm">
-                <h3>Post-Classical & Medieval</h3>
-                <p><strong>Byzantine Empire:</strong> Eastern Roman Empire. Orthodox Christianity, Justinian's Code, cultural preservation.</p>
-                <p><strong>Islamic Civilization:</strong> Muhammad, Quran, spread of Islam. Golden Age of learning. Trade networks.</p>
-                <p><strong>Medieval Europe:</strong> Feudalism, Catholic Church's power, Crusades, Black Death. Gradual emergence of nation-states.</p>
-            </div>
-            <div class="content-card blue">
-                <h3>Modern Era Transformations</h3>
-                <p><strong>Renaissance & Reformation:</strong> Rebirth of classical learning. Humanism. Protestant Reformation split Western Christianity.</p>
-                <p><strong>Age of Exploration:</strong> European expansion. Columbian Exchange. Colonial empires. Slave trade.</p>
-                <p><strong>Revolutions:</strong> Scientific Revolution changed worldview. Enlightenment philosophy. American, French, Latin American revolutions. Industrial Revolution transformed economy.</p>
-            </div>
-            <div class="content-card green">
-                <h3>20th Century & Beyond</h3>
-                <p><strong>World Wars:</strong> WWI destroyed empires. Rise of communism, fascism. WWII, Holocaust. Atomic age.</p>
-                <p><strong>Cold War:</strong> US vs. USSR. Nuclear threat. Proxy wars. Collapse of Soviet Union (1991).</p>
-                <p><strong>Contemporary:</strong> Globalization, terrorism, climate change, technological revolution, rising powers.</p>
-            </div>
-        </div>
-
-        <div id="websites" class="tab-content">
-            <h2>🌐 Historical Websites</h2>
-            <ul class="resource-list">
-                <li><span class="icon">📚</span> <a href="https://www.worldhistory.org/" target="_blank">World History Encyclopedia</a></li>
-                <li><span class="icon">📜</span> <a href="https://www.fordham.edu/mvst/istd/" target="_blank">Internet History Sourcebooks</a></li>
-                <li><span class="icon">🏛️</span> <a href="https://www.loc.gov/teachers/" target="_blank">Library of Congress</a></li>
-                <li><span class="icon">🎓</span> <a href="https://www.khanacademy.org/humanities/world-history" target="_blank">Khan Academy World History</a></li>
-                <li><span class="icon">📰</span> <a href="https://www.bbc.co.uk/history" target="_blank">BBC History</a></li>
-            </ul>
-        </div>
-
-        <div id="inquiry" class="tab-content">
-            <h2>🔍 Inquiry-Based Lessons</h2>
-            <div class="activity-card">
-                <h4>🏛️ Inquiry 1: Why Do Empires Fall?</h4>
-                <p><strong>Compelling Question:</strong> What patterns explain the decline of empires throughout history?</p>
-                <ol class="steps-list">
-                    <li><strong>Engage:</strong> Compare maps of empires at their height and after collapse.</li>
-                    <li><strong>Explore:</strong> Research causes of decline for Rome, Han China, Mongol Empire, Ottoman Empire.</li>
-                    <li><strong>Explain:</strong> Identify common patterns and unique factors.</li>
-                    <li><strong>Elaborate:</strong> Apply analysis to a modern nation's challenges.</li>
-                    <li><strong>Evaluate:</strong> Debate whether empires are destined to fall.</li>
-                </ol>
-                <p><strong>Standards:</strong> SSWH3, SSWH4, SSWH7, SSWH15</p>
-            </div>
-            <div class="activity-card">
-                <h4>⚔️ Inquiry 2: Was WWI Inevitable?</h4>
-                <p><strong>Compelling Question:</strong> Could European leaders have prevented World War I?</p>
-                <ol class="steps-list">
-                    <li><strong>Engage:</strong> Analyze political cartoon showing European powers as powder keg.</li>
-                    <li><strong>Explore:</strong> Research MAIN causes (Militarism, Alliances, Imperialism, Nationalism).</li>
-                    <li><strong>Explain:</strong> Map the chain of events from assassination to world war.</li>
-                    <li><strong>Elaborate:</strong> Role-play diplomatic negotiations at key decision points.</li>
-                    <li><strong>Evaluate:</strong> Write counterfactual history - what if different choices were made?</li>
-                </ol>
-                <p><strong>Standards:</strong> SSWH15-16</p>
-            </div>
-        </div>
-
-        <div id="investigations" class="tab-content">
-            <h2>🔬 Document-Based Investigations</h2>
-            <div class="content-card">
-                <h3>Investigation 1: Hammurabi's Code</h3>
-                <p><strong>Primary Source:</strong> Excerpts from the Code</p>
-                <ul style="margin-left: 20px;">
-                    <li>What values did Babylonian society hold?</li>
-                    <li>How did punishments vary by social class?</li>
-                    <li>How does this compare to modern legal systems?</li>
-                </ul>
-            </div>
-            <div class="content-card warm">
-                <h3>Investigation 2: Accounts of the Black Death</h3>
-                <p><strong>Primary Sources:</strong> Multiple contemporary accounts</p>
-                <ul style="margin-left: 20px;">
-                    <li>How did people explain the plague?</li>
-                    <li>What were the social effects?</li>
-                    <li>How did this disaster change European society?</li>
-                </ul>
-            </div>
-            <div class="content-card blue">
-                <h3>Investigation 3: Treaty of Versailles</h3>
-                <p><strong>Primary Source:</strong> Treaty excerpts and reactions</p>
-                <ul style="margin-left: 20px;">
-                    <li>What did the treaty require of Germany?</li>
-                    <li>How did different nations view the treaty?</li>
-                    <li>How did the treaty plant seeds for future conflict?</li>
-                </ul>
-            </div>
-        </div>
-
-        <div id="videos" class="tab-content">
-            <h2>🎬 Educational Videos</h2>
-            <div class="content-card">
-                <ul class="resource-list">
-                    <li><span class="icon">🎥</span> <strong>Crash Course World History</strong> - Comprehensive series</li>
-                    <li><span class="icon">🎥</span> <strong>Khan Academy</strong> - World history videos</li>
-                    <li><span class="icon">🎥</span> <strong>BBC Documentaries</strong> - In-depth historical coverage</li>
-                    <li><span class="icon">🎥</span> <strong>The Great War / World War Two</strong> - Week-by-week channels</li>
-                    <li><span class="icon">🎥</span> <strong>Extra History</strong> - Animated history series</li>
-                </ul>
-            </div>
-        </div>
-
-        <div id="articles" class="tab-content">
-            <h2>📰 Sample Reading Passages</h2>
-            <div class="content-card">
-                <h3>📖 The Columbian Exchange</h3>
-                <p>When Christopher Columbus arrived in the Americas in 1492, he set in motion one of the largest ecological transformations in history. The "Columbian Exchange" refers to the transfer of plants, animals, diseases, and ideas between the Eastern and Western hemispheres. From the Americas came tomatoes, potatoes, corn, chocolate, and tobacco. From Europe came wheat, horses, cattle, and devastating diseases like smallpox. While some exchanges benefited both sides, the impact of disease on indigenous Americans was catastrophic, killing an estimated 90% of the population within a century.</p>
-                <p><strong>Standards:</strong> SSWH9, SSWH10</p>
-            </div>
-            <div class="content-card warm">
-                <h3>📖 The Industrial Revolution's Double Edge</h3>
-                <p>Beginning in Britain in the late 1700s, the Industrial Revolution transformed human society. New machines increased productivity dramatically. Cities grew as people left farms for factory jobs. A middle class emerged, and eventually, living standards rose. But industrialization also brought suffering. Workers, including children, endured 14-hour days in dangerous conditions. Pollution fouled air and water. Economic inequality grew. The reforms that eventually improved conditions—labor laws, unions, safety regulations—came only after decades of struggle.</p>
-                <p><strong>Standards:</strong> SSWH14</p>
-            </div>
-        </div>
-
-        <div id="assessments" class="tab-content">
-            <h2>✅ Assessment Strategies</h2>
-            <div class="content-card">
-                <h3>Performance Tasks</h3>
-                <p><strong>Document-Based Question (DBQ):</strong> Analyze multiple sources on a historical question. (All standards)</p>
-                <p><strong>Comparative Essay:</strong> Compare developments across civilizations. (SSWH1-7)</p>
-                <p><strong>Historical Argument:</strong> Defend a thesis with evidence. (All standards)</p>
-                <p><strong>Oral History Project:</strong> Interview about Cold War or later events. (SSWH18-21)</p>
-            </div>
-        </div>
-
-        <div id="printables" class="tab-content">
-            <h2>📄 Printable Resources</h2>
-            <div class="content-card">
-                <ul class="resource-list">
-                    <li><span class="icon">📋</span> World History Timeline Template</li>
-                    <li><span class="icon">📋</span> Empire Comparison Chart</li>
-                    <li><span class="icon">📋</span> Revolution Analysis Framework</li>
-                    <li><span class="icon">📋</span> DBQ Outline Template</li>
-                    <li><span class="icon">📋</span> Primary Source Analysis Guide</li>
-                </ul>
-            </div>
-        </div>
-
-        <div id="vocabulary" class="tab-content">
-            <h2>📝 Key Vocabulary</h2>
-            <div class="vocab-grid">
-                <div class="vocab-card"><div class="term">🏛️ Civilization</div><div class="definition">Complex society with cities, government, writing</div></div>
-                <div class="vocab-card"><div class="term">👑 Imperialism</div><div class="definition">Policy of extending power through colonization</div></div>
-                <div class="vocab-card"><div class="term">⚔️ Nationalism</div><div class="definition">Strong identification with one's nation</div></div>
-                <div class="vocab-card"><div class="term">🏭 Industrialization</div><div class="definition">Transition to manufacturing economy</div></div>
-                <div class="vocab-card"><div class="term">☭ Totalitarianism</div><div class="definition">Government with total control over society</div></div>
-                <div class="vocab-card"><div class="term">🌐 Globalization</div><div class="definition">Increasing worldwide interconnection</div></div>
-            </div>
-        </div>
-
-        <div id="games" class="tab-content">
-            <h2>🎮 Learning Games</h2>
-            <div class="activity-card">
-                <h4>⏰ Timeline Challenge</h4>
-                <p>Race to arrange major world events chronologically.</p>
-            </div>
-            <div class="activity-card">
-                <h4>🗺️ Empire Mapping</h4>
-                <p>Identify empires on maps at different historical periods.</p>
-            </div>
-            <div class="activity-card">
-                <h4>🎭 Historical Figures Jeopardy</h4>
-                <p>Categories by era and region.</p>
-            </div>
-        </div>
-
-        <div id="differentiation" class="tab-content">
-            <h2>🎯 Differentiation Strategies</h2>
-            <div class="content-card">
-                <h3>ELL Support</h3>
-                <ul style="margin-left: 20px;">
-                    <li>Visual timelines and maps</li>
-                    <li>Vocabulary with cognates highlighted</li>
-                    <li>Graphic organizers for essay writing</li>
-                    <li>Connect to students' cultural backgrounds</li>
-                </ul>
-            </div>
-            <div class="content-card warm">
-                <h3>Advanced Learners</h3>
-                <ul style="margin-left: 20px;">
-                    <li>Primary source analysis in original languages</li>
-                    <li>Historiographical debates</li>
-                    <li>Independent research projects</li>
-                    <li>AP World History preparation</li>
-                </ul>
-            </div>
-        </div>
-
-        <div id="misconceptions" class="tab-content">
-            <h2>💡 Common Misconceptions</h2>
-            <div class="content-card">
-                <h4>❌ The "Dark Ages" were a time of no progress</h4>
-                <p>✅ <strong>Accurate:</strong> Medieval Europe saw significant developments in agriculture, architecture, and philosophy. Meanwhile, Islamic civilization, China, and other regions flourished.</p>
-            </div>
-            <div class="content-card warm">
-                <h4>❌ History is just about memorizing dates</h4>
-                <p>✅ <strong>Accurate:</strong> History is about understanding change over time, analyzing causes and effects, and evaluating evidence. Dates provide context but aren't the focus.</p>
-            </div>
-            <div class="content-card blue">
-                <h4>❌ Western civilization was always dominant</h4>
-                <p>✅ <strong>Accurate:</strong> For most of history, other civilizations (China, Islamic world, India) were equal or more advanced. European dominance is a relatively recent phenomenon.</p>
-            </div>
-        </div>
-
-        <div id="cultural" class="tab-content">
-            <h2>🌎 Cultural Connections</h2>
-            <div class="content-card">
-                <h3>Multiple Perspectives</h3>
-                <ul style="margin-left: 20px;">
-                    <li>Include non-Western perspectives throughout curriculum</li>
-                    <li>Examine colonization from colonized peoples' viewpoints</li>
-                    <li>Discuss whose stories are told and whose are silenced</li>
-                </ul>
-            </div>
-            <div class="content-card warm">
-                <h3>Contemporary Connections</h3>
-                <ul style="margin-left: 20px;">
-                    <li>Connect historical events to current issues</li>
-                    <li>Discuss how history shapes present-day conflicts</li>
-                    <li>Examine students' own cultural connections to world history</li>
-                </ul>
-            </div>
-        </div>
-
-        
-        <!-- Historical Sites Tab -->
-        <div id="historical-sites" class="tab-content">
-            <h2><span class="section-icon">🏛️</span> Historical Sites & Virtual Field Trips</h2>
-
-            <div class="content-card">
-                <h3>🏛️ Ancient World Sites</h3>
-                <ul style="margin-left: 20px;">
-                    <li><strong>Pyramids of Giza (Egypt)</strong> - Ancient Egyptian civilization</li>
-                    <li><strong>Acropolis (Athens)</strong> - Greek democracy and culture</li>
-                    <li><strong>Colosseum (Rome)</strong> - Roman Empire</li>
-                    <li><strong>Petra (Jordan)</strong> - Trade and Nabataean civilization</li>
-                    <li><strong>Great Wall of China</strong> - Chinese civilization</li>
-                    <li><strong>Machu Picchu (Peru)</strong> - Inca civilization</li>
-                </ul>
-            </div>
-
-            <div class="content-card warm">
-                <h3>🏰 Medieval and Early Modern Sites</h3>
-                <ul style="margin-left: 20px;">
-                    <li><strong>Hagia Sophia (Istanbul)</strong> - Byzantine and Ottoman empires</li>
-                    <li><strong>Notre-Dame Cathedral (Paris)</strong> - Medieval Christianity</li>
-                    <li><strong>Alhambra (Spain)</strong> - Islamic Spain</li>
-                    <li><strong>Forbidden City (Beijing)</strong> - Imperial China</li>
-                    <li><strong>Taj Mahal (India)</strong> - Mughal Empire</li>
-                </ul>
-            </div>
-
-            <div class="content-card purple">
-                <h3>🌍 Modern History Sites</h3>
-                <ul style="margin-left: 20px;">
-                    <li><strong>Versailles (France)</strong> - Absolutism and French Revolution</li>
-                    <li><strong>Auschwitz-Birkenau (Poland)</strong> - Holocaust history</li>
-                    <li><strong>Hiroshima Peace Memorial (Japan)</strong> - WWII and nuclear age</li>
-                    <li><strong>Berlin Wall Memorial (Germany)</strong> - Cold War</li>
-                    <li><strong>Robben Island (South Africa)</strong> - Apartheid</li>
-                </ul>
-            </div>
-
-            <div class="content-card">
-                <h3>💻 Virtual Field Trips</h3>
-                <ul style="margin-left: 20px;">
-                    <li><strong>Google Arts & Culture</strong> - World heritage sites</li>
-                    <li><strong>UNESCO World Heritage Centre</strong> - Site information</li>
-                    <li><strong>British Museum Virtual Tour</strong> - World civilizations</li>
-                    <li><strong>Louvre Virtual Tour</strong> - Art history connections</li>
-                </ul>
-            </div>
-
-        </div>
-
-        <div id="ai-teachers" class="tab-content">
-            <h2>🤖 AI Tools for Teachers</h2>
-            <div class="ai-warning">
-                <h4>⚠️ Important Considerations</h4>
-                <p>Verify historical accuracy, especially for complex or contested events. Present multiple perspectives on controversial topics. Be aware of potential Eurocentric bias in AI responses.</p>
-            </div>
-            <div class="ai-tool-card">
-                <span class="tool-badge">Lesson Planning</span>
-                <h4>AI for World History Content</h4>
-                <ul>
-                    <li><strong>Generate reading passages</strong> at appropriate levels</li>
-                    <li><strong>Create DBQ documents</strong> with analysis questions</li>
-                    <li><strong>Develop comparative activities</strong> across civilizations</li>
-                    <li><strong>Write simulation scenarios</strong> for historical events</li>
-                </ul>
-            </div>
-            <div class="ai-tool-card">
-                <span class="tool-badge">Assessment</span>
-                <h4>Assessment Creation</h4>
-                <ul>
-                    <li><strong>Generate essay prompts</strong> with rubrics</li>
-                    <li><strong>Create multiple-choice items</strong> assessing analysis skills</li>
-                    <li><strong>Develop DBQ packets</strong> with scaffolding</li>
-                </ul>
-            </div>
-        </div>
-
-        <div id="ai-students" class="tab-content">
-            <h2>🧒 AI Tools for Students</h2>
-            <div class="ai-warning">
-                <h4>⚠️ High School AI Guidelines</h4>
-                <p>Students can use AI as a research and study tool with critical evaluation. Emphasize that AI should support, not replace, historical thinking skills.</p>
-            </div>
-            <div class="ai-tool-card">
-                <span class="tool-badge">Research Support</span>
-                <h4>🔍 Historical Research</h4>
-                <ul>
-                    <li>"Explain the causes of the French Revolution."</li>
-                    <li>"Compare the Roman and Han Chinese empires."</li>
-                    <li>"What factors led to the Industrial Revolution starting in Britain?"</li>
-                </ul>
-            </div>
-            <div class="ai-tool-card">
-                <span class="tool-badge">Essay Support</span>
-                <h4>✍️ Writing Development</h4>
-                <ul>
-                    <li>Generate thesis statement options</li>
-                    <li>Outline essay structures</li>
-                    <li>Get feedback on argument logic</li>
-                    <li>Find counterarguments to address</li>
-                </ul>
-                <p><strong>Remember:</strong> AI helps you develop ideas, but arguments and analysis must be your own!</p>
-            </div>
-            <div class="ai-tool-card">
-                <span class="tool-badge">Study Tool</span>
-                <h4>📚 Exam Preparation</h4>
-                <ul>
-                    <li>Generate practice questions</li>
-                    <li>Create timeline reviews</li>
-                    <li>Explain complex concepts in simpler terms</li>
-                    <li>Quiz yourself on key terms and events</li>
-                </ul>
-            </div>
-            <div class="content-card">
-                <h3>Critical Evaluation</h3>
-                <ul style="margin-left: 20px;">
-                    <li>🔍 <strong>Verify facts</strong> with academic sources</li>
-                    <li>📚 <strong>Check for bias</strong> - AI may oversimplify or favor certain perspectives</li>
-                    <li>🌐 <strong>Seek multiple viewpoints</strong> - especially for contested history</li>
-                    <li>📝 <strong>Cite properly</strong> - AI is a tool, not a source</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <button class="print-btn" onclick="window.print()">🖨️ Print Hub</button>
-    <script>
+<div class="container">
+<header>
+<div class="grade-badge">🌍 High School</div>
+<h1>World History Teacher Resource Hub</h1>
+<p>Comprehensive resources for teaching world history from ancient civilizations through modern times, aligned with Georgia Standards of Excellence</p>
+<div class="decorative-icons">
+<span>🏛️</span><span>⚔️</span><span>🌍</span><span>🏰</span><span>🚀</span>
+</div>
+</header>
+<nav class="tab-navigation">
+<button class="tab-btn active" onclick="showTab('standards')"><span class="icon">📋</span> Standards</button>
+<button class="tab-btn" onclick="showTab('background')"><span class="icon">📖</span> Background</button>
+<button class="tab-btn" onclick="showTab('websites')"><span class="icon">🌐</span> Websites</button>
+<button class="tab-btn" onclick="showTab('inquiry')"><span class="icon">🔍</span> Inquiry</button>
+<button class="tab-btn" onclick="showTab('investigations')"><span class="icon">🔬</span> Investigations</button>
+<button class="tab-btn" onclick="showTab('videos')"><span class="icon">🎬</span> Videos</button>
+<button class="tab-btn" onclick="showTab('articles')"><span class="icon">📰</span> Articles</button>
+<button class="tab-btn" onclick="showTab('assessments')"><span class="icon">✅</span> Assessments</button>
+<button class="tab-btn" onclick="showTab('printables')"><span class="icon">📄</span> Printables</button>
+<button class="tab-btn" onclick="showTab('vocabulary')"><span class="icon">📝</span> Vocabulary</button>
+<button class="tab-btn" onclick="showTab('games')"><span class="icon">🎮</span> Games</button>
+<button class="tab-btn" onclick="showTab('differentiation')"><span class="icon">🎯</span> Differentiation</button>
+<button class="tab-btn" onclick="showTab('misconceptions')"><span class="icon">💡</span> Misconceptions</button>
+<button class="tab-btn" onclick="showTab('cultural')"><span class="icon">🌎</span> Cultural</button>
+<button class="tab-btn" onclick="showTab('historical-sites')"><span class="icon">🏛️</span> Historical Sites</button>
+<button class="tab-btn" onclick="showTab('ai-teachers')"><span class="icon">🤖</span> AI for Teachers</button>
+<button class="tab-btn" onclick="showTab('ai-students')"><span class="icon">🧒</span> AI for Students</button>
+</nav>
+<div class="tab-content active" id="standards">
+<h2>📋 Standards Alignment</h2>
+<div class="content-card">
+<h3>📚 Standards Frameworks</h3>
+<p>This hub aligns to multiple standards frameworks to support comprehensive social studies instruction:</p>
+<ul style="margin-left: 20px;">
+<li><strong>GSE:</strong> Georgia Standards of Excellence (state standards)</li>
+<li><strong>AKS:</strong> Academic Knowledge and Skills (Gwinnett County)</li>
+<li><strong>NCSS:</strong> National Council for the Social Studies C3 Framework</li>
+</ul>
+</div>
+<h3>Georgia Standards of Excellence - World History</h3>
+<div class="standards-grid">
+<div class="standard-item">
+<span class="standard-code">SSWH1-3</span>
+<p><strong>Ancient World:</strong> Analyze origins of civilization, classical civilizations (Greece, Rome, China, India), and major world religions</p>
+</div>
+<div class="standard-item">
+<span class="standard-code">SSWH4-7</span>
+<p><strong>Post-Classical Era:</strong> Analyze Byzantine Empire, Islamic civilization, Medieval Europe, East Asian developments, African kingdoms</p>
+</div>
+<div class="standard-item">
+<span class="standard-code">SSWH8-10</span>
+<p><strong>Early Modern:</strong> Analyze Renaissance, Reformation, Age of Exploration, and emergence of nation-states</p>
+</div>
+<div class="standard-item">
+<span class="standard-code">SSWH11-14</span>
+<p><strong>Age of Revolution:</strong> Analyze Scientific Revolution, Enlightenment, political revolutions, and Industrial Revolution</p>
+</div>
+<div class="standard-item">
+<span class="standard-code">SSWH15-17</span>
+<p><strong>Modern Era:</strong> Analyze imperialism, WWI, Russian Revolution, rise of totalitarianism, WWII, Holocaust</p>
+</div>
+<div class="standard-item">
+<span class="standard-code">SSWH18-21</span>
+<p><strong>Contemporary World:</strong> Analyze Cold War, decolonization, globalization, and contemporary challenges</p>
+</div>
+</div>
+</div>
+<div class="tab-content" id="background">
+<h2>📖 Teacher Background Knowledge</h2>
+<div class="content-card">
+<h3>Ancient &amp; Classical World</h3>
+<p><strong>River Valley Civilizations:</strong> Mesopotamia (Tigris-Euphrates), Egypt (Nile), Indus Valley, China (Yellow River). Developed agriculture, writing, government.</p>
+<p><strong>Classical Greece:</strong> Democracy, philosophy, arts. Athens vs. Sparta. Persian Wars, Peloponnesian War. Alexander the Great spread Hellenistic culture.</p>
+<p><strong>Roman Empire:</strong> Republic to Empire. Pax Romana. Law, engineering, Christianity's spread. Fall of Western Roman Empire (476 CE).</p>
+</div>
+<div class="content-card warm">
+<h3>Post-Classical &amp; Medieval</h3>
+<p><strong>Byzantine Empire:</strong> Eastern Roman Empire. Orthodox Christianity, Justinian's Code, cultural preservation.</p>
+<p><strong>Islamic Civilization:</strong> Muhammad, Quran, spread of Islam. Golden Age of learning. Trade networks.</p>
+<p><strong>Medieval Europe:</strong> Feudalism, Catholic Church's power, Crusades, Black Death. Gradual emergence of nation-states.</p>
+</div>
+<div class="content-card blue">
+<h3>Modern Era Transformations</h3>
+<p><strong>Renaissance &amp; Reformation:</strong> Rebirth of classical learning. Humanism. Protestant Reformation split Western Christianity.</p>
+<p><strong>Age of Exploration:</strong> European expansion. Columbian Exchange. Colonial empires. Slave trade.</p>
+<p><strong>Revolutions:</strong> Scientific Revolution changed worldview. Enlightenment philosophy. American, French, Latin American revolutions. Industrial Revolution transformed economy.</p>
+</div>
+<div class="content-card green">
+<h3>20th Century &amp; Beyond</h3>
+<p><strong>World Wars:</strong> WWI destroyed empires. Rise of communism, fascism. WWII, Holocaust. Atomic age.</p>
+<p><strong>Cold War:</strong> US vs. USSR. Nuclear threat. Proxy wars. Collapse of Soviet Union (1991).</p>
+<p><strong>Contemporary:</strong> Globalization, terrorism, climate change, technological revolution, rising powers.</p>
+</div>
+</div>
+<div class="tab-content" id="websites">
+<h2>🌐 Historical Websites</h2>
+<ul class="resource-list">
+<li><span class="icon">📚</span> <a href="https://www.worldhistory.org/" target="_blank">World History Encyclopedia</a></li>
+<li><span class="icon">📜</span> <a href="https://www.fordham.edu/mvst/istd/" target="_blank">Internet History Sourcebooks</a></li>
+<li><span class="icon">🏛️</span> <a href="https://www.loc.gov/teachers/" target="_blank">Library of Congress</a></li>
+<li><span class="icon">🎓</span> <a href="https://www.khanacademy.org/humanities/world-history" target="_blank">Khan Academy World History</a></li>
+<li><span class="icon">📰</span> <a href="https://www.bbc.co.uk/history" target="_blank">BBC History</a></li>
+</ul>
+</div>
+<div class="tab-content" id="inquiry">
+<h2>🔍 Inquiry-Based Lessons</h2>
+<div class="activity-card">
+<h4>🏛️ Inquiry 1: Why Do Empires Fall?</h4>
+<p><strong>Compelling Question:</strong> What patterns explain the decline of empires throughout history?</p>
+<ol class="steps-list">
+<li><strong>Engage:</strong> Compare maps of empires at their height and after collapse.</li>
+<li><strong>Explore:</strong> Research causes of decline for Rome, Han China, Mongol Empire, Ottoman Empire.</li>
+<li><strong>Explain:</strong> Identify common patterns and unique factors.</li>
+<li><strong>Elaborate:</strong> Apply analysis to a modern nation's challenges.</li>
+<li><strong>Evaluate:</strong> Debate whether empires are destined to fall.</li>
+</ol>
+<p><strong>Standards:</strong> SSWH3, SSWH4, SSWH7, SSWH15</p>
+</div>
+<div class="activity-card">
+<h4>⚔️ Inquiry 2: Was WWI Inevitable?</h4>
+<p><strong>Compelling Question:</strong> Could European leaders have prevented World War I?</p>
+<ol class="steps-list">
+<li><strong>Engage:</strong> Analyze political cartoon showing European powers as powder keg.</li>
+<li><strong>Explore:</strong> Research MAIN causes (Militarism, Alliances, Imperialism, Nationalism).</li>
+<li><strong>Explain:</strong> Map the chain of events from assassination to world war.</li>
+<li><strong>Elaborate:</strong> Role-play diplomatic negotiations at key decision points.</li>
+<li><strong>Evaluate:</strong> Write counterfactual history - what if different choices were made?</li>
+</ol>
+<p><strong>Standards:</strong> SSWH15-16</p>
+</div>
+</div>
+<div class="tab-content" id="investigations">
+<h2>🔬 Document-Based Investigations</h2>
+<div class="content-card">
+<h3>Investigation 1: Hammurabi's Code</h3>
+<p><strong>Primary Source:</strong> Excerpts from the Code</p>
+<ul style="margin-left: 20px;">
+<li>What values did Babylonian society hold?</li>
+<li>How did punishments vary by social class?</li>
+<li>How does this compare to modern legal systems?</li>
+</ul>
+</div>
+<div class="content-card warm">
+<h3>Investigation 2: Accounts of the Black Death</h3>
+<p><strong>Primary Sources:</strong> Multiple contemporary accounts</p>
+<ul style="margin-left: 20px;">
+<li>How did people explain the plague?</li>
+<li>What were the social effects?</li>
+<li>How did this disaster change European society?</li>
+</ul>
+</div>
+<div class="content-card blue">
+<h3>Investigation 3: Treaty of Versailles</h3>
+<p><strong>Primary Source:</strong> Treaty excerpts and reactions</p>
+<ul style="margin-left: 20px;">
+<li>What did the treaty require of Germany?</li>
+<li>How did different nations view the treaty?</li>
+<li>How did the treaty plant seeds for future conflict?</li>
+</ul>
+</div>
+</div>
+<div class="tab-content" id="videos">
+<h2>🎬 Educational Videos</h2>
+<div class="content-card">
+<ul class="resource-list">
+<li><span class="icon">🎥</span> <strong>Crash Course World History</strong> - Comprehensive series</li>
+<li><span class="icon">🎥</span> <strong>Khan Academy</strong> - World history videos</li>
+<li><span class="icon">🎥</span> <strong>BBC Documentaries</strong> - In-depth historical coverage</li>
+<li><span class="icon">🎥</span> <strong>The Great War / World War Two</strong> - Week-by-week channels</li>
+<li><span class="icon">🎥</span> <strong>Extra History</strong> - Animated history series</li>
+</ul>
+</div>
+</div>
+<div class="tab-content" id="articles">
+<h2>📰 Sample Reading Passages</h2>
+<div class="content-card">
+<h3>📖 The Columbian Exchange</h3>
+<p>When Christopher Columbus arrived in the Americas in 1492, he set in motion one of the largest ecological transformations in history. The "Columbian Exchange" refers to the transfer of plants, animals, diseases, and ideas between the Eastern and Western hemispheres. From the Americas came tomatoes, potatoes, corn, chocolate, and tobacco. From Europe came wheat, horses, cattle, and devastating diseases like smallpox. While some exchanges benefited both sides, the impact of disease on indigenous Americans was catastrophic, killing an estimated 90% of the population within a century.</p>
+<p><strong>Standards:</strong> SSWH9, SSWH10</p>
+</div>
+<div class="content-card warm">
+<h3>📖 The Industrial Revolution's Double Edge</h3>
+<p>Beginning in Britain in the late 1700s, the Industrial Revolution transformed human society. New machines increased productivity dramatically. Cities grew as people left farms for factory jobs. A middle class emerged, and eventually, living standards rose. But industrialization also brought suffering. Workers, including children, endured 14-hour days in dangerous conditions. Pollution fouled air and water. Economic inequality grew. The reforms that eventually improved conditions—labor laws, unions, safety regulations—came only after decades of struggle.</p>
+<p><strong>Standards:</strong> SSWH14</p>
+</div>
+</div>
+<div class="tab-content" id="assessments">
+<h2>✅ Assessment Strategies</h2>
+<div class="content-card">
+<h3>Performance Tasks</h3>
+<p><strong>Document-Based Question (DBQ):</strong> Analyze multiple sources on a historical question. (All standards)</p>
+<p><strong>Comparative Essay:</strong> Compare developments across civilizations. (SSWH1-7)</p>
+<p><strong>Historical Argument:</strong> Defend a thesis with evidence. (All standards)</p>
+<p><strong>Oral History Project:</strong> Interview about Cold War or later events. (SSWH18-21)</p>
+</div>
+</div>
+<div class="tab-content" id="printables">
+<h2>📄 Printable Resources</h2>
+<div class="content-card">
+<ul class="resource-list">
+<li><span class="icon">📋</span> World History Timeline Template</li>
+<li><span class="icon">📋</span> Empire Comparison Chart</li>
+<li><span class="icon">📋</span> Revolution Analysis Framework</li>
+<li><span class="icon">📋</span> DBQ Outline Template</li>
+<li><span class="icon">📋</span> Primary Source Analysis Guide</li>
+</ul>
+</div>
+</div>
+<div class="tab-content" id="vocabulary">
+<h2>📝 Key Vocabulary</h2>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="term">🏛️ Civilization</div><div class="definition">Complex society with cities, government, writing</div></div>
+<div class="vocab-card"><div class="term">👑 Imperialism</div><div class="definition">Policy of extending power through colonization</div></div>
+<div class="vocab-card"><div class="term">⚔️ Nationalism</div><div class="definition">Strong identification with one's nation</div></div>
+<div class="vocab-card"><div class="term">🏭 Industrialization</div><div class="definition">Transition to manufacturing economy</div></div>
+<div class="vocab-card"><div class="term">☭ Totalitarianism</div><div class="definition">Government with total control over society</div></div>
+<div class="vocab-card"><div class="term">🌐 Globalization</div><div class="definition">Increasing worldwide interconnection</div></div>
+</div>
+</div>
+<div class="tab-content" id="games">
+<h2>🎮 Learning Games</h2>
+<div class="activity-card">
+<h4>⏰ Timeline Challenge</h4>
+<p>Race to arrange major world events chronologically.</p>
+</div>
+<div class="activity-card">
+<h4>🗺️ Empire Mapping</h4>
+<p>Identify empires on maps at different historical periods.</p>
+</div>
+<div class="activity-card">
+<h4>🎭 Historical Figures Jeopardy</h4>
+<p>Categories by era and region.</p>
+</div>
+</div>
+<div class="tab-content" id="differentiation">
+<h2>🎯 Differentiation Strategies</h2>
+<div class="content-card">
+<h3>ELL Support</h3>
+<ul style="margin-left: 20px;">
+<li>Visual timelines and maps</li>
+<li>Vocabulary with cognates highlighted</li>
+<li>Graphic organizers for essay writing</li>
+<li>Connect to students' cultural backgrounds</li>
+</ul>
+</div>
+<div class="content-card warm">
+<h3>Advanced Learners</h3>
+<ul style="margin-left: 20px;">
+<li>Primary source analysis in original languages</li>
+<li>Historiographical debates</li>
+<li>Independent research projects</li>
+<li>AP World History preparation</li>
+</ul>
+</div>
+</div>
+<div class="tab-content" id="misconceptions">
+<h2>💡 Common Misconceptions</h2>
+<div class="content-card">
+<h4>❌ The "Dark Ages" were a time of no progress</h4>
+<p>✅ <strong>Accurate:</strong> Medieval Europe saw significant developments in agriculture, architecture, and philosophy. Meanwhile, Islamic civilization, China, and other regions flourished.</p>
+</div>
+<div class="content-card warm">
+<h4>❌ History is just about memorizing dates</h4>
+<p>✅ <strong>Accurate:</strong> History is about understanding change over time, analyzing causes and effects, and evaluating evidence. Dates provide context but aren't the focus.</p>
+</div>
+<div class="content-card blue">
+<h4>❌ Western civilization was always dominant</h4>
+<p>✅ <strong>Accurate:</strong> For most of history, other civilizations (China, Islamic world, India) were equal or more advanced. European dominance is a relatively recent phenomenon.</p>
+</div>
+</div>
+<div class="tab-content" id="cultural">
+<h2>🌎 Cultural Connections</h2>
+<div class="content-card">
+<h3>Multiple Perspectives</h3>
+<ul style="margin-left: 20px;">
+<li>Include non-Western perspectives throughout curriculum</li>
+<li>Examine colonization from colonized peoples' viewpoints</li>
+<li>Discuss whose stories are told and whose are silenced</li>
+</ul>
+</div>
+<div class="content-card warm">
+<h3>Contemporary Connections</h3>
+<ul style="margin-left: 20px;">
+<li>Connect historical events to current issues</li>
+<li>Discuss how history shapes present-day conflicts</li>
+<li>Examine students' own cultural connections to world history</li>
+</ul>
+</div>
+</div>
+<!-- Historical Sites Tab -->
+<div class="tab-content" id="historical-sites">
+<h2><span class="section-icon">🏛️</span> Historical Sites &amp; Virtual Field Trips</h2>
+<div class="content-card">
+<h3>🏛️ Ancient World Sites</h3>
+<ul style="margin-left: 20px;">
+<li><strong>Pyramids of Giza (Egypt)</strong> - Ancient Egyptian civilization</li>
+<li><strong>Acropolis (Athens)</strong> - Greek democracy and culture</li>
+<li><strong>Colosseum (Rome)</strong> - Roman Empire</li>
+<li><strong>Petra (Jordan)</strong> - Trade and Nabataean civilization</li>
+<li><strong>Great Wall of China</strong> - Chinese civilization</li>
+<li><strong>Machu Picchu (Peru)</strong> - Inca civilization</li>
+</ul>
+</div>
+<div class="content-card warm">
+<h3>🏰 Medieval and Early Modern Sites</h3>
+<ul style="margin-left: 20px;">
+<li><strong>Hagia Sophia (Istanbul)</strong> - Byzantine and Ottoman empires</li>
+<li><strong>Notre-Dame Cathedral (Paris)</strong> - Medieval Christianity</li>
+<li><strong>Alhambra (Spain)</strong> - Islamic Spain</li>
+<li><strong>Forbidden City (Beijing)</strong> - Imperial China</li>
+<li><strong>Taj Mahal (India)</strong> - Mughal Empire</li>
+</ul>
+</div>
+<div class="content-card purple">
+<h3>🌍 Modern History Sites</h3>
+<ul style="margin-left: 20px;">
+<li><strong>Versailles (France)</strong> - Absolutism and French Revolution</li>
+<li><strong>Auschwitz-Birkenau (Poland)</strong> - Holocaust history</li>
+<li><strong>Hiroshima Peace Memorial (Japan)</strong> - WWII and nuclear age</li>
+<li><strong>Berlin Wall Memorial (Germany)</strong> - Cold War</li>
+<li><strong>Robben Island (South Africa)</strong> - Apartheid</li>
+</ul>
+</div>
+<div class="content-card">
+<h3>💻 Virtual Field Trips</h3>
+<ul style="margin-left: 20px;">
+<li><strong>Google Arts &amp; Culture</strong> - World heritage sites</li>
+<li><strong>UNESCO World Heritage Centre</strong> - Site information</li>
+<li><strong>British Museum Virtual Tour</strong> - World civilizations</li>
+<li><strong>Louvre Virtual Tour</strong> - Art history connections</li>
+</ul>
+</div>
+</div>
+<div class="tab-content" id="ai-teachers">
+<h2>🤖 AI Tools for Teachers</h2>
+<div class="ai-warning">
+<h4>⚠️ Important Considerations</h4>
+<p>Verify historical accuracy, especially for complex or contested events. Present multiple perspectives on controversial topics. Be aware of potential Eurocentric bias in AI responses.</p>
+</div>
+<div class="ai-tool-card">
+<span class="tool-badge">Lesson Planning</span>
+<h4>AI for World History Content</h4>
+<ul>
+<li><strong>Generate reading passages</strong> at appropriate levels</li>
+<li><strong>Create DBQ documents</strong> with analysis questions</li>
+<li><strong>Develop comparative activities</strong> across civilizations</li>
+<li><strong>Write simulation scenarios</strong> for historical events</li>
+</ul>
+</div>
+<div class="ai-tool-card">
+<span class="tool-badge">Assessment</span>
+<h4>Assessment Creation</h4>
+<ul>
+<li><strong>Generate essay prompts</strong> with rubrics</li>
+<li><strong>Create multiple-choice items</strong> assessing analysis skills</li>
+<li><strong>Develop DBQ packets</strong> with scaffolding</li>
+</ul>
+</div>
+</div>
+<div class="tab-content" id="ai-students">
+<h2>🧒 AI Tools for Students</h2>
+<div class="ai-warning">
+<h4>⚠️ High School AI Guidelines</h4>
+<p>Students can use AI as a research and study tool with critical evaluation. Emphasize that AI should support, not replace, historical thinking skills.</p>
+</div>
+<div class="ai-tool-card">
+<span class="tool-badge">Research Support</span>
+<h4>🔍 Historical Research</h4>
+<ul>
+<li>"Explain the causes of the French Revolution."</li>
+<li>"Compare the Roman and Han Chinese empires."</li>
+<li>"What factors led to the Industrial Revolution starting in Britain?"</li>
+</ul>
+</div>
+<div class="ai-tool-card">
+<span class="tool-badge">Essay Support</span>
+<h4>✍️ Writing Development</h4>
+<ul>
+<li>Generate thesis statement options</li>
+<li>Outline essay structures</li>
+<li>Get feedback on argument logic</li>
+<li>Find counterarguments to address</li>
+</ul>
+<p><strong>Remember:</strong> AI helps you develop ideas, but arguments and analysis must be your own!</p>
+</div>
+<div class="ai-tool-card">
+<span class="tool-badge">Study Tool</span>
+<h4>📚 Exam Preparation</h4>
+<ul>
+<li>Generate practice questions</li>
+<li>Create timeline reviews</li>
+<li>Explain complex concepts in simpler terms</li>
+<li>Quiz yourself on key terms and events</li>
+</ul>
+</div>
+<div class="content-card">
+<h3>Critical Evaluation</h3>
+<ul style="margin-left: 20px;">
+<li>🔍 <strong>Verify facts</strong> with academic sources</li>
+<li>📚 <strong>Check for bias</strong> - AI may oversimplify or favor certain perspectives</li>
+<li>🌐 <strong>Seek multiple viewpoints</strong> - especially for contested history</li>
+<li>📝 <strong>Cite properly</strong> - AI is a tool, not a source</li>
+</ul>
+</div>
+</div>
+</div>
+<button class="print-btn" onclick="window.print()">🖨️ Print Hub</button>
+<script>
         function showTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -499,5 +479,5 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
-</body>
+<footer><p class="cc-license"><a href="https://rcooper2005.github.io/K-12-Social-Studies-and-History-Teacher-Resources/high-school-world-history-hub.html">High School World History Teacher Resource Hub</a> © 2026 by <a href="https://orcid.org/0009-0007-1358-960X">Dr. Rebecca A. Cooper</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International</a> <img alt="" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="max-width: 1em; max-height: 1em; margin-left: .2em;"/><img alt="" src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="max-width: 1em; max-height: 1em; margin-left: .2em;"/><img alt="" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" style="max-width: 1em; max-height: 1em; margin-left: .2em;"/></p></footer></body>
 </html>
